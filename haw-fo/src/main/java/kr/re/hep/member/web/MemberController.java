@@ -1,0 +1,79 @@
+package kr.re.hep.member.web;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import kr.re.hep.member.MemberVO;
+import kr.re.hep.member.service.MemberService;
+
+@Controller
+@RequestMapping("/member/*")
+public class MemberController {
+
+	@Autowired
+	MemberService service;
+	
+	@Autowired
+	MemberValidation memberVal;
+	//로그인
+	
+	//회원가입
+	@RequestMapping(value="/register.do", method=RequestMethod.GET)
+	private String register(){
+		
+		//로그인시 로그아웃 하고 회원가입 여부를 체크
+		return "/member/register";
+	}
+	
+	//회원가입처리
+	@RequestMapping(value="/save.do", method=RequestMethod.POST)
+	private String signup(
+			@ModelAttribute("memberVO") MemberVO inVO
+		  , BindingResult result){
+		//유효성 검사
+		memberVal.validate(inVO, result);
+		if (result.hasErrors()){
+			return "/member/register";
+		}
+		MemberVO outVO = inVO;
+		
+		//저장
+		service.memberInsert(outVO);
+		return "direct:/indexo.do";
+	}
+	
+	//아이디중복체크
+	@RequestMapping(value="/emailcheck.do", method=RequestMethod.POST)
+	private @ResponseBody String emailCheck(
+			  @RequestParam(value="email", required=true) String email){
+		
+		String result = service.emailSelect(email);
+		if (result == null){
+			result = "OK";
+		} else {
+			result = "NO";
+		}
+		return result;
+	}
+	
+	//닉네임중복체크
+	@RequestMapping(value="/nickcheck.do", method=RequestMethod.POST)
+	private @ResponseBody String nickCheck(
+			@RequestParam(value="nick", required=true) String nickname){
+		
+		String result = service.nickSelet(nickname);
+		if (result == null){
+			result = "OK";
+		} else {
+			result = "NO";
+		}
+		return result;
+	}
+	
+}

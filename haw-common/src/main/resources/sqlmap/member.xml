@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="memberMapper">
+	<select id="emailSelect" parameterType="String" resultType="String">
+	<![CDATA[
+		SELECT 1
+		  FROM haw.member A
+		 WHERE email = #{email}
+		 GROUP BY email
+		 LIMIT 1
+	]]>
+	</select>
+	<select id="nickSelect" parameterType="String" resultType="String">
+	<![CDATA[
+		SELECT 1
+		  FROM haw.member A
+		 WHERE nickname = #{nickname}
+		 GROUP BY nickname
+		 LIMIT 1
+	]]>
+	</select>
+	<insert id="memberInsert" parameterType="memberVO">
+	<![CDATA[
+		INSERT INTO haw.member (name, email, password, nickname, ip)
+		VALUES (
+			   #{name}
+			 , #{email}
+			 , #{password}
+			 , #{nickname}
+			 , #{ip}
+		)
+	]]>
+	</insert>
+	<select id="signinSelect" parameterType="String" resultType="memberVO">
+	<![CDATA[
+		SELECT A.member_no
+		     , A.name
+		     , A.email
+		     , A.password
+		     , A.nickname
+		     , A.tutorial_yn
+		     , A.ip
+		     , A.input_dt
+		     , A.time_stamp
+		  FROM haw.member A
+		 WHERE A.email = #{email}
+		 LIMIT 1
+	]]>
+	</select>
+	<insert id="signInsert" parameterType="signinVO">
+	<![CDATA[
+		INSERT INTO haw.signin (member_no, email, signin_yn, ip)
+		VALUES (
+			   #{member_no}
+			 , #{email}
+			 , #{signin_yn}
+			 , #{ip}
+		)
+	]]>
+	</insert>
+</mapper>

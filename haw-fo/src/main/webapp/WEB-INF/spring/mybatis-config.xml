@@ -2,6 +2,8 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeAliases>
+    	<typeAlias type="kr.re.hep.member.MemberVO" alias="memberVO" />
+    	<typeAlias type="kr.re.hep.member.SigninVO" alias="signinVO" />
     </typeAliases>
  
     <typeHandlers>
@@ -9,6 +11,7 @@
     </typeHandlers>
  
     <mappers>
+    	<mapper resource="sqlmap/member.xml" />
         <!-- <package name="spring.sample.mapper"/>
         <mapper class="spring.sample.mapper.MemberMapper"/>
         <mapper url="file://mappers/MemberMapper.xml"/> -->
