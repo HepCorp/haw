@@ -28,7 +28,7 @@ public class MemberValidation extends ParamValidatChk implements Validator {
 		inVO.setName(getParam(inVO.getName()));
 		inVO.setEmail(getParam(inVO.getEmail()));
 		inVO.setPassword(getParam(inVO.getPassword()));
-		inVO.setRe_password(getParam(inVO.getRe_password()));
+		inVO.setPassword2(getParam(inVO.getPassword2()));
 		inVO.setNickname(getParam(inVO.getNickname()));
 		
 		//빈값여부
@@ -44,8 +44,8 @@ public class MemberValidation extends ParamValidatChk implements Validator {
 			err.rejectValue("password", "field.required.password");
 			return;
 		}
-		if (isNull(inVO.getRe_password()) || isEmpty(inVO.getRe_password())) {
-			err.rejectValue("re_password", "field.required.re_password");
+		if (isNull(inVO.getPassword2()) || isEmpty(inVO.getPassword2())) {
+			err.rejectValue("password2", "field.required.re_password");
 			return;
 		}
 		if (isNull(inVO.getNickname()) || isEmpty(inVO.getNickname())) {
@@ -54,16 +54,19 @@ public class MemberValidation extends ParamValidatChk implements Validator {
 		}
 		
 		//패턴검
-		if (!pattern("email", inVO.getEmail())) {
-			err.rejectValue("email", "field.error.pattern.email");
-			return;
-		}
-		if (!pattern("password", inVO.getPassword())) {
-			err.rejectValue("password", "field.error.pattern.password");
-			return;
-		}
-		if (inVO.getPassword().equals(inVO.getRe_password())) {
-			err.rejectValue("re_password", "field.error.re_password");
+//		if (!pattern("email", inVO.getEmail())) {
+//			err.rejectValue("email", "field.error.pattern.email");
+//			return;
+//		}
+//		if (!pattern("password", inVO.getPassword())) {
+//			err.rejectValue("password", "field.error.pattern.password");
+//			return;
+//		}
+//		if (!pattern("nickname", inVO.getNickname())) {
+//			err.rejectValue("nickname",  "field.error.pattern.nickname");
+//		}
+		if (!inVO.getPassword().equals(inVO.getPassword2())) {
+			err.rejectValue("password2", "field.error.re_password");
 			return;
 		}
 		

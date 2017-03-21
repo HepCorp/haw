@@ -81,10 +81,13 @@ public class ParamValidatChk {
 		
 		switch (gubun) {
 		case "email": 
-			reg = "^[a-zA-Z0-9]+[@][a-zA-Z0-9]+[\\.][a-zA-Z0-9]+$";
+			reg = "/^[0-9a-zA-Z]([-_\\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\\.]?[0-9a-zA-Z])*\\.[a-zA-Z]{2,3}$/i";
 			break;
 		case "password":
 			reg = "/^(?=.*[a-zA-Z])((?=.*\\d)|(?=.*\\W)).{6,20}$/";
+			break;
+		case "nickname":
+			reg  = "/^[0-9a-zA-Z가-힣]{3,10}$/";
 			break;
 		default :
 			reg = "";

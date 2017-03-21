@@ -8,7 +8,7 @@ public class MemberVO {
 	private String name;
 	private String email;
 	private String password;
-	private String re_password;
+	private String password2;
 	private String nickname;
 	private boolean tutorial_yn;
 	private String ip;
@@ -34,12 +34,12 @@ public class MemberVO {
 		this.time_stamp = time_stamp;
 	}
 
-	public String getRe_password() {
-		return re_password;
+	public String getPassword2() {
+		return password2;
 	}
 
-	public void setRe_password(String re_password) {
-		this.re_password = re_password;
+	public void setPassword2(String password2) {
+		this.password2 = password2;
 	}
 
 	public int getMember_no() {

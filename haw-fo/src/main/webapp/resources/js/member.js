@@ -10,43 +10,8 @@ $(function(){
 	if (FILE == "register"){
 		var result = new ReturnJSON;
 		$("#name").focus();
-		$("#name").on('keyup focus', function(){
-			if($(this).val() == "") {
-				result.setValue(false, returnMsg("name.required"));
-			} else {
-				result.setValue(true, "");
-			}
-			errorShow(result.getMessage());
-		});
-		$("#email").on('keyup focus', function(){
-			result = emailCheck($(this).val());
-			errorShow(result.getMessage());
-		});
-		$("#password").on('keyup focus', function(){
-			if($(this).val() == "") {
-				result.setValue(false, returnMsg("password.required"));
-			} else {
-				if (!pattern("password", $(this).val())){
-					result.setValue(false, returnMsg("password.pattern"));
-				} else {
-					result.setValue(true, "");
-				}
-			}
-			errorShow(result.getMessage());
-		});
-		$("#re_password").on('keyup focus', function(){
-			if($(this).val() == ""){
-				result.setValue(false, returnMsg("re_password.required"));
-			} else {
-				if ($("#password").val() != $(this).val()){
-					result.setValue(false, returnMsg("re_password.error"));
-				}
-			}
-			errorShow(result.getMessage());
-		});
-		$("#nickname").on('keyup focus', function(){
-			result = nickCheck($(this).val());
-			errorShow(result.getMessage());
+		$("#name, #email, #password, #password2, #nickname").on('keyup focus load', function(){
+			autoFormChk($(this));
 		});
 	}
 	//로그인
@@ -54,76 +19,71 @@ $(function(){
 		
 	}
 });
-function errorShow(msg){
-	console.log("msg:"+ msg);
-	$("#errorMessages").html(msg);
-}
-function isEmpty(val) {
-	var result = new ReturnJSON;
-	if (val == null || val == "") {
-		result.setValue(false, returnMsg(""))
-	}		
-}
-
-function emailCheck(val){
-	var result = new ReturnJSON;
-	if (val == "") {
-		result.setValue(false, returnMsg("email.required"));
-	}else {
-		if (!pattern("email", val)){
-			result.setValue(false, returnMsg("email.type"));
-		} else {
-			$.ajax({
-				url : CONTEXTPATH +"member/emailcheck.do",
-				data : {"email":val},
-				dataType : "text",
-				method : "POST"
-			})
-			.done(function(resp){
-				if (resp == "OK") {
-					result.setValue(true, returnMsg("email.dupliOK"));
-				} else if(resp == "NO") {
-					result.setValue(false, returnMsg("email.dupliNO"));
+function autoFormChk(obj){
+	var id = obj.attr("id");
+	var result = new ReturnJSON();
+	// 빈값 체크
+	if(obj.val() == ""){
+		result.setValue(false, returnMsg(id +".required"));
+	} else {
+		if (id == "password2") {
+			if ($("#password").val() != obj.val()){
+				result.setValue(false, returnMsg(id +".error"));
+			} else {
+				result.setValue(true, "");
+			}
+		} else if (id == "email" || id == "password" || id == "nickname"){
+			$("#"+ id +"chk").val("");
+			if (!pattern(id, obj.val())){
+				result.setValue(false, returnMsg(id +".pattern"));
+			} else {
+				if (id == "email" || id == "nickname"){
+					var goUrl = CONTEXTPATH +"member/"+ id +"check.do";
+					if (id == "email") dt = {"email":obj.val()};
+					if (id == "nickname") dt = {"nick":obj.val()};
+					//중복 체크
+					$.ajax({
+						url : goUrl,
+						data : dt,
+						dataType : "text",
+						method : "POST"
+					})
+					.done(function(resp){
+						if (resp == "OK") {
+							result.setValue(true, "");
+						} else if(resp == "NO") {
+							result.setValue(false, returnMsg(id +".dupliNO"));
+						} else {
+							result.setValue(false, resp);
+						}
+						$("#"+ id +"chk").val(resp);
+						errorDisplay(obj, result);
+						return;
+					})
+					.fail(function(data){
+						if ( data.responseCode )
+							result.setValue(false, data.responseCode);
+						errorDisplay(obj, result);
+						return;
+					});
 				} else {
-					result.setValue(false, resp);
+					result.setValue(true, "");
 				}
-			})
-			.fail(function(data){
-				if ( data.responseCode )
-					result.setValue(false, data.responseCode);
-					errorShow(result.getMessage());
-			});
+			}
+		} else {
+			result.setValue(true, "");
 		}
 	}
-	
-	return result;
+	errorDisplay(obj, result);
+}
+function errorDisplay(obj, result){
+	var id = obj.attr("id");
+	var icon = $("#"+ id + "Error");
+	if (result.getResult()) {
+		icon.css("visibility", "hidden");
+	} else {
+		icon.css("visibility", "visible");
+	}
+	$("#errorMessages").html(result.getMessage());
 }
 
-function nickCheck(val){
-	var result = new ReturnJSON;
-	if (val == "") {
-		result.setValue(false, returnMsg("nick.required"));
-	}else {
-		$.ajax({
-			url : CONTEXTPATH +"member/nickcheck.do",
-			data : {"nick" : val},
-			dataType : "text",
-			method : "POST"
-		})
-		.done(function(response){
-			if (response == "OK") {
-				result.setValue(true, "nick.dupliOK");
-			} else if(response == "NO") {
-				result.setValue(false, "nick.dupliNO");
-			} else {
-				result.setValue(false, response);
-			}
-		})
-		.fail(function(data){
-			if ( data.responseCode )
-				result.setValue(false, data.responseCode);
-				console.log( data.responseCode );
-		});
-	}
-	return result;
-}

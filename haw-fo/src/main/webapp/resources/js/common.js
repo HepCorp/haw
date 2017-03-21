@@ -4,7 +4,12 @@
  * Description : Hactorial World Common Function
  * Copyright : HEP Corporation.
  */
-
+$(function(){
+	$(".msgAlert").each(function(){
+		alert($(this).text());
+		$("input:first").focus();
+	});
+});
 /*
  * Name : ajax.xhr
  * Description : Ajax Module
@@ -96,10 +101,13 @@ function pattern(patt, val){
 	var regExp;
 	switch (patt) {
 	case "email":
-		regExp = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
+		regExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
 		break;
 	case "password":
 		regExp = /^(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W)).{6,20}$/;
+		break;
+	case "nickname":
+		regExp = /^[0-9a-zA-Z가-힣]{3,10}$/;
 		break;
 	default:
 		regExp = "";
@@ -117,22 +125,24 @@ function returnMsg(code){
 	switch (code) {
 		case "name.required"	: msg = "이름을 입력해 주세요."; break;
 		case "email.required" 	: msg = "이메일을 입력해 주세요."; break;
-		case "password.required": msg = "비밀번호를 입력해 주세요."; break;
-		case "re_password.required" : msg = "비밀번호 확인을 입력해 주세요."; break;
-		case "nick.required"	: msg = "닉네임을 입력해 주세요."; break;
+		case "password.required"	: msg = "비밀번호를 입력해 주세요."; break;
+		case "password2.required" 	: msg = "비밀번호 확인을 입력해 주세요."; break;
+		case "nickname.required"	: msg = "닉네임을 입력해 주세요."; break;
 		
-		case "email.type"		: msg = "이메일 형식에 맞지 않습니다. 다시 입력해 주세요."; break;
+		case "email.pattern"	: msg = "이메일 형식에 맞지 않습니다. 다시 입력해 주세요."; break;
 		case "email.dupliOK"	: msg = "사용할 수 있는 이메일입니다."; break;
 		case "email.dupliNO"	: msg = "사용할 수 없는 이메일입니다."; break;
 		
-		case "password.pattern"	: msg = "영문, 숫자, 특수문자 혼합하여 6~20자 사이로 입력해 주세요."; break;
-		case "re_password.error": msg = "비밀번호와 비밀번호 확인이 일치하지 않습니다."; break;
+		case "password.pattern"		: msg = "영문, 숫자, 특수문자 혼합하여 6~20자 사이로 입력해 주세요."; break;
+		case "password2.error"		: msg = "비밀번호와 비밀번호 확인이 일치하지 않습니다."; break;
 		
-		case "nick.dupliOK"		: msg = "사용할 수 있는 닉네임입니다."; break;
-		case "nick.dupliNO"		: msg = "사용할 수 없는 닉네임입니다."; break;
+		case "nickname.pattern"		: msg = "닉네임 형식에 맞지 않습니다. 다시 입력해 주세요."; break;
+		case "nickname.dupliOK"		: msg = "사용할 수 있는 닉네임입니다."; break;
+		case "nickname.dupliNO"		: msg = "사용할 수 없는 닉네임입니다."; break;
+		
 		case "ajax.status"		: msg = "권한이 없는 페이지입니다."; break;
 		case "ajax.state"		: msg = "로딩중입니다."; break;
-		default : msg = "---";
+		default 				: msg = "관리자에게 문의하여 주시기 바랍니다."; break;
 	}
 	return msg;
 }

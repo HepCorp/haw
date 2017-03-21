@@ -1,5 +1,7 @@
 package kr.re.hep.member.web;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -35,7 +37,8 @@ public class MemberController {
 	@RequestMapping(value="/save.do", method=RequestMethod.POST)
 	private String signup(
 			@ModelAttribute("memberVO") MemberVO inVO
-		  , BindingResult result){
+		  , BindingResult result
+		  , HttpServletRequest request){
 		MemberVO vo;
 		
 		//유효성 검사
@@ -47,6 +50,7 @@ public class MemberController {
 		}
 		
 		//저장
+		vo.setIp(request.getRemoteAddr());
 		service.memberInsert(vo);
 		
 		return "direct:/index.do";
@@ -67,7 +71,7 @@ public class MemberController {
 	}
 	
 	//닉네임중복체크
-	@RequestMapping(value="/nickcheck.do", method=RequestMethod.POST)
+	@RequestMapping(value="/nicknamecheck.do", method=RequestMethod.POST)
 	private @ResponseBody String nickCheck(
 			@RequestParam(value="nick", required=true) String nickname){
 		
