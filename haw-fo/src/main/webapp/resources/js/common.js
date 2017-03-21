@@ -112,6 +112,31 @@ function pattern(patt, val){
 	return false;
 }
 
+function returnMsg(code){
+	var msg;
+	switch (code) {
+		case "name.required"	: msg = "이름을 입력해 주세요."; break;
+		case "email.required" 	: msg = "이메일을 입력해 주세요."; break;
+		case "password.required": msg = "비밀번호를 입력해 주세요."; break;
+		case "re_password.required" : msg = "비밀번호 확인을 입력해 주세요."; break;
+		case "nick.required"	: msg = "닉네임을 입력해 주세요."; break;
+		
+		case "email.type"		: msg = "이메일 형식에 맞지 않습니다. 다시 입력해 주세요."; break;
+		case "email.dupliOK"	: msg = "사용할 수 있는 이메일입니다."; break;
+		case "email.dupliNO"	: msg = "사용할 수 없는 이메일입니다."; break;
+		
+		case "password.pattern"	: msg = "영문, 숫자, 특수문자 혼합하여 6~20자 사이로 입력해 주세요."; break;
+		case "re_password.error": msg = "비밀번호와 비밀번호 확인이 일치하지 않습니다."; break;
+		
+		case "nick.dupliOK"		: msg = "사용할 수 있는 닉네임입니다."; break;
+		case "nick.dupliNO"		: msg = "사용할 수 없는 닉네임입니다."; break;
+		case "ajax.status"		: msg = "권한이 없는 페이지입니다."; break;
+		case "ajax.state"		: msg = "로딩중입니다."; break;
+		default : msg = "---";
+	}
+	return msg;
+}
+
 //if(/(\w)\1\1\1/.test(password)){
 //	alert('444같은 문자를 4번 이상 사용하실 수 없습니다.');
 //	return false;

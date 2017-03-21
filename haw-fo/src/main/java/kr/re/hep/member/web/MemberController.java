@@ -36,16 +36,20 @@ public class MemberController {
 	private String signup(
 			@ModelAttribute("memberVO") MemberVO inVO
 		  , BindingResult result){
+		MemberVO vo;
+		
 		//유효성 검사
 		memberVal.validate(inVO, result);
 		if (result.hasErrors()){
 			return "/member/register";
+		} else {
+			vo = inVO;
 		}
-		MemberVO outVO = inVO;
 		
 		//저장
-		service.memberInsert(outVO);
-		return "direct:/indexo.do";
+		service.memberInsert(vo);
+		
+		return "direct:/index.do";
 	}
 	
 	//아이디중복체크
