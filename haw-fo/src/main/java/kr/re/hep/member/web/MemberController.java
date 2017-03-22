@@ -1,6 +1,7 @@
 package kr.re.hep.member.web;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,13 +24,33 @@ public class MemberController {
 	
 	@Autowired
 	MemberValidation memberVal;
+	
+	//로그인 화면
+	@RequestMapping(value="/index.do", method=RequestMethod.GET)
+	private String index(){
+		return "/member/index";
+	}
+	
 	//로그인
+	@RequestMapping(value="/signin.do", method=RequestMethod.POST)
+	private String signin(){
+		//유효성 검사
+		
+		//로그저장
+		
+		//세션생성
+		
+		return "direct:/index.do";
+	}
 	
 	//회원가입
 	@RequestMapping(value="/register.do", method=RequestMethod.GET)
-	private String register(){
+	private String register(HttpSession session){
 		
 		//로그인시 로그아웃 하고 회원가입 여부를 체크
+		session.removeAttribute("memberVO");
+		session.invalidate();
+		
 		return "/member/register";
 	}
 	

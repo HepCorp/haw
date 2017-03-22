@@ -11,15 +11,18 @@ $(function(){
 		var result = new ReturnJSON;
 		$("#name").focus();
 		$("#name, #email, #password, #password2, #nickname").on('keyup focus load', function(){
-			autoFormChk($(this));
+			autoRegistChk($(this));
 		});
 	}
 	//로그인
 	else if (FILE == "signin"){
-		
+		$("#email").focus();
+		$("#email, #password").on('keyup focus load', function(){
+			autoSigninChk($(this));
+		});
 	}
 });
-function autoFormChk(obj){
+function autoRegistChk(obj){
 	var id = obj.attr("id");
 	var result = new ReturnJSON();
 	// 빈값 체크
@@ -75,6 +78,11 @@ function autoFormChk(obj){
 		}
 	}
 	errorDisplay(obj, result);
+}
+function autoSigninChk(obj){
+	var id = obj.attr("id");
+	var result = new ReturnJSON();
+
 }
 function errorDisplay(obj, result){
 	var id = obj.attr("id");

@@ -120,6 +120,7 @@ function pattern(patt, val){
 	return false;
 }
 
+
 function returnMsg(code){
 	var msg;
 	switch (code) {
