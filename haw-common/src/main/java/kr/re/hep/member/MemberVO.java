@@ -14,6 +14,8 @@ public class MemberVO {
 	private String ip;
 	private Date input_dt;
 	private Date time_stamp;
+	private int team_no;
+	private int point;
 
 	public MemberVO() {
 		super();
@@ -32,6 +34,22 @@ public class MemberVO {
 		this.ip = ip;
 		this.input_dt = input_dt;
 		this.time_stamp = time_stamp;
+	}
+
+	public int getPoint() {
+		return point;
+	}
+
+	public void setPoint(int point) {
+		this.point = point;
+	}
+
+	public int getTeam_no() {
+		return team_no;
+	}
+
+	public void setTeam_no(int team_no) {
+		this.team_no = team_no;
 	}
 
 	public String getPassword2() {

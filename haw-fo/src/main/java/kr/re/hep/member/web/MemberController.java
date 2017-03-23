@@ -25,6 +25,9 @@ public class MemberController {
 	@Autowired
 	MemberValidation memberVal;
 	
+	@Autowired
+	SigninValidation signinVal;
+	
 	//로그인 화면
 	@RequestMapping(value="/index.do", method=RequestMethod.GET)
 	private String index(){
@@ -33,13 +36,31 @@ public class MemberController {
 	
 	//로그인
 	@RequestMapping(value="/signin.do", method=RequestMethod.POST)
-	private String signin(){
-		//유효성 검사
+	private String signin(
+			@ModelAttribute("memberVO") MemberVO inVO
+		  , BindingResult result
+		  , HttpServletRequest request
+		  , HttpSession session){
+		inVO.setIp(request.getRemoteAddr());
 		
-		//로그저장
+		//유효성 검사
+		signinVal.validate(inVO, result);
+		if (result.hasErrors()){
+			return "/member/index";
+		}
 		
 		//세션생성
+		session.setAttribute("memberVO", inVO);
 		
+		if (inVO.getTeam_no() == 0) {
+			//팀선택
+			return "/member/teamSelect";
+		}
+		if (!inVO.isTutorial_yn()) {
+			//튜토리얼
+			return "/tutorial/index";
+		}
+		//게임시작
 		return "direct:/index.do";
 	}
 	
@@ -105,4 +126,7 @@ public class MemberController {
 		return result;
 	}
 	
+	//팀선택 페이지
+	
+	//팀선택
 }

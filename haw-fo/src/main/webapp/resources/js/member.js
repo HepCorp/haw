@@ -9,17 +9,31 @@ $(function(){
 	// 회원가입 
 	if (FILE == "register"){
 		var result = new ReturnJSON;
-		$("#name").focus();
 		$("#name, #email, #password, #password2, #nickname").on('keyup focus load', function(){
 			autoRegistChk($(this));
 		});
+		$("#name").focus();
+		$("#cancel").css("cursor","pointer");
+		$("#cancel").click(function(){
+			if (confirm("가입을 취소 하시겠습니까?\n로그인 화면으로 이동합니다.")){
+				document.location.href='/member/index.do';
+			} else {
+				return false;
+			}
+		})
 	}
 	//로그인
-	else if (FILE == "signin"){
-		$("#email").focus();
-		$("#email, #password").on('keyup focus load', function(){
+	else if (FILE == "index"){
+		$("#email, #password").on('load keyup focus', function(){
 			autoSigninChk($(this));
 		});
+		$("#email").focus();
+		
+		$("#registerBtn").css("cursor", "pointer");
+		$("#registerBtn").click(function(){
+			document.location.href='/member/register.do';
+		});
+		
 	}
 });
 function autoRegistChk(obj){
@@ -81,7 +95,18 @@ function autoRegistChk(obj){
 }
 function autoSigninChk(obj){
 	var id = obj.attr("id");
+	var val = obj.val();
 	var result = new ReturnJSON();
+	if (val == ""){
+		result.setValue(false, returnMsg(id +".required"));
+	} else {
+		if (!pattern(id, val)){
+			result.setValue(false, returnMsg(id +".pattern"));
+		} else {
+			result.setValue(true, "");
+		}
+	}
+	errorDisplay(obj, result);
 
 }
 function errorDisplay(obj, result){

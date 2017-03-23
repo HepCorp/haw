@@ -58,4 +58,11 @@
 		)
 	]]>
 	</insert>
+	<update id="teamUpdate" parameterType="memberVO">
+	<![CDATA[
+	UPDATE haw.member SET
+	       team_no = #{team_no}
+	 WHERE member_no = #{member_no}
+	]]>
+	</update>
 </mapper>

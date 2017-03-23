@@ -111,20 +111,20 @@
 	                                <span id="nicknameError"><img src="/resources/images/warning-mark.png" alt="닉네임 형식 부적합 경고 마크"></span>
 	                            </div>
 	                            <p id="errorMessages">이름을 입력해 주세요.</p>
-	                            <p>NAME <input type="text" name="name" id="name" autofocus="autofocus">
-	                            	<form:errors path="memberVO.name" cssClass="msgAlert" cssStyle="display:none; " maxlength="30" />
+	                            <p>NAME <input type="text" name="name" id="name" autofocus="autofocus" maxlength="30">
+	                            	<form:errors path="memberVO.name" cssClass="msgAlert" cssStyle="display:none; " />
 	                            </p>
-	                            <p>E-MAIL <input type="email" name="email" id="email" autofocus="autofocus">
-	                            	<form:errors path="memberVO.email" cssClass="msgAlert" cssStyle="display:none; " maxlength="30" />
+	                            <p>E-MAIL <input type="email" name="email" id="email" autofocus="autofocus" maxlength="30">
+	                            	<form:errors path="memberVO.email" cssClass="msgAlert" cssStyle="display:none; " />
 	                            </p>
-	                            <p>PASSWORD1 <input type="password" name="password" id="password" autofocus="autofocus">
-	                            	<form:errors path="memberVO.password" cssClass="msgAlert" cssStyle="display:none; " maxlength="25" />
+	                            <p>PASSWORD1 <input type="password" name="password" id="password" autofocus="autofocus" maxlength="25">
+	                            	<form:errors path="memberVO.password" cssClass="msgAlert" cssStyle="display:none; " />
 	                            </p>
-	                            <p>PASSWORD2 <input type="password" name="password2" id="password2" autofocus="autofocus">
-	                            	<form:errors path="memberVO.password2" cssClass="msgAlert" cssStyle="display:none; " maxlength="25" />
+	                            <p>PASSWORD2 <input type="password" name="password2" id="password2" autofocus="autofocus" maxlength="25">
+	                            	<form:errors path="memberVO.password2" cssClass="msgAlert" cssStyle="display:none; " />
 	                            </p>
-	                            <p>NICKNAME <input type="text" name="nickname" id="nickname" autofocus="autofocus">
-	                            	<form:errors path="memberVO.nickname" cssClass="msgAleret" cssStyle="display:none; " maxlength="15" />
+	                            <p>NICKNAME <input type="text" name="nickname" id="nickname" autofocus="autofocus" maxlength="15">
+	                            	<form:errors path="memberVO.nickname" cssClass="msgAleret" cssStyle="display:none; " />
 	                            </p>
 	                            <p id="personalDataTerms">
 	                                <%@ include file="/resources/include/personalTerms.jsp" %>
