@@ -127,6 +127,10 @@ public class MemberController {
 	}
 	
 	//팀선택 페이지
+	@RequestMapping(value="/team.do", method=RequestMethod.GET)
+	private String teamSelect(){
+		return "/member/teamSelect";
+	}
 	
 	//팀선택
 }

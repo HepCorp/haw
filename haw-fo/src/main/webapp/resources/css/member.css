@@ -80,7 +80,7 @@ section h2 img {
     display: block;
 }
 #nameError, #emailError, #passError1, #passError2, #nickError {
-    visibility: visible;
+    visibility: hidden;
 }
 #errorMessages {
     width: 400px;
@@ -91,7 +91,7 @@ section h2 img {
     font-size: 12px;
     text-align: center;
     margin: -10px auto 0;
-    visibility: visible;
+    visibility: hidden;
 }
 .registerBox form fieldset p {
     padding-left: 30px;
@@ -383,7 +383,7 @@ section h2 img {
 .selected {
     width: 500px;
     height: 300px;
-    margin: 100px auto 0;
+    margin: 95px auto 0;
 }
 .selectedTeamSym {
     width: 180px;
@@ -492,3 +492,68 @@ section h2 img {
     width: 15px
 }
 /* //selectTeam */
+
+.teamWrap {
+    width: 1200px;
+    height: 628px;
+    background: url("../images/outline.png") no-repeat center;
+    background-size: contain;
+}
+.tutorialWrap {
+    /* position: relative; */
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    left: 0;
+    top: -678px;
+    overflow: hidden;
+}
+.tutoTeam {
+    position: absolute;
+    margin-top: 30px;
+    width: 100%;
+    height: 628px;
+}
+.tutoTeamOutline {
+    position: relative;
+    height: 455px;
+    background: url("../images/team-box.png") no-repeat center;
+    background-size: contain;
+    top: 10px;
+}
+.tutoSelectTeamWrap {
+    width: 1000px;
+    height: 455px;
+    margin: 0 auto;
+}
+.tutoSelected {
+    width: 500px;
+    height: 300px;
+    margin: 95px auto 0;
+    font-family: SwiszRegular;
+}
+.tutoSelectedTeamSym {
+    width: 180px;
+    height: 180px;
+    float: left;
+    margin-left: 165px;
+    margin-top: 125px;
+}
+.tutoSelectedTeamSym img {
+    width: 180px;
+    height: 180px;
+}
+.tutoSelectedTeamInfo {
+    width: 300px;
+    height: 50px;
+    margin-right: 90px;
+    margin-top: 30px;
+    float: right;
+    text-align: center;
+    font-family: SwiszRegular;
+}
+.tutoSelectedTeamInfo h3 {
+    color: #FFFFFF;
+    text-shadow: 0 0 15px #00ffff;
+    font-size: 22px;
+}
