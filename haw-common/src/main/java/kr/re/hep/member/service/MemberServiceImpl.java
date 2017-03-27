@@ -1,4 +1,4 @@
-package kr.re.hep.member.service.impl;
+package kr.re.hep.member.service;
 
 import javax.annotation.Resource;
 
@@ -7,8 +7,6 @@ import org.springframework.stereotype.Service;
 import kr.re.hep.member.MemberVO;
 import kr.re.hep.member.SigninVO;
 import kr.re.hep.member.TeamVO;
-import kr.re.hep.member.service.MemberDao;
-import kr.re.hep.member.service.MemberService;
 
 @Service("memberService")
 public class MemberServiceImpl implements MemberService {

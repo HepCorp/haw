@@ -1,4 +1,4 @@
-package kr.re.hep.member.web;
+package kr.re.hep.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -16,6 +16,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import kr.re.hep.member.MemberVO;
 import kr.re.hep.member.TeamVO;
 import kr.re.hep.member.service.MemberService;
+import kr.re.hep.validation.MemberValidation;
+import kr.re.hep.validation.SigninValidation;
+import kr.re.hep.validation.TeamValidation;
 
 @Controller
 @RequestMapping("/member/*")

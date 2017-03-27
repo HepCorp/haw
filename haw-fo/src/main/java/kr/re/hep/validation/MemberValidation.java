@@ -1,4 +1,4 @@
-package kr.re.hep.member.web;
+package kr.re.hep.validation;
 
 import javax.annotation.Resource;
 
