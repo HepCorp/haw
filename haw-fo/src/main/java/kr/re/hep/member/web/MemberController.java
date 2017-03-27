@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.re.hep.member.MemberVO;
+import kr.re.hep.member.TeamVO;
 import kr.re.hep.member.service.MemberService;
 
 @Controller
@@ -27,6 +29,9 @@ public class MemberController {
 	
 	@Autowired
 	SigninValidation signinVal;
+	
+	@Autowired
+	TeamValidation teamVal;
 	
 	//로그인 화면
 	@RequestMapping(value="/index.do", method=RequestMethod.GET)
@@ -133,4 +138,31 @@ public class MemberController {
 	}
 	
 	//팀선택
+	@RequestMapping(value="/teamSave.do", method=RequestMethod.POST)
+	private String teamSave(
+			@ModelAttribute("teamVO") TeamVO inVO
+		  , BindingResult result
+		  , HttpServletRequest request
+		  , HttpSession session
+		  , ModelMap model){
+		//로그인확인
+		MemberVO memberVO = (MemberVO) session.getAttribute("memberVO");
+		
+		//유효성체크
+		teamVal.validate(inVO, result);
+		if (result.hasErrors()){
+			return "/member/teamSelect";
+		}
+		
+		//회원정보 수정
+		memberVO.setTeam_no(inVO.getTeam_no());
+		session.setAttribute("memberVO", memberVO);
+		
+		//팀 선택
+		service.updateTeamMember(memberVO);
+		service.updateTeam(inVO);
+		
+		model.addAttribute("teamVO", inVO);
+		return "/member/teamSelected";
+	}
 }

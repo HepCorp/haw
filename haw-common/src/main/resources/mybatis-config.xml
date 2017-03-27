@@ -4,6 +4,7 @@
     <typeAliases>
     	<typeAlias type="kr.re.hep.member.MemberVO" alias="memberVO" />
     	<typeAlias type="kr.re.hep.member.SigninVO" alias="signinVO" />
+    	<typeAlias type="kr.re.hep.member.TeamVO" alias="teamVO" />
     </typeAliases>
  
     <typeHandlers>

@@ -60,9 +60,36 @@
 	</insert>
 	<update id="teamUpdate" parameterType="memberVO">
 	<![CDATA[
-	UPDATE haw.member SET
-	       team_no = #{team_no}
-	 WHERE member_no = #{member_no}
+		UPDATE haw.member SET
+		       team_no = #{team_no}
+		 WHERE member_no = #{member_no}
+	]]>
+	</update>
+	<select id="teamSelect" parameterType="Integer" resultType="teamVO">
+	<![CDATA[
+		SELECT A.team_no
+		     , A.team_nm
+		     , A.team_tot
+		     , A.team_cnt
+		     , A.color
+		     , A.image
+		     , A.point
+		  FROM haw.team A
+		 WHERE A.team_no = #{team_no}
+	]]>
+	</select>
+	<update id="updateTeamMember" parameterType="memberVO">
+	<![CDATA[
+		UPDATE haw.member SET
+			   team_no = #{team_no}
+		 WHERE member_no = #{member_no}
+	]]>
+	</update>
+	<update id="updateTeam" parameterType="teamVO">
+	<![CDATA[
+		UPDAET haw.team SET
+		       team_cnt = team_cnt + 1
+		 WHERE team_no = #{team_no}
 	]]>
 	</update>
 </mapper>

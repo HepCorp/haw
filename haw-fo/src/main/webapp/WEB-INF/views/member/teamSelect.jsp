@@ -8,6 +8,19 @@
     <%@ include file="/resources/include/header.jsp"%>
     <link type="text/css" rel="stylesheet" href="/resources/css/member.css">
     <script type="text/javascript" charset="UTF-8" src="/resources/js/member.js"></script>
+    <script type="text/javascript">
+    function FormChkModule(this){
+    	if (f.team_no.value == ""){
+    		alert("팀을 선택해 주세요!");
+    		return false;
+    	}
+	    if (confirm("이글 팀이 당신을 필요로합니다. 맹세의 서약을 하시겠습니까?")){
+	    	return true;
+	    } else {
+	    	return false;
+	    }
+    }
+    </script>
 </head>
 <body>
 <section>
@@ -24,15 +37,18 @@
                             <div class="selectedTeamInfo">
                                 <p>NAME : EAGLES</p>
                                 <p>MEMBER : 10</p>
-                                <form action="">
+                                <form name="saveFrm" method="post" action="<c:url value='/member/teamSave.do' />" class="form" onSubmit="return FormChkModule(this);">
                                     <fieldset>
                                         <legend>팀선택</legend>
-                                        <p><input type="submit" name="select" id="select" value="SELECT"></p>
+                                        <input type="hidden" name="team" value="1" />
+                                        <p><input type="submit" name="select" id="select" value="SELECT">
+                                        	<form:errors path="memberVO.team" cssClass="msgAlert" cssStyle="display:none" />
+                                        </p>
                                     </fieldset>
                                 </form>
                             </div>
                         </div>
-                        <div class="teamListWrap">
+                        <!-- <div class="teamListWrap">
                             <div class="teamList">
                             <span id="prev">
                                 <a><img src="/resources/images/left-arrow.png" alt="다시보기"></a>
@@ -51,36 +67,13 @@
                                 <a><img src="/resources/images/right-arrow.png" alt="다음보기"></a>
                             </span>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<section class="tutorialWrap">
-    <div class="chatPopUpWrap">
-        <div class="chatBox">
-            <div class="tutorialChat">
-                <div class="chat">
-                    <h3>■ CHAT</h3>
-                </div>
-                <div class="system">
-                    <span class="chatName">
-                        <h4>SYSTEM <strong>▶</strong></h4>
-                    </span>
-                    <span class="chatting">
-                        <p>팀 선택 창입니다. 원하시는 팀을 선택해주세요.</p>
-                        <br>
-                        <p>게임은 개인 기록 및 기록 경쟁 형태로 진행됩니다.</p>
-                        <br>
-                        <br>
-                        <p>팀 선택을 완료하면 한동안 바꿀수 없으니 신중하게 선택해주세요!</p>
-                    </span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<%@ include file="/resources/include/chatPopUp.jsp" %>
 </body>
 </html>

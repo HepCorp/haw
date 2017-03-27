@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import kr.re.hep.member.MemberVO;
 import kr.re.hep.member.SigninVO;
+import kr.re.hep.member.TeamVO;
 
 @Repository("memberDAO")
 public class MemberDao {
@@ -33,5 +34,17 @@ public class MemberDao {
 	
 	public void signInsert(SigninVO vo){
 		session.insert(namespace+"signInsert", vo);
+	}
+	
+	public TeamVO teamSelect(int team_no){
+		return session.selectOne(namespace +"teamSelect", team_no);
+	}
+
+	public void updateTeamMember(MemberVO memberVO) {
+		session.update(namespace +"updateTeamMember", memberVO);
+	}
+
+	public void updateTeam(TeamVO teamVO) {
+		session.update(namespace +"updateTeam", teamVO);
 	}
 }

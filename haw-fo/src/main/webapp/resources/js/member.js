@@ -4,7 +4,13 @@
  * Description : Member Regist or Signin Authorize
  * Copyright : Hep Corporation
  */
-
+var chatComment = new Array();
+chatComment[0] = "<p>팀 선택 창입니다. 원하시는 팀을 선택해주세요.<br><br>" +
+		"게임은 개인 기록 및 기록 경쟁 형태로 진행됩니다.<br><br><br>" +
+		"팀 선택을 완료하면 한동안 바꿀수 없으니 신중하게 선택해주세요!</p>";
+chatComment[1] = "<p>이글 팀을 고르셨군요!<br><br>" +
+		"맑은 영혼을 지닌 독수리처럼 멋지게 날개를 펼쳐보세요!<br><br>" +
+		"자! 이제 본격적으로 HACKTORIAL WORLD로 들어가볼까요?</p>";
 $(function(){
 	// 회원가입 
 	if (FILE == "register"){
@@ -35,7 +41,24 @@ $(function(){
 		});
 		
 	}
+	//팀선택
+	else if (FILE == "team"){
+		$(".chatting").html(chatComment[0]);
+		$(".tutorialWrap").show();
+		$(".tutorialWrap").click(function(){
+			$(".tutorialWrap").hide();
+		})
+	}
+	//팀선택완료
+	else if (FILE == "teamSave") {
+		$(".chatting").html(chatComment[1]);
+		$(".tutorialWrap").show();
+		$(".tutorialWrap").click(function(){
+			$(".tutorialWrap").hide();
+		});
+	}
 });
+
 function autoRegistChk(obj){
 	var id = obj.attr("id");
 	var result = new ReturnJSON();

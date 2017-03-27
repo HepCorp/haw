@@ -2,6 +2,7 @@ package kr.re.hep.member.service;
 
 import kr.re.hep.member.MemberVO;
 import kr.re.hep.member.SigninVO;
+import kr.re.hep.member.TeamVO;
 
 public interface MemberService {
 
@@ -49,5 +50,32 @@ public interface MemberService {
 	 * @author rachel
 	 */
 	public void signInsert(SigninVO vo);
+	
+	/**
+	 * 팀 정보 가져오기 
+	 * @param int - 팀번호
+	 * @return TeamVO - 팀정보
+	 * @exception Exception
+	 * @author rachel
+	 */
+	public TeamVO teamSelect(int team_no);
+
+	/**
+	 * 회원팀정보 업데이트 
+	 * @param MemberVO - 회원정보 
+	 * @return void
+	 * @exception Exception
+	 * @author rachel
+	 */
+	public void updateTeamMember(MemberVO memberVO);
+
+	/**
+	 * 팀 회원명 업데이트 
+	 * @param TeamVO - 팀정보
+	 * @return void
+	 * @exception Exception
+	 * @author rachel
+	 */
+	public void updateTeam(TeamVO teamVO);
 
 }
