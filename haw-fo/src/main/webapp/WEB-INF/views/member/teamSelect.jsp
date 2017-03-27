@@ -9,8 +9,8 @@
     <link type="text/css" rel="stylesheet" href="/resources/css/member.css">
     <script type="text/javascript" charset="UTF-8" src="/resources/js/member.js"></script>
     <script type="text/javascript">
-    function FormChkModule(this){
-    	if (f.team_no.value == ""){
+    function FormChkModule(f){
+    	if (f.team.value == ""){
     		alert("팀을 선택해 주세요!");
     		return false;
     	}

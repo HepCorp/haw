@@ -22,18 +22,21 @@ public class MemberVO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public MemberVO(int member_no, String name, String email, String password, String nickname, boolean tutorial_yn,
-			String ip, Date input_dt, Date time_stamp) {
+	public MemberVO(int member_no, String name, String email, String password, String password2, String nickname,
+			boolean tutorial_yn, String ip, Date input_dt, Date time_stamp, int team_no, int point) {
 		super();
 		this.member_no = member_no;
 		this.name = name;
 		this.email = email;
 		this.password = password;
+		this.password2 = password2;
 		this.nickname = nickname;
 		this.tutorial_yn = tutorial_yn;
 		this.ip = ip;
 		this.input_dt = input_dt;
 		this.time_stamp = time_stamp;
+		this.team_no = team_no;
+		this.point = point;
 	}
 
 	public int getPoint() {

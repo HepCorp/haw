@@ -23,11 +23,11 @@
             <div class="tutoSelectTeamWrap">
                 <div class="tutoSelected">
                     <div class="tutoSelectedTeamSym">
-                        <img src="/resources/images/eagle.png" alt="이글팀 심볼">
+                        <img src="${teamVO.image }" alt="${teamVO.team_nm }팀 심볼">
                     </div>
                     <div class="tutoSelectedTeamInfo">
                         <span>
-                            <h3>EAGLE TEAM SELECTED</h3>
+                            <h3>${teamVO.team_nm } TEAM SELECTED</h3>
                         </span>
                     </div>
                 </div>
@@ -35,6 +35,26 @@
         </div>
     </div>
 </section>
-<%@ include file="/resources/include/chatPopUp.jsp" %>
+    <div class="chatPopUpWrap">
+        <div class="chatBox">
+            <div class="tutorialChat">
+                <div class="chat">
+                    <h3>■ CHAT</h3>
+                </div>
+                <div class="system">
+                    <span class="chatName">
+                        <h4>SYSTEM <strong>▶</strong></h4>
+                    </span>
+                    <span class="chatting">
+                    	<p>${teamVO.team_nm } 팀을 고르셨군요!
+						<br><br>${teamVO.description}
+						<br><br>자! 이제 본격적으로 HACKTORIAL WORLD로 들어가볼까요?
+						</p>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>

@@ -74,20 +74,22 @@
 		     , A.color
 		     , A.image
 		     , A.point
+		     , A.description
 		  FROM haw.team A
 		 WHERE A.team_no = #{team_no}
 	]]>
 	</select>
-	<update id="updateTeamMember" parameterType="memberVO">
+	<update id="updateTeamMember" parameterType="memberVO" >
 	<![CDATA[
 		UPDATE haw.member SET
 			   team_no = #{team_no}
 		 WHERE member_no = #{member_no}
+		   AND team_no is NULL
 	]]>
 	</update>
 	<update id="updateTeam" parameterType="teamVO">
 	<![CDATA[
-		UPDAET haw.team SET
+		UPDATE haw.team SET
 		       team_cnt = team_cnt + 1
 		 WHERE team_no = #{team_no}
 	]]>

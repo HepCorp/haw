@@ -45,7 +45,13 @@ public class TeamValidation extends ParamValidatChk implements Validator {
 			return;
 		}
 		
-		inVO = outVO;		
+		inVO.setTeam_nm(outVO.getTeam_nm());
+		inVO.setTeam_tot(outVO.getTeam_tot());
+		inVO.setTeam_cnt(outVO.getTeam_cnt());
+		inVO.setColor(outVO.getColor());
+		inVO.setImage(outVO.getImage());
+		inVO.setPoint(outVO.getPoint());
+		inVO.setDescription(outVO.getDescription());
 	}
 
 }

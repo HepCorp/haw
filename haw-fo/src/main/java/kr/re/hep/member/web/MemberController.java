@@ -133,14 +133,23 @@ public class MemberController {
 	
 	//팀선택 페이지
 	@RequestMapping(value="/team.do", method=RequestMethod.GET)
-	private String teamSelect(){
-		return "/member/teamSelect";
+	private String teamSelect(HttpSession session){
+		MemberVO memberVO = (MemberVO) session.getAttribute("memberVO");
+		
+		//팀이 없으면 팀선택 
+		if (memberVO.getTeam_no() == 0) {
+			return "/member/teamSelect";
+		}
+		//팀이 있으면 튜토리얼 
+		else {
+			return "direct:/tutorial/index.do";
+		}
 	}
 	
 	//팀선택
 	@RequestMapping(value="/teamSave.do", method=RequestMethod.POST)
 	private String teamSave(
-			@ModelAttribute("teamVO") TeamVO inVO
+			@ModelAttribute("teamVO") TeamVO inVO    
 		  , BindingResult result
 		  , HttpServletRequest request
 		  , HttpSession session
@@ -159,10 +168,12 @@ public class MemberController {
 		session.setAttribute("memberVO", memberVO);
 		
 		//팀 선택
-		service.updateTeamMember(memberVO);
-		service.updateTeam(inVO);
-		
+		int row = service.updateTeamMember(memberVO);
+		if (row == 1) {
+			service.updateTeam(inVO);
+		}
+		System.out.println(inVO.toString());
 		model.addAttribute("teamVO", inVO);
-		return "/member/teamSelected";
+		return "/member/teamSelected";
 	}
 }

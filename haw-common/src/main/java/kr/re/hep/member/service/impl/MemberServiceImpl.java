@@ -47,8 +47,8 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public void updateTeamMember(MemberVO memberVO) {
-		dao.updateTeamMember(memberVO);
+	public int updateTeamMember(MemberVO memberVO) {
+		return dao.updateTeamMember(memberVO);
 	}
 
 	@Override

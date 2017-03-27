@@ -40,8 +40,8 @@ public class MemberDao {
 		return session.selectOne(namespace +"teamSelect", team_no);
 	}
 
-	public void updateTeamMember(MemberVO memberVO) {
-		session.update(namespace +"updateTeamMember", memberVO);
+	public int updateTeamMember(MemberVO memberVO) {
+		return session.update(namespace +"updateTeamMember", memberVO);
 	}
 
 	public void updateTeam(TeamVO teamVO) {

@@ -63,11 +63,11 @@ public interface MemberService {
 	/**
 	 * 회원팀정보 업데이트 
 	 * @param MemberVO - 회원정보 
-	 * @return void
+	 * @return int - update Row 수
 	 * @exception Exception
 	 * @author rachel
 	 */
-	public void updateTeamMember(MemberVO memberVO);
+	public int updateTeamMember(MemberVO memberVO);
 
 	/**
 	 * 팀 회원명 업데이트 
