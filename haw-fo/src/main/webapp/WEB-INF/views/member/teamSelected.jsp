@@ -7,6 +7,10 @@
 <head>
     <%@ include file="/resources/include/header.jsp"%>
     <link type="text/css" rel="stylesheet" href="/resources/css/member.css">
+    <script type="text/javascript">
+    var team_nm = "${teamVO.team_nm}";
+    var description = "${teamVO.description}";
+    </script>
     <script type="text/javascript" charset="UTF-8" src="/resources/js/member.js"></script>
 </head>
 <body>
@@ -34,27 +38,7 @@
             </div>
         </div>
     </div>
+<%@ include file="/resources/include/chatPopUp.jsp" %>
 </section>
-    <div class="chatPopUpWrap">
-        <div class="chatBox">
-            <div class="tutorialChat">
-                <div class="chat">
-                    <h3>■ CHAT</h3>
-                </div>
-                <div class="system">
-                    <span class="chatName">
-                        <h4>SYSTEM <strong>▶</strong></h4>
-                    </span>
-                    <span class="chatting">
-                    	<p>${teamVO.team_nm } 팀을 고르셨군요!
-						<br><br>${teamVO.description}
-						<br><br>자! 이제 본격적으로 HACKTORIAL WORLD로 들어가볼까요?
-						</p>
-                    </span>
-                </div>
-            </div>
-        </div>
-    </div>
-
 </body>
 </html>

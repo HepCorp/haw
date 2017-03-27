@@ -9,7 +9,7 @@ body {
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
     left: 0;
-    /*top: -678px;*/
+    top: -678px;
     overflow: hidden;
 }
 .tutorialWrap02 {

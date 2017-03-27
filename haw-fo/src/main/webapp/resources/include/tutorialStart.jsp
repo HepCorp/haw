@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <link type="text/css" rel="stylesheet" href="/haw_html/css/tutorial.css">
-    <link rel="import" href="/haw_html/tutorial/chatPopUp.html">
-    <title>Hacktorial World</title>
-</head>
-<body>
-<section class="tutorialWrap">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
     <div class="tutorialStartWrap">
         <div class="tutorials">
             <div class="tutorialSection">
@@ -22,18 +15,15 @@
                     <br>
                     <span>튜토리얼을 시작하시겠습니까?</span>
                 </div>
-                <form action="">
+                <form id="tutorialStartFrm" action="">
                     <fieldset>
                         <legend>튜토리얼 시작버튼</legend>
                         <span>
                         <input type="button" id="no" name="no" value="NO">
-                        <input type="submit" id="yes" name="yes" value="YES">
+                        <input type="button" id="yes" name="yes" value="YES">
                     </span>
                     </fieldset>
                 </form>
             </div>
         </div>
     </div>
-</section>
-</body>
-</html>

@@ -7,8 +7,10 @@
 <head>
     <%@ include file="/resources/include/header.jsp"%>
     <link type="text/css" rel="stylesheet" href="/resources/css/member.css">
-    <script type="text/javascript" charset="UTF-8" src="/resources/js/member.js"></script>
     <script type="text/javascript">
+    var team_nm = "";
+    var description = "";
+
     function FormChkModule(f){
     	if (f.team.value == ""){
     		alert("팀을 선택해 주세요!");
@@ -21,6 +23,7 @@
 	    }
     }
     </script>
+    <script type="text/javascript" charset="UTF-8" src="/resources/js/member.js"></script>
 </head>
 <body>
 <section>
@@ -74,6 +77,8 @@
         </div>
     </div>
 </section>
+<section class="tutorialWrap">
 <%@ include file="/resources/include/chatPopUp.jsp" %>
+</section>
 </body>
 </html>
