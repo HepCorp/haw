@@ -17,19 +17,20 @@
         <div class="mainWrap">
             <div class="jejuMap">
                 <div class="location">
-                    <p id="seogwipo"><a href="">SEOGWIPO CITY</a></p>
+                    <p id="seogwipo" style="display:none; "><a href="">SEOGWIPO CITY</a></p>
                     <p id="jejuCity">JEJU CITY</p>
                 </div>
-                <span id="pointerJ"><a href="" id="questPop"><img src="/resources/images/activation-pointer.png" alt="포인터"></a></span>
+                <span id="pointerJ" style="display:none;"><a href="" id="questPop"><img src="/resources/images/activation-pointer.png" alt="포인터"></a></span>
                 <span id="compass"><img src="/resources/images/compass2.png" alt="나침반 이미지"></span>
             </div>
         </div>
     </div>
 </section>
-<section class="tutorialWrap">
+<section class="tutorialWrap" style="display:none;">
 <%@ include file="/resources/include/seogwipoQuest.jsp" %>
+<%@ include file="/resources/include/mapSeogwipo.jsp" %>
+<%@ include file="/resources/include/questDetail.jsp" %>
 </section>
-
 <%@ include file="/resources/include/chatPopUp.jsp" %>
 </body>
 </html>

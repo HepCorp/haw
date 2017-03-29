@@ -436,7 +436,7 @@ body {
 #sgpPointer img {
     width: 100px;
 }
-#seogwipo {
+#seogwipoUp {
     text-decoration: none;
     color: white;
     font-size: 18px;
@@ -598,7 +598,7 @@ body {
     left: 50%;
     top: 50%;
     margin-left: -297px;
-    margin-top: -245px;
+    margin-top: -285px;
 }
 #focusInfo img {
     width: 155px;
@@ -610,7 +610,7 @@ body {
     left: 50%;
     top: 50%;
     margin-left: -174px;
-    margin-top: -169px;
+    margin-top: -209px;
 }
 #connectInfo img {
     width: 100px;
@@ -624,7 +624,7 @@ body {
     left: 50%;
     top: 50%;
     margin-left: -75px;
-    margin-top: -135px;
+    margin-top: -171px;
 }
 .questInfo ul {
     width: 130px;
@@ -758,6 +758,7 @@ body {
     color: #00FFFF;
     padding-left: 10px;
     box-sizing: border-box;
+    font-size: 16px;
 }
 .questAnswer p:nth-child(2) {
     width: 45px;
@@ -810,7 +811,7 @@ body {
     left: 50%;
     top: 50%;
     margin-left: 100px;
-    margin-top: -358px;
+    margin-top: -373px;
 }
 .questConnectLine img {
     width: 150px;

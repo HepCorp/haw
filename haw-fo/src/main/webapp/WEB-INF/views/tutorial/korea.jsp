@@ -21,18 +21,20 @@
                 <div class="southKorea">
                 </div>
                 <div class="location">
-                    <p id="jejudo"><a href="">JEJUDO</a></p>
+                    <p id="jejudo" style="display:none;"><a href="">JEJUDO</a></p>
                     <p id="sKorea">SOUTH<br>KOREA</p>
                     <p id="ySea">YELLOW SEA</p>
                     <p id="eSea">EAST SEA</p>
                 </div>
-                <span id="pointerK"><a href="/tutorial/jeju.do"><img src="/resources/images/activation-pointer.png" alt="포인터"></a></span>
+                <span id="pointerK" style="display:none;"><img src="/resources/images/activation-pointer.png" alt="포인터"></span>
                 <span id="compass"><img src="/resources/images/compass2.png" alt="나침반 이미지"></span>
             </div>
         </div>
     </div>
 </section>
-
+<section class="tutorialWrap">
+<%@ include file="/resources/include/mapKorea.jsp" %>
+</section>
 <%@ include file="/resources/include/chatPopUp.jsp" %>
 </body>
 </html>
