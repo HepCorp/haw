@@ -16,7 +16,18 @@ public class TutorialController {
 	}
 	
 	//대한민국
+	@RequestMapping(value="/korea.do", method=RequestMethod.POST)
 	private String korea(){
+		//tutorial save
+		
 		return "/tutorial/korea";	
+	}
+	
+	//제주도
+	@RequestMapping(value="/jeju.do", method=RequestMethod.GET)
+	private String jeju(){
+		//tutorial save
+		
+		return "/tutorial/jeju";
 	}
 }

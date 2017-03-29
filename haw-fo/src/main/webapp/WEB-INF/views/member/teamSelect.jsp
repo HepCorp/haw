@@ -7,10 +7,8 @@
 <head>
     <%@ include file="/resources/include/header.jsp"%>
     <link type="text/css" rel="stylesheet" href="/resources/css/member.css">
+    <script type="text/javascript" charset="UTF-8" src="/resources/js/member.js"></script>
     <script type="text/javascript">
-    var team_nm = "";
-    var description = "";
-
     function FormChkModule(f){
     	if (f.team.value == ""){
     		alert("팀을 선택해 주세요!");
@@ -23,7 +21,6 @@
 	    }
     }
     </script>
-    <script type="text/javascript" charset="UTF-8" src="/resources/js/member.js"></script>
 </head>
 <body>
 <section>
@@ -45,7 +42,7 @@
                                         <legend>팀선택</legend>
                                         <input type="hidden" name="team" value="1" />
                                         <p><input type="submit" name="select" id="select" value="SELECT">
-                                        	<form:errors path="memberVO.team" cssClass="msgAlert" cssStyle="display:none" />
+                                        	<form:errors path="teamVO.team" cssClass="msgAlert" cssStyle="display:none; " />
                                         </p>
                                     </fieldset>
                                 </form>

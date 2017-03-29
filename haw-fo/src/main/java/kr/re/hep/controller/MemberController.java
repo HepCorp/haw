@@ -36,9 +36,18 @@ public class MemberController {
 	@Autowired
 	TeamValidation teamVal;
 	
+	@RequestMapping(value="/", method=RequestMethod.GET)
+	private String main(){
+		return "redirect:/member/index.do";
+	}
+	
 	//로그인 화면
 	@RequestMapping(value="/index.do", method=RequestMethod.GET)
-	private String index(){
+	private String index(HttpSession session){
+		//로그인화면에서는 로그아웃
+		session.removeAttribute("memberVO");
+		session.invalidate();
+		
 		return "/member/index";
 	}
 	
@@ -58,18 +67,18 @@ public class MemberController {
 		}
 		
 		//세션생성
+		System.out.println(inVO.toString());
 		session.setAttribute("memberVO", inVO);
-		
 		if (inVO.getTeam_no() == 0) {
 			//팀선택
-			return "/member/teamSelect";
+			return "redirect:/member/team.do";
 		}
 		if (!inVO.isTutorial_yn()) {
 			//튜토리얼
-			return "/tutorial/index";
+			return "redirect:/tutorial/index.do";
 		}
 		//게임시작
-		return "direct:/index.do";
+		return "redirect:/index.do";
 	}
 	
 	//회원가입
@@ -103,7 +112,7 @@ public class MemberController {
 		vo.setIp(request.getRemoteAddr());
 		service.memberInsert(vo);
 		
-		return "direct:/index.do";
+		return "redirect:/index.do";
 	}
 	
 	//아이디중복체크
@@ -145,7 +154,7 @@ public class MemberController {
 		}
 		//팀이 있으면 튜토리얼 
 		else {
-			return "direct:/tutorial/index.do";
+			return "redirect:/tutorial/index.do";
 		}
 	}
 	
@@ -172,10 +181,14 @@ public class MemberController {
 		
 		//팀 선택
 		int row = service.updateTeamMember(memberVO);
+		
+		//!!!팀 업데이트시 오류인 경우 처리 코드 추가 요망
+		if (row == 0) {
+			return "/member/teamSelect";
+		}
 		if (row == 1) {
 			service.updateTeam(inVO);
 		}
-		System.out.println(inVO.toString());
 		model.addAttribute("teamVO", inVO);
 		return "/member/teamSelected";
 	}

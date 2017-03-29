@@ -7,11 +7,16 @@
 <head>
     <%@ include file="/resources/include/header.jsp"%>
     <link type="text/css" rel="stylesheet" href="/resources/css/member.css">
+    <script type="text/javascript" charset="UTF-8" src="/resources/js/member.js"></script>
     <script type="text/javascript">
     var team_nm = "${teamVO.team_nm}";
     var description = "${teamVO.description}";
+    
+	chatComment[1] = "<p>"+ team_nm +" 팀을 고르셨군요!" +
+	"<br><br>"+ description +
+	"<br><br>자! 이제 본격적으로 HACKTORIAL WORLD로 들어가볼까요?" +
+	"</p>";
     </script>
-    <script type="text/javascript" charset="UTF-8" src="/resources/js/member.js"></script>
 </head>
 <body>
 <section>

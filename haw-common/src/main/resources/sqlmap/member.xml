@@ -42,6 +42,7 @@
 		     , A.ip
 		     , A.input_dt
 		     , A.time_stamp
+		     , A.team_no
 		  FROM haw.member A
 		 WHERE A.email = #{email}
 		 LIMIT 1

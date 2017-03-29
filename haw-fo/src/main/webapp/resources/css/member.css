@@ -91,7 +91,7 @@ section h2 img {
     font-size: 12px;
     text-align: center;
     margin: -10px auto 0;
-    visibility: hidden;
+    /* visibility: hidden; */
 }
 .registerBox form fieldset p {
     padding-left: 30px;

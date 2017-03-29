@@ -141,8 +141,9 @@ body {
     background-color: #00FFFF;
     color: #FFFFFF;
 }
-.tutorialSection form input[type=button] {
+.tutorialSection form input#no {
     margin-right: 40px;
+    margin-left: 10px;
 }
 /* //tutorialStartPopUp */
 
@@ -448,7 +449,7 @@ body {
 /* //tutorialTownSelect */
 
 /* countryInfoPopUp */
-#korPointer {
+#korInfoPointer {
     width: 100px;
     height: 82px;
     display: block;
@@ -458,7 +459,7 @@ body {
     margin-left: -120px;
     margin-top: -223px;
 }
-#korPointer img {
+#korInfoPointer img {
     width: 100px;
 }
 .countryInfo {

@@ -138,8 +138,9 @@ public class MemberVO {
 	@Override
 	public String toString() {
 		return "MemberVO [member_no=" + member_no + ", name=" + name + ", email=" + email + ", password=" + password
-				+ ", nickname=" + nickname + ", tutorial_yn=" + tutorial_yn + ", ip=" + ip + ", input_dt=" + input_dt
-				+ ", time_stamp=" + time_stamp + "]";
+				+ ", password2=" + password2 + ", nickname=" + nickname + ", tutorial_yn=" + tutorial_yn + ", ip=" + ip
+				+ ", input_dt=" + input_dt + ", time_stamp=" + time_stamp + ", team_no=" + team_no + ", point=" + point
+				+ "]";
 	}
 
 }

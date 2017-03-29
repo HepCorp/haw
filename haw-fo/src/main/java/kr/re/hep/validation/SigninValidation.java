@@ -40,14 +40,14 @@ public class SigninValidation extends ParamValidatChk implements Validator {
 		}
 		
 		//패턴체크
-		if (!pattern("email", inVO.getEmail())){
-			err.rejectValue("email", "field.error.pattern.email");
-			return;
-		}
-		if (!pattern("password", inVO.getPassword())){
-			err.rejectValue("password", "field.error.pattern.password");
-			return;
-		}
+//		if (!pattern("email", inVO.getEmail())){
+//			err.rejectValue("email", "field.error.pattern.email");
+//			return;
+//		}
+//		if (!pattern("password", inVO.getPassword())){
+//			err.rejectValue("password", "field.error.pattern.password");
+//			return;
+//		}
 		
 		//회원여부 체크
 		MemberVO outVO = service.signinSelect(inVO.getEmail());
