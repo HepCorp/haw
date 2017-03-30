@@ -546,7 +546,7 @@ body {
     height: 500px;
     margin: 170px auto 0;
 }
-.questPopUp h2.questH2 {
+.questPopUp h3 {
     text-align: center;
 }
 .questBox {
@@ -588,10 +588,26 @@ body {
     margin: 50px auto;
     color: #FFFFFF;
 }
-.infoPopUp {
-    width: 800px;
-    height: 500px;
-    margin: 170px auto 0;
+.infoPopUp01 {
+	position: relative;
+    width: 500px;
+    height: 330px;
+    margin-top: 170px;
+    margin-left: 350px;
+}
+.infoPopUp02 {
+	position:relative;
+	width: 500px;
+	height: 330px;
+	margin-top: 170px;
+	margin-left: 568px;
+}
+.infoPopUp03 {
+	position:relative;
+	width: 500px;
+	height: 330px;
+	margin-top: 170px;
+	margin-left: 788px;
 }
 #focusInfo {
     position: absolute;
@@ -599,7 +615,7 @@ body {
     left: 50%;
     top: 50%;
     margin-left: -297px;
-    margin-top: -285px;
+    margin-top: -99px;
 }
 #focusInfo img {
     width: 155px;
@@ -611,7 +627,7 @@ body {
     left: 50%;
     top: 50%;
     margin-left: -174px;
-    margin-top: -209px;
+    margin-top: -23px;
 }
 #connectInfo img {
     width: 100px;
@@ -625,7 +641,7 @@ body {
     left: 50%;
     top: 50%;
     margin-left: -75px;
-    margin-top: -171px;
+    margin-top: 15px;
 }
 .questInfo ul {
     width: 130px;

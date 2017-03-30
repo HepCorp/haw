@@ -8,7 +8,7 @@
                 <span>${questObj.alert }</span>
             </div>
             <form action="${questObj.action }" method="GET">
-            	<input type="hidden" name="lev" value="${questObj.level }" />
+            	<c:if test="${questObj.level != null }"><input type="hidden" name="lev" value="${questObj.level }" /></c:if>
                 <span>
                     <input type="submit" id="ok" name="" value="OK">
                 </span>

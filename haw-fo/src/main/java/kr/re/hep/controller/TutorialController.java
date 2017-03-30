@@ -174,7 +174,7 @@ public class TutorialController {
 	private String quest3(ModelMap model){
 		HashMap<String, String> questObj = new HashMap<String, String>();
 		questObj.put("alert", "Congratulations! You Got 500 + 1000 Point.");
-		questObj.put("action", null);
+		questObj.put("action", "/tutorial/index.do");
 		questObj.put("complete", "100");
 		questObj.put("chatNo", "17");
 		questObj.put("level", null);

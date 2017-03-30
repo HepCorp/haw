@@ -3,7 +3,7 @@
     <div class="questPopUpWrap" style="display:none; ">
         <div class="questPopUpBox">
             <div class="questPopUp">
-                <h2 class="questH2">SEOGWIPO CITY</h2>
+                <h3 class="questH2">SEOGWIPO CITY</h3>
                 <div class="questBox">
                     <div class="questWrap">
                         <dl>
@@ -25,7 +25,7 @@
     </div>
     <div class="questInfoPopUpWrap" style="display:none; ">
         <div class="questInfoBox">
-            <div class="infoPopUp">
+            <div id="infoPopUp" class="infoPopUp01">
                 <span id="focusInfo"><img src="/resources/images/quest-focus.png" alt=" 선택 퀘스트 포커싱"></span>
                 <span id="connectInfo"><img src="/resources/images/quest-connect-line.png" alt="퀘스트 정보 연결 선"></span>
                 <div class="questInfo">

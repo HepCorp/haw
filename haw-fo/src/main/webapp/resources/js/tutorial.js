@@ -91,6 +91,7 @@ $(function(){
 		$("#1quest").css("cursor", "pointer");
 		$("#1quest").click(function(){
 			$(".questInfoPopUpWrap").show();
+			$("#infoPopUp").toggleClass("infoPopUp01");
 			$(".chatting").html(chatComment[chatNo]);
 		});
 	}
@@ -119,6 +120,7 @@ $(function(){
 		$("#2quest").click(function(){
 			$(".questInfo ul li:eq(2)").text("1 Question");
 			$(".questInfoPopUpWrap").show();
+			$("#infoPopUp").toggleClass("infoPopUp02");  
 			$(".questInfo form").attr("action", "/tutorial/quest2-1.do");
 			$(".chatting").html(chatComment[chatNo]);
 		});
@@ -137,6 +139,7 @@ $(function(){
 		$("#3quest").click(function(){
 			$(".questInfo ul li:eq(2)").text("1 Question");
 			$(".questInfoPopUpWrap").show();
+			$("#infoPopUp").toggleClass("infoPopUp03");  
 			$(".questInfo form").attr("action", "/tutorial/quest3-1.do");
 			chatCom(chatNo);
 		})
