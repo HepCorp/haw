@@ -15,6 +15,30 @@ function FormChkModule(f){
 			return false;
 		}
 	}
+	if ($("form[name='questFrm']").attr("action") == ""){
+		$(".authButton").show();
+		$(".chatting").html(chatComment[chatNo]);
+		$(".authButton").click(function(){
+			$(".authConnectLine").show();
+			$(".authPopUp").show();
+		});
+		return false;
+	}
+	return true;
+}
+function FormChkModule2(f){
+	if (f.authInsert.value == ""){
+		alert("FLAG를 입력해 주세요!");
+		f.authInsert.focus();
+		return false;
+	} else {
+		if (f.authInsert.value != f.ANSWER.value){
+			alert("ERROR!!");
+			f.authInsert.select();
+			f.authInsert.focus();
+			return false;
+		}
+	}
 	return true;
 }
 </script>    
@@ -27,11 +51,11 @@ function FormChkModule(f){
             <div class="questContent">
                 <p>From. ${questObj.from }</p>
                 <span>${questObj.quest }</span>
-                <c:if test="questObj.attach != null">
-                <p><img src="/resources/images/download-icon.png" alt="다운로드 아이콘"><a href="" id="downloadBtn">attatched_file.zip</a></p>
+                <c:if test="${ questObj.attach != null }">
+                <p><img src="/resources/images/download-icon.png" alt="다운로드 아이콘"><a href="" id="downloadBtn">${questObj.attach }</a></p>
                 </c:if>
             </div>
-            <form action="/tutorial/${questObj.action }" method="POST" onsubmit="return FormChkModule(this);">
+            <form action="${questObj.action }" name="questFrm" method="POST" onsubmit="return FormChkModule(this);">
                 <fieldset>
                     <legend>퀘스트 답변 적기와 어쓰</legend>
                     <input type="hidden" name="ANSWER" value="${questObj.answer }" />
@@ -63,9 +87,10 @@ function FormChkModule(f){
         <div class="authPopUp" style="display:none; ">
             <div class="authBox">
                 <div class="auth">
-                    <form action="">
+                    <form action="${questObj.authaction }" method="POST" onsubmit="return FormChkModule2(this);">
                         <fieldset>
                             <legend>어쓰 체크</legend>
+                            <input type="hidden" name="ANSWER" value="${questObj.answer }" />
                             <span id="authInputArea">
                                 <input type="text" id="authInsert" name="authInsert" autofocus="autofocus">
                             </span>

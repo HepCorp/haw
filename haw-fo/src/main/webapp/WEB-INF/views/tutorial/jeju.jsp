@@ -31,6 +31,7 @@
 <%@ include file="/resources/include/mapSeogwipo.jsp" %>
 <%@ include file="/resources/include/questDetail.jsp" %>
 </section>
+<%@ include file="/resources/include/questComplete.jsp" %>
 <%@ include file="/resources/include/chatPopUp.jsp" %>
 </body>
 </html>

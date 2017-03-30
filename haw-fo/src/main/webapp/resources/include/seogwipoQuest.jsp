@@ -3,7 +3,7 @@
     <div class="questPopUpWrap" style="display:none; ">
         <div class="questPopUpBox">
             <div class="questPopUp">
-                <h2>SEOGWIPO CITY</h2>
+                <h2 class="questH2">SEOGWIPO CITY</h2>
                 <div class="questBox">
                     <div class="questWrap">
                         <dl>
@@ -11,11 +11,11 @@
                             <dd>QUEST1</dd>
                         </dl>
                         <dl>
-                            <dt><img src="/resources/images/quest2-icon.png" alt="퀘스트2 아이콘"></dt>
+                            <dt id="2quest"><img src="/resources/images/quest2-icon.png" alt="퀘스트2 아이콘"></dt>
                             <dd>QUEST2</dd>
                         </dl>
                         <dl>
-                            <dt><img src="/resources/images/lock-icon.png" alt="잠김 아이콘"></dt>
+                            <dt id="3quest"><img src="/resources/images/lock-icon.png" alt="잠김 아이콘"></dt>
                             <dd>LOCKED</dd>
                         </dl>
                     </div>

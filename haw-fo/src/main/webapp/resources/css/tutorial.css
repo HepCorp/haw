@@ -17,6 +17,7 @@ body {
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
     left: 0px;
+    top: -678px;
     overflow: hidden;
 }
 /* //tutorial common */
@@ -545,7 +546,7 @@ body {
     height: 500px;
     margin: 170px auto 0;
 }
-.questPopUp h2 {
+.questPopUp h2.questH2 {
     text-align: center;
 }
 .questBox {
