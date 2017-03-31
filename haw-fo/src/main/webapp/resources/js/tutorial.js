@@ -39,23 +39,25 @@ chatComment[11] = "<p>QUEST1을 클리어하여 아이콘이 변경되었습니�
 chatComment[12] = "<p>이번에는 파일을 다운로드해서 FLAG를 찾는 유형의 문제입니다.<br><br>계속 진행하시려면 ACCEPT를 클릭 해보세요!</p>";
 chatComment[13] = "<p>간단한 의뢰가 들어와있네요!<br><br>" +
 		"파일을 다운로드 받고 안쪽에 있는 FLAG을 찾아보세요.<br><br>" +
-		"메시지는 일반적으로 FLAG를 뜻합니다.</p>"
-chatComment[14] = "<p>축하드립니다~! 두번째 의뢰를 완수하였습니다.<br><br>" +
+		"메시지는 일반적으로 FLAG를 뜻합니다.</p>";
+chatComment[14] = "<p>좌측하단 AUTH 버튼을 눌러 최종 FLAG를 입력해보세요!";
+chatComment[15] = "<p>축하드립니다~! 두번째 의뢰를 완수하였습니다.<br><br>" +
 		"보상을 획득합니다.<br><br>" +
 		"이제 튜토리얼은 마지막 한단계 남았습니다!</p>";
-chatComment[15] = "<p>잡겨있던 QUEST3이 열렸습니다!<br><br>" +
-	"마지막 QUEST3은 서버에 접속하여 푸는 문제입니다!<br><br>" +
+chatComment[16] = "<p>잡겨있던 QUEST3이 열렸습니다!<br><br>" +
 	"QUEST3을 클릭해보세요.</p>";
-chatComment[16] = "<p>QUEST3의 의뢰는 현재까지와는 다소 다른형태입니다.<br><br>" +
-		"FLAG를 찾았으면 지금까지와 마찬가지로 아래 입력란에 입력 해주세요.</p>";
-chatComment[17] = "<p>축하드립니다~! 의뢰를 해결했습니다.<br><br>" +
+chatComment[17] = "<p>QUEST3의 아이콘은 버에 접속하여 푸는 문제입니다!<br><br>" +
+	"계속 진행하시려면 ACCEPT를 클릭 해보세요!</p>";
+chatComment[18] = "<p>FLAG를 찾았으면 지금까지와 마찬가지로 아래 입력란에 입력 해주세요.</p>";
+chatComment[19] = "<p>좌측하단 AUTH 버튼을 눌러 최종 FLAG를 입력해보세요!";
+chatComment[20] = "<p>축하드립니다~! 의뢰를 해결했습니다.<br><br>" +
 		"보상을 획득합니다.<br><br>" +
 		"도시 전체를 클리어하여 도시 클리어 보상도 추가로 획득합니다.</p>"
 var chatNo = 0;	
 $(function(){
 	console.log(FILE);
 	//튜토리얼 세계지도
-	if (FILE == "index"){
+	if (FILE.includes("index")){
 		$(".chatPopUpWrap").hide();
 		$(".tutorialCityWrap").hide();
 		$(".countryInfo").hide();
@@ -90,8 +92,8 @@ $(function(){
 		});
 		$("#1quest").css("cursor", "pointer");
 		$("#1quest").click(function(){
+			$("#questInfoDetailPop").attr("class", "infoPopUp01");
 			$(".questInfoPopUpWrap").show();
-			$("#infoPopUp").toggleClass("infoPopUp01");
 			$(".chatting").html(chatComment[chatNo]);
 		});
 	}
@@ -103,6 +105,7 @@ $(function(){
 		else {
 			$(".tutorialWrap").show();
 			$(".detailWrap").show();
+			$(".detailWrap form input[type='text']:eq(0)").focus();
 		}
 		$(".chatting").html(chatComment[chatNo]);
 		chatNo++;
@@ -116,30 +119,32 @@ $(function(){
 		$(".questPopUpWrap").show();
 		$("#1quest>img").attr("src", "/resources/images/checked-icon.png");
 		$("#1quest").parent().children("dd").text("CLEAR");
+		$("#1quest").parent().children("dd").addClass("clear");
 		$("#2quest").css("cursor", "pointer");
 		$("#2quest").click(function(){
 			$(".questInfo ul li:eq(2)").text("1 Question");
+			$("#questInfoDetailPop").attr("class", "infoPopUp02");  
 			$(".questInfoPopUpWrap").show();
-			$("#infoPopUp").toggleClass("infoPopUp02");  
 			$(".questInfo form").attr("action", "/tutorial/quest2-1.do");
 			$(".chatting").html(chatComment[chatNo]);
 		});
 	}
 	//레벨3
 	else if (FILE == "jeju?lev=3") {
-		chatNo = 15;
+		chatNo = 16;
 		chatCom();
 		$(".tutorialWrap").show();
 		$(".questPopUpWrap").show();
 		$("#1quest>img, #2quest>img").attr("src", "/resources/images/checked-icon.png");
 		$("#1quest, #2quest").parent().children("dd").text("CLEAR");
+		$("#1quest, #2quest").parent().children("dd").addClass("clear");
 		$("#3quest>img").attr("src", "/resources/images/quest3-icon.png");
 		$("#3quest").parent().children("dd").text("QUEST3");
 		$("#3quest").css("cursor", "pointer");
 		$("#3quest").click(function(){
 			$(".questInfo ul li:eq(2)").text("1 Question");
+			$("#questInfoDetailPop").attr("class", "infoPopUp03");  
 			$(".questInfoPopUpWrap").show();
-			$("#infoPopUp").toggleClass("infoPopUp03");  
 			$(".questInfo form").attr("action", "/tutorial/quest3-1.do");
 			chatCom(chatNo);
 		})

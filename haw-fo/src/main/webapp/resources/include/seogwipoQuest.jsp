@@ -25,7 +25,7 @@
     </div>
     <div class="questInfoPopUpWrap" style="display:none; ">
         <div class="questInfoBox">
-            <div id="infoPopUp" class="infoPopUp01">
+            <div id="questInfoDetailPop" class="infoPopUp01">
                 <span id="focusInfo"><img src="/resources/images/quest-focus.png" alt=" 선택 퀘스트 포커싱"></span>
                 <span id="connectInfo"><img src="/resources/images/quest-connect-line.png" alt="퀘스트 정보 연결 선"></span>
                 <div class="questInfo">

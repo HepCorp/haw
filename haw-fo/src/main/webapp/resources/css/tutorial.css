@@ -578,6 +578,9 @@ body {
 .questWrap dl dt img {
     width: 100px;
 }
+.questWrap .clear {
+	text-shadow: 0 0 8px #00FFFF;
+}
 /* //questPopUp */
 
 /* questInfoPopUp */
@@ -682,6 +685,7 @@ body {
     overflow: hidden;
 }
 .questDetailPopUp {
+	position: relative;
     width: 1200px;
     height: 300px;
     margin: 220px auto 0;
@@ -828,7 +832,7 @@ body {
     left: 50%;
     top: 50%;
     margin-left: 100px;
-    margin-top: -373px;
+    margin-top: -240px;
 }
 .questConnectLine img {
     width: 150px;
@@ -841,7 +845,7 @@ body {
     left: 50%;
     top: 50%;
     margin-left: -367px;
-    margin-top: -100px;
+    margin-top: 17px;
 }
 .authConnectLine img {
     width: 200px;
@@ -851,7 +855,7 @@ body {
     left: 50%;
     top: 50%;
     margin-left: -163px;
-    margin-top: -130px;
+    margin-top: -20px;
 }
 .authBox {
     width: 350px;

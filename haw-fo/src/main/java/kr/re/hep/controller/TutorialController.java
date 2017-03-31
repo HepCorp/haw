@@ -140,7 +140,7 @@ public class TutorialController {
 		questObj.put("alert", "Congratulations! You Got 500 Point.");
 		questObj.put("action", "/tutorial/jeju.do");
 		questObj.put("complete", "100");
-		questObj.put("chatNo", "14");
+		questObj.put("chatNo", "15");
 		questObj.put("level", "3");
 		
 		model.addAttribute("questObj", questObj);
@@ -153,7 +153,7 @@ public class TutorialController {
 	private String quest3_1(ModelMap model){
 		
 		HashMap<String, String> questObj = new HashMap<String, String>();
-		questObj.put("title", "QUEST2-1");
+		questObj.put("title", "QUEST3-1");
 		questObj.put("from", "Grace");
 		questObj.put("quest", "예전에 사용하던 서버에 접속하여 중요한 메시지를 확인해주세요.<br><br>"
 				+ "서버주소 : 192.168.0.100<br>ID : sshuser<br>Pass : sshuser");
@@ -161,7 +161,7 @@ public class TutorialController {
 		questObj.put("complete", "0");
 		questObj.put("attach", null);
 		questObj.put("action", null);
-		questObj.put("chatNo", "16");
+		questObj.put("chatNo", "18");
 		questObj.put("authaction", "quest3.do");
 		
 		model.addAttribute("questObj", questObj);
@@ -176,7 +176,7 @@ public class TutorialController {
 		questObj.put("alert", "Congratulations! You Got 500 + 1000 Point.");
 		questObj.put("action", "/tutorial/index.do");
 		questObj.put("complete", "100");
-		questObj.put("chatNo", "17");
+		questObj.put("chatNo", "20");
 		questObj.put("level", null);
 		
 		model.addAttribute("questObj", questObj);
