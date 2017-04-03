@@ -13,14 +13,14 @@
 <body>
 <section>
     <h2><img src="/resources/images/title.png" alt="핵토리얼 월드"></h2>
-    <div class="contentsWrap02">
+    <div id="mapWrap" class="contentsWrap${questObj.wrap }">
         <div class="mainWrap">
-            <div class="jejuMap">
-                <div class="location">
-                    <p id="seogwipo" style="display:none; "><a href="">SEOGWIPO CITY</a></p>
-                    <p id="jejuCity">JEJU CITY</p>
+            <div id="jejuIsland" class="${questObj.activeClass }ActiveMap">
+                <div class="jejuLocation">
+                    <p id="jeju01" class="seogwipo">SEOGWIPO CITY</p>
+                    <p id="jeju02" class="jejuCityInactive">JEJU CITY</p>
                 </div>
-                <span id="pointerJ" style="display:none;"><a href="" id="questPop"><img src="/resources/images/activation-pointer.png" alt="포인터"></a></span>
+                <span class="pointerJ" style="display:none;"><a href="" id="questPop"><img src="/resources/images/activation-pointer.png" alt="포인터"></a></span>
                 <span id="compass"><img src="/resources/images/compass2.png" alt="나침반 이미지"></span>
             </div>
         </div>

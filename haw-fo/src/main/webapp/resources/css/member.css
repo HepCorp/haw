@@ -457,6 +457,7 @@ section h2 img {
 }
 #prev a img {
     width: 15px;
+    opacity:0.5;
 }
 .symbols {
     width: 440px;
@@ -489,7 +490,8 @@ section h2 img {
     width: 15px;
 }
 #next a img {
-    width: 15px
+    width: 15px;
+    opacity:0.5;
 }
 /* //selectTeam */
 

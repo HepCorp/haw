@@ -48,26 +48,26 @@
                                 </form>
                             </div>
                         </div>
-                        <!-- <div class="teamListWrap">
+                        <div class="teamListWrap">
                             <div class="teamList">
                             <span id="prev">
                                 <a><img src="/resources/images/left-arrow.png" alt="다시보기"></a>
                             </span>
                                 <div class="symbols">
                                     <ul>
-                                        <li><a href=""><img src="/resources/images/arabian.png" alt="아라비안 심볼"></a></li>
-                                        <li><a href=""><img src="/resources/images/starshield.png" alt="별방패 심볼"></a></li>
-                                        <li><a href=""><img src="/resources/images/usa.png" alt="미국 심볼"></a></li>
-                                        <li><a href=""><img src="/resources/images/crossshield.png" alt="십자방패 심볼"></a></li>
-                                        <li><a href=""><img src="/resources/images/arabian.png" alt="아라비안 심볼"></a></li>
-                                        <li><a href=""><img src="/resources/images/starshield.png" alt="별방패 심볼"></a></li>
+                                        <li><a ><img src="/resources/images/arabian.png" alt="아라비안 심볼"></a></li>
+                                        <li><a ><img src="/resources/images/starshield.png" alt="별방패 심볼"></a></li>
+                                        <li><a ><img src="/resources/images/usa.png" alt="미국 심볼"></a></li>
+                                        <li><a ><img src="/resources/images/crossshield.png" alt="십자방패 심볼"></a></li>
+                                        <li><a ><img src="/resources/images/arabian.png" alt="아라비안 심볼"></a></li>
+                                        <li><a ><img src="/resources/images/starshield.png" alt="별방패 심볼"></a></li>
                                     </ul>
                                 </div>
                                 <span id="next">
                                 <a><img src="/resources/images/right-arrow.png" alt="다음보기"></a>
                             </span>
                             </div>
-                        </div> -->
+                        </div>
                     </div>
                 </div>
             </div>

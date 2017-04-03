@@ -50,7 +50,14 @@ public class SigninValidation extends ParamValidatChk implements Validator {
 //		}
 		
 		//회원여부 체크
-		MemberVO outVO = service.signinSelect(inVO.getEmail());
+		MemberVO outVO;
+		try {
+			outVO = service.signinSelect(inVO.getEmail());
+		} catch (Exception e) {
+			err.rejectValue("email", e.getMessage());
+			e.printStackTrace();
+			return;
+		}
 		SigninVO signVO = new SigninVO();
 		signVO.setEmail(inVO.getEmail());
 		signVO.setIp(inVO.getIp());

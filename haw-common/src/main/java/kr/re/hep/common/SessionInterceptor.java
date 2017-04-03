@@ -19,7 +19,14 @@ public class SessionInterceptor extends HandlerInterceptorAdapter {
 		MemberVO member = (MemberVO) request.getSession().getAttribute("memberVO");
 		Boolean login = mainPage.toString().contains("/member/index.do");
 		Boolean register = mainPage.toString().contains("/member/register.do");
+		Boolean resources = mainPage.toString().contains("/resources/");
 		
+//		if (member == null) {
+//			if (!login && !register && !resources){
+//				response.sendRedirect(request.getContextPath() +"/member/index.do");
+//				return false;
+//			}
+//		}
 //		if (!login && !register) {
 //			if (member == null){
 //				response.sendRedirect(request.getContextPath() +"/member/index.do");

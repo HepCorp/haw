@@ -67,7 +67,6 @@ public class MemberController {
 		}
 		
 		//세션생성
-		System.out.println(inVO.toString());
 		session.setAttribute("memberVO", inVO);
 		if (inVO.getTeam_no() == 0) {
 			//팀선택
@@ -112,7 +111,7 @@ public class MemberController {
 		vo.setIp(request.getRemoteAddr());
 		service.memberInsert(vo);
 		
-		return "redirect:/index.do";
+		return "redirect:/member/index.do";
 	}
 	
 	//아이디중복체크
@@ -147,7 +146,6 @@ public class MemberController {
 	@RequestMapping(value="/team.do", method=RequestMethod.GET)
 	private String teamSelect(HttpSession session){
 		MemberVO memberVO = (MemberVO) session.getAttribute("memberVO");
-		
 		//팀이 없으면 팀선택 
 		if (memberVO.getTeam_no() == 0) {
 			return "/member/teamSelect";

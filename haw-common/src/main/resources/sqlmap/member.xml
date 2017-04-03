@@ -21,13 +21,14 @@
 	</select>
 	<insert id="memberInsert" parameterType="memberVO">
 	<![CDATA[
-		INSERT INTO haw.member (name, email, password, nickname, ip)
+		INSERT INTO haw.member (name, email, password, nickname, ip, team_no)
 		VALUES (
 			   #{name}
 			 , #{email}
 			 , #{password}
 			 , #{nickname}
 			 , #{ip}
+			 , null
 		)
 	]]>
 	</insert>

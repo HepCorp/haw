@@ -123,7 +123,14 @@ section h2 img {
     width: 1200px;
     height: 628px;
     margin: 50px auto 0;
-    background: url("../images/jejucity.png") no-repeat center;
+    background: url("../images/jejucity-inactive.png") no-repeat center;
+    background-size: contain
+}
+.contentsWrap03 {
+    width: 1200px;
+    height: 628px;
+    margin: 50px auto 0;
+    background: url("../images/seogwipocity-inactive.png") no-repeat center;
     background-size: contain
 }
 .mainWrap {
@@ -132,54 +139,105 @@ section h2 img {
     background: url("../images/outline.png") no-repeat center;
     background-size: contain;
 }
-.jejuMap {
+.seogwipoActiveMap {
     width: 1200px;
     height: 628px;
-    background: url("../images/seogwipocity.png") no-repeat center;
+    background: url("../images/seogwipocity-active.png") no-repeat center;/* 제주시 활성화됬을때는 seogwipocity-inactive.png로 이미지 교체해주세요 */
     background-size: contain;
 }
-.location {
+.jejuActiveMap {
+    width: 1200px;
+    height: 628px;
+    background: url("../images/jejucity-active.png") no-repeat center;/* 제주시 활성화됬을때는 seogwipocity-inactive.png로 이미지 교체해주세요 */
+    background-size: contain;
+}
+.jejuLocation {
     position: absolute;
     width: 1650px;
     height: calc(100vh - 70px);
     margin: 35px auto;
 }
-.location p {
+.jejuLocation p {
     position: absolute;
     font-family: SwiszRegular;
     font-size: 14px;
     color: #C3C3C3;
     text-align: center;
 }
-#seogwipo {
+.seogwipo {
     left: 50%;
     top: 50%;
     margin-top: -165px;
     margin-left: -135px;
 }
-#seogwipo a {
+.seogwipo a {
     font-family: SwiszRegular;
     font-size: 18px;
     color: #FFFFFF;
     text-decoration: none;
 }
-#jejuCity {
-    left: 50%;
-    top: 50%;
-    margin-top: -255px;
+.seogwipoInactive {
+	font-faimily: SwiszRegular;
+	font-size: 14px;
+	color: #C3C3C3;
+	text-decoration: none;
+	left: 50%;
+	top: 50%;
+	margin-top: -145px;
     margin-left: -260px;
 }
-#pointerJ {
+.jejuCity {
+    left: 50%;
+    top: 50%;
+    margin-top: -300px;
+    margin-left: -196px;
+}
+.jejuCity a {
+	font-family: SwiszRegular;
+    font-size: 18px;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+.jejuCity a {
+	font-family: SwiszRegular;
+	font-size: 18px;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.jejuCityInactive {
+	font-faimily: SwiszRegular;
+	font-size: 14px;
+	color: #C3C3C3;
+	text-decoration: none;
+	left: 50%;
+	top: 50%;
+	margin-top: -275px;
+	margin-left: -260px;
+}
+.pointerJ {
     position: absolute;
     width: 100px;
     height: 80px;
     top: 50%;
     left: 50%;
-    margin-top: 10px;
-    margin-left: -15px;
+    margin-top: -114px;
+    margin-left: -49px;
 }
-#pointerJ img {
+.pointerS {
+	position: absolute;
+	width: 100px;
+	height: 80px;
+	top: 50%;
+	left: 50%;
+	margin-top: 10px;
+	margin-left: -15px;
+}
+.pointerJ img {
     width: 100px;
     height: 80px;
+}
+.pointerS img {
+	width: 100px;
+	height: 80px;
 }
 /* //selectJeju */

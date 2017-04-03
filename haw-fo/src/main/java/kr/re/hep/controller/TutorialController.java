@@ -27,9 +27,9 @@ public class TutorialController {
 		return "/tutorial/korea";	
 	}
 	
-	//제주도
-	@RequestMapping(value="/jeju.do", method=RequestMethod.GET)
-	private String jeju(
+	//서귀포 튜토리얼 
+	@RequestMapping(value="/seogwipo.do", method=RequestMethod.GET)
+	private String seogwipo(
 			@RequestParam(value="lev", required=false, defaultValue="1") String level
 		  , ModelMap model){
 		
@@ -38,6 +38,23 @@ public class TutorialController {
 		HashMap<String, Object> questObj = new HashMap<String, Object>();
 		questObj.put("level", level);
 		questObj.put("complete", "0");
+		questObj.put("activeClass", "seogwipo");
+		questObj.put("wrap", "02");
+		
+		model.addAttribute("questObj", questObj);
+		return "/tutorial/jeju";
+	}
+	
+	//제주시 게임시작
+	@RequestMapping(value="/jeju.do", method=RequestMethod.GET)
+	private String jeju( ModelMap model){
+		
+		//tutorial save
+		
+		HashMap<String, Object> questObj = new HashMap<String, Object>();
+		questObj.put("complete", "0");
+		questObj.put("activeClass", "jeju");
+		questObj.put("wrap", "03");
 		
 		model.addAttribute("questObj", questObj);
 		return "/tutorial/jeju";
@@ -56,6 +73,8 @@ public class TutorialController {
 		questObj.put("attach", null);
 		questObj.put("action", "/tutorial/quest1-2.do");
 		questObj.put("chatNo", "6");
+		questObj.put("wrap", "02");
+		questObj.put("activeClass", "seogwipo");
 		
 		model.addAttribute("questObj", questObj);
 		
@@ -74,6 +93,8 @@ public class TutorialController {
 		questObj.put("attach", null);
 		questObj.put("action", "/tutorial/quest1-3.do");
 		questObj.put("chatNo", "7");
+		questObj.put("wrap", "02");
+		questObj.put("activeClass", "seogwipo");
 		
 		model.addAttribute("questObj", questObj);
 		
@@ -84,7 +105,7 @@ public class TutorialController {
 	private String quest1_3(ModelMap model) {
 		HashMap<String, String> questObj = new HashMap<String, String>();
 		questObj.put("title", "QUEST1-2");
-		questObj.put("from", "Guest");
+		questObj.put("from", "stk");
 		questObj.put("quest", "HEP{You_gOT_tHe_firST_FLAG}");
 		questObj.put("answer", "HEP{You_gOT_tHe_firST_FLAG}");
 		questObj.put("complete", "100");
@@ -92,6 +113,8 @@ public class TutorialController {
 		questObj.put("action", null);
 		questObj.put("chatNo", "8");
 		questObj.put("authaction", "quest1.do");
+		questObj.put("wrap", "02");
+		questObj.put("activeClass", "seogwipo");
 		
 		model.addAttribute("questObj", questObj);
 		
@@ -103,10 +126,12 @@ public class TutorialController {
 	private String quest1(ModelMap model){
 		HashMap<String, String> questObj = new HashMap<String, String>();
 		questObj.put("alert", "Congratulations! You Got 500 Point.");
-		questObj.put("action", "/tutorial/jeju.do");
+		questObj.put("action", "/tutorial/seogwipo.do");
 		questObj.put("complete", "100");
 		questObj.put("chatNo", "10");
 		questObj.put("level", "2");
+		questObj.put("wrap", "02");
+		questObj.put("activeClass", "seogwipo");
 		
 		model.addAttribute("questObj", questObj);
 		
@@ -127,6 +152,8 @@ public class TutorialController {
 		questObj.put("action", null);
 		questObj.put("chatNo", "13");
 		questObj.put("authaction", "quest2.do");
+		questObj.put("wrap", "02");
+		questObj.put("activeClass", "seogwipo");
 		
 		model.addAttribute("questObj", questObj);
 		
@@ -138,10 +165,12 @@ public class TutorialController {
 	private String quest2(ModelMap model){
 		HashMap<String, String> questObj = new HashMap<String, String>();
 		questObj.put("alert", "Congratulations! You Got 500 Point.");
-		questObj.put("action", "/tutorial/jeju.do");
+		questObj.put("action", "/tutorial/seogwipo.do");
 		questObj.put("complete", "100");
 		questObj.put("chatNo", "15");
 		questObj.put("level", "3");
+		questObj.put("wrap", "02");
+		questObj.put("activeClass", "seogwipo");
 		
 		model.addAttribute("questObj", questObj);
 		
@@ -154,7 +183,7 @@ public class TutorialController {
 		
 		HashMap<String, String> questObj = new HashMap<String, String>();
 		questObj.put("title", "QUEST3-1");
-		questObj.put("from", "Grace");
+		questObj.put("from", "Alexan");
 		questObj.put("quest", "예전에 사용하던 서버에 접속하여 중요한 메시지를 확인해주세요.<br><br>"
 				+ "서버주소 : 192.168.0.100<br>ID : sshuser<br>Pass : sshuser");
 		questObj.put("answer", "HEP{Ssh_ConnEctioN}");
@@ -163,6 +192,8 @@ public class TutorialController {
 		questObj.put("action", null);
 		questObj.put("chatNo", "18");
 		questObj.put("authaction", "quest3.do");
+		questObj.put("wrap", "02");
+		questObj.put("activeClass", "seogwipo");
 		
 		model.addAttribute("questObj", questObj);
 		
@@ -174,14 +205,15 @@ public class TutorialController {
 	private String quest3(ModelMap model){
 		HashMap<String, String> questObj = new HashMap<String, String>();
 		questObj.put("alert", "Congratulations! You Got 500 + 1000 Point.");
-		questObj.put("action", "/tutorial/index.do");
+		questObj.put("action", "/tutorial/jeju.do");
 		questObj.put("complete", "100");
 		questObj.put("chatNo", "20");
 		questObj.put("level", null);
+		questObj.put("wrap", "02");
+		questObj.put("activeClass", "seogwipo");
 		
 		model.addAttribute("questObj", questObj);
 		
 		return "/tutorial/jeju";		
 	}
-
 }

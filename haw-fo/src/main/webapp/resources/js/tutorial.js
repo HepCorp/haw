@@ -53,7 +53,8 @@ chatComment[18] = "<p>FLAG를 지금까지와 마찬가지로 아래 입력란�
 chatComment[19] = "<p>좌측하단 AUTH 버튼을 눌러 최종 FLAG를 입력해보세요!";
 chatComment[20] = "<p>축하드립니다~! 의뢰를 해결했습니다.<br><br>" +
 		"보상을 획득합니다.<br><br>" +
-		"도시 전체를 클리어하여 도시 클리어 보상도 추가로 획득합니다.</p>";
+		"도시 전체를 클리어하여 도시 클리어 보상도 추가로 획득합니다.<br><br>" +
+		"자! 이제 본격적으로 게임을 시작해 볼까요? 클릭하시면 제주시로 이동합니다!</p>";
 var chatNo = 0;	
 $(function(){
 	console.log(FILE);
@@ -77,13 +78,14 @@ $(function(){
 		$(".chatPopUpWrap").show();
 	}
 	//튜토리얼 제주도
-	else if (FILE == "jeju") {
+	else if (FILE == "seogwipo") {
 		$(".tutorialWrap").show();
 		$(".tutorialCityWrap").show();
 		chatNo = 3;
 		$(".chatting").html(chatComment[chatNo]);
 		chatNo++;
 		$(".chatPopUpWrap").show();
+		$("#jeju01").hide();
 		$("#sgpPointer").click(function(){
 			$(".tutorialCityWrap").hide();
 			$(".questPopUpWrap").show();
@@ -112,7 +114,7 @@ $(function(){
 		chatNo++;
 	}
 	//레벨2
-	else if (FILE == "jeju?lev=2"){
+	else if (FILE == "seogwipo?lev=2"){
 		chatNo = 11;
 		$(".chatting").html(chatComment[chatNo]);
 		chatNo++;
@@ -131,7 +133,7 @@ $(function(){
 		});
 	}
 	//레벨3
-	else if (FILE == "jeju?lev=3") {
+	else if (FILE == "seogwipo?lev=3") {
 		chatNo = 16;
 		chatCom();
 		$(".tutorialWrap").show();
@@ -148,7 +150,16 @@ $(function(){
 			$(".questInfoPopUpWrap").show();
 			$(".questInfo form").attr("action", "/tutorial/quest3-1.do");
 			chatCom(chatNo);
-		})
+		});
+	}
+	//제주도
+	else if (FILE.includes("jeju")) {
+		$(".pointerJ").show();
+		$(".chatPopUpWrap").hide();
+		$("#jeju02").wrapInner("<a href=\"\" />");
+		$("#jeju01").detach("a");
+		$("#jeju01").attr("class", "seogwipoInactive");
+		$("#jeju02").attr("class", "jejuCity");
 	}
 });
 
