@@ -104,7 +104,7 @@ public class TutorialController {
 	@RequestMapping(value="/quest1-3.do", method=RequestMethod.POST)
 	private String quest1_3(ModelMap model) {
 		HashMap<String, String> questObj = new HashMap<String, String>();
-		questObj.put("title", "QUEST1-2");
+		questObj.put("title", "QUEST1 FLAG");
 		questObj.put("from", "stk");
 		questObj.put("quest", "HEP{You_gOT_tHe_firST_FLAG}");
 		questObj.put("answer", "HEP{You_gOT_tHe_firST_FLAG}");
