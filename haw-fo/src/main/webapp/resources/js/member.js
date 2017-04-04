@@ -10,7 +10,7 @@ chatComment[0] = "<p>팀 선택 창입니다. 원하시는 팀을 선택해주�
 		"팀 선택을 완료하면 한동안 바꿀수 없으니 신중하게 선택해주세요!</p>";
 $(function(){
 	// 회원가입 
-	if (FILE == "register"){
+	if (FILE == "register" || FILE == "save"){
 		var result = new ReturnJSON;
 		$("#name, #email, #password, #password2, #nickname").on('keyup focus load', function(){
 			autoRegistChk($(this));
@@ -26,7 +26,7 @@ $(function(){
 		})
 	}
 	//로그인
-	else if (FILE == "index"){
+	else if (FILE == "index" || FILE == "signin"){
 		$("#email, #password").on('load keyup focus', function(){
 			autoSigninChk($(this));
 		});

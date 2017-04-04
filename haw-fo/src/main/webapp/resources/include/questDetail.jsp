@@ -3,6 +3,7 @@
 <script type="text/javascript">
 chatNo = "${questObj.chatNo}";
 function FormChkModule(f){
+	f.answer.value = f.answer.value.trim();
 	if (f.answer.value == ""){
 		alert("정답을 입력해 주세요.!");
 		f.answer.focus();
@@ -27,6 +28,7 @@ function FormChkModule(f){
 	return true;
 }
 function FormChkModule2(f){
+	f.authInsert.value = f.authInsert.value.trim();
 	if (f.authInsert.value == ""){
 		alert("FLAG를 입력해 주세요!");
 		f.authInsert.focus();

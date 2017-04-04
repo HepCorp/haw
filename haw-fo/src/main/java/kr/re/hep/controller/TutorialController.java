@@ -1,6 +1,13 @@
 package kr.re.hep.controller;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashMap;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -104,7 +111,7 @@ public class TutorialController {
 	@RequestMapping(value="/quest1-3.do", method=RequestMethod.POST)
 	private String quest1_3(ModelMap model) {
 		HashMap<String, String> questObj = new HashMap<String, String>();
-		questObj.put("title", "QUEST1 FLAG");
+		questObj.put("title", "FLAG");
 		questObj.put("from", "stk");
 		questObj.put("quest", "HEP{You_gOT_tHe_firST_FLAG}");
 		questObj.put("answer", "HEP{You_gOT_tHe_firST_FLAG}");
@@ -216,4 +223,28 @@ public class TutorialController {
 		
 		return "/tutorial/jeju";		
 	}
+	
+	@RequestMapping(value="/downloadFile.do")
+	public void downloadFile(
+			  @RequestParam(value="file", required=true) String attach_file
+			, HttpServletResponse response
+			, HttpServletRequest request) throws Exception{
+	    String dataDirectory = request.getSession().getServletContext().getRealPath("/resources/attach/");
+	    Path file = Paths.get(dataDirectory, attach_file);
+	    
+	    if (Files.exists(file)) 
+        {
+            response.setContentType("application/pdf");
+            response.addHeader("Content-Disposition", "attachment; filename="+attach_file);
+            try
+            {
+                Files.copy(file, response.getOutputStream());
+                response.getOutputStream().flush();
+            } 
+            catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+	}
+
 }
