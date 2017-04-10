@@ -54,7 +54,7 @@ function FormChkModule2(f){
                 <p>From. ${questObj.from }</p>
                 <span>${questObj.quest }</span>
                 <c:if test="${ questObj.attach != null }">
-                <p><img src="/resources/images/download-icon.png" alt="다운로드 아이콘"><a href="" id="downloadBtn">${questObj.attach }</a></p>
+                <p><img src="/resources/images/download-icon.png" alt="다운로드 아이콘"><a href="/tutorial/downloadFile.do?file=${questObj.attach }" id="downloadBtn">${questObj.attach }</a></p>
                 </c:if>
             </div>
             <form action="${questObj.action }" name="questFrm" method="POST" onsubmit="return FormChkModule(this);">
