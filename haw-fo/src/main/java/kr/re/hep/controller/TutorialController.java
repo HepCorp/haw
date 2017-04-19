@@ -124,7 +124,7 @@ public class TutorialController {
 		questObj.put("complete", "100");
 		questObj.put("attach", null);
 		questObj.put("action", null);
-		questObj.put("chatNo", "8");
+		questObj.put("chatNo", "9");
 		questObj.put("authaction", "quest1.do");
 		questObj.put("wrap", "02");
 		questObj.put("activeClass", "seogwipo");

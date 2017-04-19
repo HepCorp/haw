@@ -26,19 +26,19 @@ body {
 .chatPopUpWrap {
     position: absolute;
     width: 100%;
-    height: 150px;
+    height: 200px;
     bottom: 0;
 }
 .chatBox {
     width: 1200px;
-    height: 550px;
+    height: 600px;
     background-size: contain;
     margin: 0 auto;
     color: #FFFFFF;
 }
 .tutorialChat {
     width: 1200px;
-    height: 150px;
+    height: 200px;
     background-color: #000000;
 }
 .chat {
@@ -52,7 +52,7 @@ body {
 }
 .system {
     width: 1200px;
-    height: 120px;
+    height: 170px;
     border: 1px solid #00ffff;
     box-sizing: border-box;
 }
@@ -84,8 +84,9 @@ body {
     /*overflow: scroll;*/
 }
 .chatting p {
-    font-size: 13px;
+    font-size: 16px;
     font-family: "Noto Sans CJK KR Regular";
+    line-height: 20px;
 }
 /* //chatPopUp */
 
@@ -730,10 +731,12 @@ body {
 .questContent span {
     width: 500px;
     height: 150px;
+    font-size: 14px;
+    line-height: 18px;
     display: block;
     margin: 0 auto 15px;
     color: #FFFFFF;
-    font-family: "Noto Sans CJK KR Regular", "맑은 고딕";
+    font-family: "Noto Sans CJK KR Thin", "맑은 고딕";
 }
 .questContent p:last-child {
     width: 620px;
@@ -861,6 +864,7 @@ body {
     width: 350px;
     height: 84px;
     margin: 0 auto;
+    background-color: #000000;
 }
 .auth {
     width: 350px;

@@ -109,6 +109,14 @@ $(function(){
 			$(".tutorialWrap").show();
 			$(".detailWrap").show();
 			$(".detailWrap form input[type='text']:eq(0)").focus();
+			if (FILE == "quest1-3"){
+				$(".questAnswer p").hide();
+				$(".authButton").show();
+				$(".authButton").click(function(){
+					$(".authConnectLine").show();
+					$(".authPopUp").show();
+				});
+			}
 		}
 		$(".chatting").html(chatComment[chatNo]);
 		chatNo++;
