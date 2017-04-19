@@ -167,4 +167,4 @@ var CONTEXTPATH = "/";
 
 var URL = document.location.href.split("/");
 var PAGE = URL[URL.length-1];
-FILE = PAGE.replace(".do", "");
+var FILE = PAGE.replace(".do", "");

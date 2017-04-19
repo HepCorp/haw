@@ -74,8 +74,9 @@ public class TutorialController {
 		HashMap<String, String> questObj = new HashMap<String, String>();
 		questObj.put("title", "QUEST1-1");
 		questObj.put("from", "Rachel");
-		questObj.put("quest", "제주도 서귀포시 위쪽에 위치해 있는 시의 영문(소문자) 이름을 알려주세요.");
-		questObj.put("answer", "jeju");
+		questObj.put("quest", "최근 한달 동안 연락이 안되던 친구한테 이상한 메시지가 날라왔어요.<br>암호문 같은데... 해독 좀 부탁드립니다. 메시지는 아래와 같습니다.<br><br>"
+				+ "URC{PrfneVfNaRnflRapelcgvbaZrgubq}");
+		questObj.put("answer", "HEP{CesarIsAnEasyEncryptionMethod}");
 		questObj.put("complete", "0");
 		questObj.put("attach", null);
 		questObj.put("action", "/tutorial/quest1-2.do");
@@ -94,8 +95,13 @@ public class TutorialController {
 		HashMap<String, String> questObj = new HashMap<String, String>();
 		questObj.put("title", "QUEST1-2");
 		questObj.put("from", "Guest");
-		questObj.put("quest", "이 게임의 영문(소문자) 이름이 무엇인가요?");
-		questObj.put("answer", "hacktorial world");
+		questObj.put("quest", "안녕하세요, 개인적인 의뢰가 있어 연락 드립니다.<br>"
+				+ "최근 여자친구가 저에게 무언가를 숨기고 있는 것 같습니다. 여자친구의 홈페이지에 접속해보니 Secret Diary라는 제목의 글이 의심스러운데... <br>"
+				+ "암호가 걸려있고 제 나름 최대한 시도를 해봤지만 내용을 확인 할 수가 없네요. <br>"
+				+ "Secret Key라는 글이 뭔가 힌트인 것 같긴한데... Secret Diary의 내용을 꼭 확인하고 싶습니다..<br>"
+				+ "부탁드립니다. 사례는 섭섭치 않게 드리겠습니다.<br><br>"
+				+ "웹 접속 링크 : http://192.168.0.120/wordpress/index.php/2017/04/04/secret-diary/");
+		questObj.put("answer", "HEP{1_L0V3_U}");
 		questObj.put("complete", "50");
 		questObj.put("attach", null);
 		questObj.put("action", "/tutorial/quest1-3.do");
@@ -152,10 +158,10 @@ public class TutorialController {
 		HashMap<String, String> questObj = new HashMap<String, String>();
 		questObj.put("title", "QUEST2-1");
 		questObj.put("from", "Grace");
-		questObj.put("quest", "친구가 파일을 보내왔는데, 어떻게 열어보는지 모르겠어요.<br>안쪽에 메시지를 적어뒀다고 하는데...<br>메시지를 찾아주세요.");
-		questObj.put("answer", "HEP{You_GOT_the SeCOND_flag}");
+		questObj.put("quest", "Decrypt \"decrypt_it.txt\" file in this Linux. dsl password is VulPasswdFile");
+		questObj.put("answer", "HEP{Cipher_can_be_decrypted_even_in_notepad}");
 		questObj.put("complete", "0");
-		questObj.put("attach", "Attached_file.zip");
+		questObj.put("attach", "decrypt_it.zip");
 		questObj.put("action", null);
 		questObj.put("chatNo", "13");
 		questObj.put("authaction", "quest2.do");
@@ -191,9 +197,12 @@ public class TutorialController {
 		HashMap<String, String> questObj = new HashMap<String, String>();
 		questObj.put("title", "QUEST3-1");
 		questObj.put("from", "Alexan");
-		questObj.put("quest", "예전에 사용하던 서버에 접속하여 중요한 메시지를 확인해주세요.<br><br>"
-				+ "서버주소 : 192.168.0.100<br>ID : sshuser<br>Pass : sshuser");
-		questObj.put("answer", "HEP{Ssh_ConnEctioN}");
+		questObj.put("quest", "임무 수행도중 아래와 같은 서버를 접속하여 메시지(Flag)를 확보해야하는 상황입니다.<br>"
+				+ "암호는 유실되어 알수 없는 상황이고, 암호문을 얻어 낼 수 있는 '사전 파일'만 확보한 상태입니다.<br>"
+				+ "사전 파일의 내용을 전부 대입해보려 시도했으나 시간이 너무 지체되고 있습니다.<br>"
+				+ "내용을 추릴 수 있는 방법이 있다면 좋을텐데....  아무튼 해당 서버에 접속해서 메시지(Flag)를 확보 부탁드립니다.<br><br>"
+				+ "서버 접속 정보소 : 192.168.0.100 // 22번 포트 <br>ID : mature2");
+		questObj.put("answer", "HEP{Hydrarisk!_not_a_Hydralisk}");
 		questObj.put("complete", "0");
 		questObj.put("attach", null);
 		questObj.put("action", null);
