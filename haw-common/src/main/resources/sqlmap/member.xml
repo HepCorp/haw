@@ -21,14 +21,13 @@
 	</select>
 	<insert id="memberInsert" parameterType="memberVO">
 	<![CDATA[
-		INSERT INTO haw.member (name, email, password, nickname, ip, team_no)
+		INSERT INTO haw.member (name, email, password, nickname, ip)
 		VALUES (
 			   #{name}
 			 , #{email}
 			 , #{password}
 			 , #{nickname}
 			 , #{ip}
-			 , null
 		)
 	]]>
 	</insert>
@@ -43,8 +42,9 @@
 		     , A.ip
 		     , A.input_dt
 		     , A.time_stamp
-		     , A.team_no
+		     , B.team_no
 		  FROM haw.member A
+		       LEFT OUTER JOIN haw.member_team B ON (A.member_no = B.member_no AND B.member_yn = true)
 		 WHERE A.email = #{email}
 		 LIMIT 1
 	]]>
@@ -60,13 +60,6 @@
 		)
 	]]>
 	</insert>
-	<update id="teamUpdate" parameterType="memberVO">
-	<![CDATA[
-		UPDATE haw.member SET
-		       team_no = #{team_no}
-		 WHERE member_no = #{member_no}
-	]]>
-	</update>
 	<select id="teamSelect" parameterType="Integer" resultType="teamVO">
 	<![CDATA[
 		SELECT A.team_no
@@ -74,19 +67,21 @@
 		     , A.team_tot
 		     , A.team_cnt
 		     , A.color
-		     , A.image
+		     , B.arms_img AS image
 		     , A.point
 		     , A.description
 		  FROM haw.team A
+		       LEFT OUTER JOIN haw.arms B ON (A.arms_no = B.arms_no)
 		 WHERE A.team_no = #{team_no}
 	]]>
 	</select>
 	<update id="updateTeamMember" parameterType="memberVO" >
 	<![CDATA[
-		UPDATE haw.member SET
-			   team_no = #{team_no}
-		 WHERE member_no = #{member_no}
-		   AND team_no is NULL
+		INSERT INTO haw.member_team (
+			   member_no, team_no
+		) VALUES (
+			   #{member_no}, #{team_no}
+		)
 	]]>
 	</update>
 	<update id="updateTeam" parameterType="teamVO">
