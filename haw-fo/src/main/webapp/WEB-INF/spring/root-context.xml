@@ -13,6 +13,13 @@
 		<property name="location" value="classpath:properties/database.properties" />
 	</bean>
 	
+	<!-- <bean id="dataSourceSQLServer" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="${jdbc.driverClassName}" />
+		<property name="url" value="${jdbc.test.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+	</bean> -->
+	
 	<bean id="dataSourceSQLServer" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="${jdbc.test.driverClassName}" />
 		<property name="url" value="${jdbc.test.url}" />
