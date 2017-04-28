@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-import kr.re.hep.VO.MemberVO;
+import kr.re.hep.vo.MemberVO;
 
 public class SessionInterceptor extends HandlerInterceptorAdapter {
 	@Override

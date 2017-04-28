@@ -4,9 +4,9 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import kr.re.hep.VO.MemberVO;
-import kr.re.hep.VO.SigninVO;
-import kr.re.hep.VO.TeamVO;
+import kr.re.hep.vo.MemberVO;
+import kr.re.hep.vo.SigninVO;
+import kr.re.hep.vo.TeamVO;
 
 @Repository("memberDAO")
 public class MemberDao {

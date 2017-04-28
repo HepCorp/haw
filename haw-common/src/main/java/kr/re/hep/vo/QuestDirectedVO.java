@@ -1,24 +1,24 @@
-package kr.re.hep.VO;
+package kr.re.hep.vo;
 
 import java.util.Date;
 
-public class QuestBadgeVO {
+public class QuestDirectedVO {
 
 	private int quest_no;
-	private int badge_no;
+	private int direct_no;
 	private boolean required_yn;
 	private Date input_dt;
 	private Date time_stamp;
 
-	public QuestBadgeVO() {
+	public QuestDirectedVO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public QuestBadgeVO(int quest_no, int badge_no, boolean required_yn, Date input_dt, Date time_stamp) {
+	public QuestDirectedVO(int quest_no, int direct_no, boolean required_yn, Date input_dt, Date time_stamp) {
 		super();
 		this.quest_no = quest_no;
-		this.badge_no = badge_no;
+		this.direct_no = direct_no;
 		this.required_yn = required_yn;
 		this.input_dt = input_dt;
 		this.time_stamp = time_stamp;
@@ -32,12 +32,12 @@ public class QuestBadgeVO {
 		this.quest_no = quest_no;
 	}
 
-	public int getBadge_no() {
-		return badge_no;
+	public int getDirect_no() {
+		return direct_no;
 	}
 
-	public void setBadge_no(int badge_no) {
-		this.badge_no = badge_no;
+	public void setDirect_no(int direct_no) {
+		this.direct_no = direct_no;
 	}
 
 	public boolean isRequired_yn() {
@@ -66,7 +66,7 @@ public class QuestBadgeVO {
 
 	@Override
 	public String toString() {
-		return "QuestBadgeVO [quest_no=" + quest_no + ", badge_no=" + badge_no + ", required_yn=" + required_yn
+		return "QuestDirectedVO [quest_no=" + quest_no + ", direct_no=" + direct_no + ", required_yn=" + required_yn
 				+ ", input_dt=" + input_dt + ", time_stamp=" + time_stamp + "]";
 	}
 

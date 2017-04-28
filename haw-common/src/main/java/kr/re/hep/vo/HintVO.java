@@ -1,4 +1,4 @@
-package kr.re.hep.VO;
+package kr.re.hep.vo;
 
 import java.util.Date;
 

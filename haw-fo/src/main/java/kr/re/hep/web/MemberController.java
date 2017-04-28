@@ -13,12 +13,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import kr.re.hep.VO.MemberVO;
-import kr.re.hep.VO.TeamVO;
 import kr.re.hep.service.MemberService;
 import kr.re.hep.validation.MemberValidation;
 import kr.re.hep.validation.SigninValidation;
 import kr.re.hep.validation.TeamValidation;
+import kr.re.hep.vo.MemberVO;
+import kr.re.hep.vo.TeamVO;
 
 @Controller
 @RequestMapping("/member/*")

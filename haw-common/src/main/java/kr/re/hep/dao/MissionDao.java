@@ -1,5 +1,5 @@
 package kr.re.hep.dao;
 
-public class QuestDAO {
+public class MissionDao {
 
 }

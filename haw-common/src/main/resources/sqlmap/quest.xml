@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="questMapper">
-	<select id="questSelectAll">
+	<select id="questSelectAll" parameterType="Integer" resultType="questVO">
 	<!-- 퀘스트 전체 리스트 -->
 	<![CDATA[
 		SELECT A.quest_no
@@ -30,7 +30,7 @@
 		       LEFT OUTER JOIN haw.region C ON (A.region_no = C.region_no)
 		       LEFT OUTER JOIN haw.city D ON (C.city_serial = D.city_serial)
 		       LEFT OUTER JOIN haw.nation E ON (D.nation_serial = E.nation_serial)
-		 WHERE A.region_no = 2
+		 WHERE A.region_no = #{region_no}
 		   AND A.archive_yn = false
 		 ORDER BY A.quest_seq ASC	
 	]]>

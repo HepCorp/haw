@@ -1,4 +1,4 @@
-package kr.re.hep.VO;
+package kr.re.hep.vo;
 
 public class TeamVO {
 

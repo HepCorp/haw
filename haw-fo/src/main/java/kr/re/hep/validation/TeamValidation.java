@@ -5,9 +5,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-import kr.re.hep.VO.TeamVO;
 import kr.re.hep.common.ParamValidatChk;
 import kr.re.hep.service.MemberService;
+import kr.re.hep.vo.TeamVO;
 
 @Component
 public class TeamValidation extends ParamValidatChk implements Validator {

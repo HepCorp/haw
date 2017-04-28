@@ -1,8 +1,8 @@
 package kr.re.hep.service;
 
-import kr.re.hep.VO.MemberVO;
-import kr.re.hep.VO.SigninVO;
-import kr.re.hep.VO.TeamVO;
+import kr.re.hep.vo.MemberVO;
+import kr.re.hep.vo.SigninVO;
+import kr.re.hep.vo.TeamVO;
 
 public interface MemberService {
 
