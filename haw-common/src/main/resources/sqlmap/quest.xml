@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="questMapper">
 	<select id="questSelectAll">
+	<!-- 퀘스트 전체 리스트 -->
 	<![CDATA[
 		SELECT A.quest_no
 		     , E.nation_nm || ' > ' || D.city_nm || ' > ' || C.region_nm
@@ -30,10 +31,13 @@
 		       LEFT OUTER JOIN haw.city D ON (C.city_serial = D.city_serial)
 		       LEFT OUTER JOIN haw.nation E ON (D.nation_serial = E.nation_serial)
 		 WHERE A.region_no = 2
+		   AND A.archive_yn = false
 		 ORDER BY A.quest_seq ASC	
 	]]>
 	</select>
+	
 	<select id="questSelect">
+	<!-- 한건의 퀘스트에 대한 상세보기 -->
 	<![CDATA[
 		SELECT A.quest_no
 		     , E.nation_nm || ' > ' || D.city_nm || ' > ' || C.region_nm
@@ -62,10 +66,13 @@
 		       LEFT OUTER JOIN haw.city D ON (C.city_serial = D.city_serial)
 		       LEFT OUTER JOIN haw.nation E ON (D.nation_serial = E.nation_serial)
 		 WHERE A.quest_no = 1
+		   AND A.archive_yn = false
 		 ORDER BY A.quest_seq ASC	
 	]]>
 	</select>
+	
 	<insert id="questInsert">
+	<!-- 퀘스트 등록 -->
 	<![CDATA[
 		INSERT INTO haw.quest (
 		       region_no
@@ -96,63 +103,16 @@
 		)	
 	]]>
 	</insert>
+	
+	<update id="questDelete">
+	<!-- 퀘스트 삭제 -->
+	<![CDATA[
+		UPDATE TABLE haw.quest SET
+		       archive_yn = true
+		 WHERE quest_no = 1
+	]]>
+	</update>
 
-	<select id="missionSelectAll">
-	<![CDATA[
-		SELECT A.mission_no
-		     , A.mission_seq
-		     , B1.gubun_nm AS type
-		     , B2.gubun_nm AS level
-			 , (SELECT string_agg(inA.tag_nm, ',') AS tag_nm
-		          FROM haw.tag inA
-		         WHERE inA.tag_no IN (SELECT CAST(UNNEST(string_to_array(SUBSTR(inB.tag_str, 2, LENGTH(inB.tag_str)-2), '|')) AS Integer)
-		                                FROM haw.mission inB
-		                               WHERE inB.mission_no = A.mission_no)     
-		       ) AS tag_nm
-		     , A.from
-		     , A.mission
-		     , A.answer
-		     , A.attach
-		     , A.attach_img
-		     , A.url
-		     , A.limit_time
-		     , A.point
-		     , A.input_dt
-		  FROM haw.mission A
-		       LEFT OUTER JOIN haw.gubun B1 ON (A.type = B1.gubun_cd AND B1.column_nm = 'type')
-		       LEFT OUTER JOIN haw.gubun B2 ON (A.level = CAST(B2.gubun_cd AS Integer) AND B2.column_nm = 'level')
-		 WHERE A.quest_no = 1
-		 ORDER BY A.mission_seq ASC	
-	]]>
-	</select>
-	<select id="missionSelect">
-	<![CDATA[
-		SELECT A.mission_no
-		     , A.mission_seq
-		     , B1.gubun_nm AS type
-		     , B2.gubun_nm AS level
-			 , (SELECT string_agg(inA.tag_nm, ',') AS tag_nm
-		          FROM haw.tag inA
-		         WHERE inA.tag_no IN (SELECT CAST(UNNEST(string_to_array(SUBSTR(inB.tag_str, 2, LENGTH(inB.tag_str)-2), '|')) AS Integer)
-		                                FROM haw.mission inB
-		                               WHERE inB.mission_no = A.mission_no)     
-		       ) AS tag_nm
-		     , A.from
-		     , A.mission
-		     , A.answer
-		     , A.attach
-		     , A.attach_img
-		     , A.url
-		     , A.limit_time
-		     , A.point
-		     , A.input_dt
-		  FROM haw.mission A
-		       LEFT OUTER JOIN haw.gubun B1 ON (A.type = B1.gubun_cd AND B1.column_nm = 'type')
-		       LEFT OUTER JOIN haw.gubun B2 ON (A.level = CAST(B2.gubun_cd AS Integer) AND B2.column_nm = 'level')
-		 WHERE A.mission_no = 1
-		 ORDER BY A.mission_seq ASC	
-	]]>
-	</select>
 	<!-- << 지역변경시에 번호 변경>>> -->
 	<select id="questRegionSelect">
 	<!-- 기존의 지역번호와 순서를 가져옴 -->
@@ -170,9 +130,10 @@
 		UPDATE TABLE haw.quest SET
 		       quest_seq = quest_seq -1
 		 WHERE region_no = 2
-		   AND quest_seq < 2	
+		   AND quest_seq > 2	
 	]]>
 	</update>
+	
 	<update id="questSeqUpdate">
 	<!-- 해당 퀘스트의 순서번호를 새지역의 가장 나중으로 설정함 -->
 	<![CDATA[
@@ -183,29 +144,8 @@
 	]]>
 	</update>
 	
-	<insert id="tagInsert" useGeneratedKeys="true" keyColumn="tag_no" keyProperty="tag_no">
-	<![CDATA[
-		INSERT INTO haw.tag (tag_nm)
-		VALUES ('도라에몽')
-	]]>
-	</insert>
-	
-	<select id="tagSelect">
-	<![CDATA[
-		SELECT A.tag_no
-		  FROM haw.tag A
-		 WHERE A.tag_nm = '피카츄'	
-	]]>
-	</select>
-
-	<delete id="tagDelete">
-	<![CDATA[
-		DELETE FROM haw.tag
-		 WHERE tag_no = 1
-	]]>
-	</delete>
-	
 	<select id="questDirectedExistsSelect">
+	<!-- 관련퀘스트 중복여부 체크  -->
 	<![CDATA[
 		SELECT COUNT(*)
 		  FROM haw.quest_directed A
@@ -215,6 +155,7 @@
 	</select>
 	
 	<insert id="questDirectedInsert">
+	<!-- 관련퀘스트 입력  -->
 	<![CDATA[
 		INSERT INTO haw.quest_directed (
 		       quest_no
@@ -229,6 +170,7 @@
 	</insert>
 	
 	<delete id="questDirectedDelete">
+	<!-- 관련퀘스트 삭제  -->
 	<![CDATA[
 		DELETE FROM haw.quest_directed
 		 WHERE quest_no = 3
@@ -237,6 +179,7 @@
 	</delete>
 	
 	<select id="questBadgeExistsSelect">
+	<!-- 퀘스트 오픈조건 - 뱃지중복체크  -->
 	<![CDATA[
 		SELECT COUNT(*)
 		  FROM haw.quest_badge A
@@ -246,10 +189,27 @@
 	</select>
 	
 	<insert id="questBadgeInsert">
+	<!-- 퀘스트오픈조건 - 뱃지등록  -->
 	<![CDATA[
-		INSERT INTO haw.quest_badge (s
+		INSERT INTO haw.quest_badge (
+		       quest_no
+		     , badge_no
+		     , required_yn
 		) VALUES (
+			   3
+			 , 2
+			 , false
 		)
 	]]>
 	</insert>
+	
+	<delete id="questBadgeDelete">
+	<!-- 퀘스트오픈조건 - 뱃지삭제 -->
+	<![CDATA[
+		DELETE FROM haw.quest_badge
+		 WHERE quest_no = 3
+		   AND badge_no = 2
+	]]>
+	</delete>	
+	
 </mapper>

@@ -13,6 +13,9 @@
  
     <mappers>
     	<mapper resource="sqlmap/member.xml" />
+    	<mapper resource="sqlmap/mission.xml" />
+    	<mapper resource="sqlmap/quest.xml" />
+    	<mapper resource="sqlmap/tag.xml" />
         <!-- <package name="spring.sample.mapper"/>
         <mapper class="spring.sample.mapper.MemberMapper"/>
         <mapper url="file://mappers/MemberMapper.xml"/> -->

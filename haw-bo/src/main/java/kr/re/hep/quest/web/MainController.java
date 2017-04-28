@@ -7,12 +7,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class MainController {
 
-	@RequestMapping(value="/index.do", method=RequestMethod.GET)
+	@RequestMapping(value="/", method=RequestMethod.GET)
 	private String main(){
 		return "/quest/index";
 	}
 	
-	//목록
+	//퀘스트 목록
+	@RequestMapping(value="/index.do", method=RequestMethod.GET)
+	private String index(){
+		return "/quest/index";
+	}
+	
+	//퀘스트 미션 목록 (AJAX)
 	
 	//퀘스트 저장
 	
