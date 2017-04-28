@@ -198,5 +198,58 @@
 	]]>
 	</select>
 
+	<delete id="tagDelete">
+	<![CDATA[
+		DELETE FROM haw.tag
+		 WHERE tag_no = 1
+	]]>
+	</delete>
 	
+	<select id="questDirectedExistsSelect">
+	<![CDATA[
+		SELECT COUNT(*)
+		  FROM haw.quest_directed A
+		 WHERE A.quest_no = 3
+		   AND A.direct_no = 2
+	]]>
+	</select>
+	
+	<insert id="questDirectedInsert">
+	<![CDATA[
+		INSERT INTO haw.quest_directed (
+		       quest_no
+		     , direct_no
+		     , required_yn
+		) VALUES (
+			   3
+			 , 2
+			 , false
+		)
+	]]>
+	</insert>
+	
+	<delete id="questDirectedDelete">
+	<![CDATA[
+		DELETE FROM haw.quest_directed
+		 WHERE quest_no = 3
+		   AND direct_no = 2
+	]]>
+	</delete>
+	
+	<select id="questBadgeExistsSelect">
+	<![CDATA[
+		SELECT COUNT(*)
+		  FROM haw.quest_badge A
+		 WHERE A.quest_no = 3
+		   AND A.badge_no = 2
+	]]>
+	</select>
+	
+	<insert id="questBadgeInsert">
+	<![CDATA[
+		INSERT INTO haw.quest_badge (s
+		) VALUES (
+		)
+	]]>
+	</insert>
 </mapper>
