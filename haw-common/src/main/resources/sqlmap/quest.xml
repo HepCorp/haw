@@ -153,4 +153,50 @@
 		 ORDER BY A.mission_seq ASC	
 	]]>
 	</select>
+	<!-- << 지역변경시에 번호 변경>>> -->
+	<select id="questRegionSelect">
+	<!-- 기존의 지역번호와 순서를 가져옴 -->
+	<![CDATA[
+		SELECT A.region_no
+		     , A.quest_seq
+		  FROM haw.quest A
+		 WHERE A.quest_no = 2
+	]]>
+	</select>
+	
+	<update id="questSeqUpdateAll">
+	<!-- 해당 퀘스트 밑의 순서의 해당하는 퀘스트의 순서번호를 변경함 -->
+	<![CDATA[
+		UPDATE TABLE haw.quest SET
+		       quest_seq = quest_seq -1
+		 WHERE region_no = 2
+		   AND quest_seq < 2	
+	]]>
+	</update>
+	<update id="questSeqUpdate">
+	<!-- 해당 퀘스트의 순서번호를 새지역의 가장 나중으로 설정함 -->
+	<![CDATA[
+		UPDATE TABLE haw.quest SET
+		       region_no = 3 -- 3번이라는 새로운 지역
+		     , quest_seq = (SELECT COALESCE(MAX(quest_seq), 0) + 1 FROM haw.quest WHERE region_no = 3)
+		 WHERE quest_no = 2		
+	]]>
+	</update>
+	
+	<insert id="tagInsert" useGeneratedKeys="true" keyColumn="tag_no" keyProperty="tag_no">
+	<![CDATA[
+		INSERT INTO haw.tag (tag_nm)
+		VALUES ('도라에몽')
+	]]>
+	</insert>
+	
+	<select id="tagSelect">
+	<![CDATA[
+		SELECT A.tag_no
+		  FROM haw.tag A
+		 WHERE A.tag_nm = '피카츄'	
+	]]>
+	</select>
+
+	
 </mapper>
