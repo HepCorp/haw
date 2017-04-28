@@ -1,4 +1,4 @@
-package kr.re.hep.controller;
+package kr.re.hep.web;
 
 import java.io.IOException;
 import java.nio.file.Files;

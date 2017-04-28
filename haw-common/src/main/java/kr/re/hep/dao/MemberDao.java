@@ -1,12 +1,12 @@
-package kr.re.hep.member.service;
+package kr.re.hep.dao;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import kr.re.hep.member.MemberVO;
-import kr.re.hep.member.SigninVO;
-import kr.re.hep.member.TeamVO;
+import kr.re.hep.VO.MemberVO;
+import kr.re.hep.VO.SigninVO;
+import kr.re.hep.VO.TeamVO;
 
 @Repository("memberDAO")
 public class MemberDao {

@@ -1,4 +1,4 @@
-package kr.re.hep.member;
+package kr.re.hep.VO;
 
 import java.util.Date;
 

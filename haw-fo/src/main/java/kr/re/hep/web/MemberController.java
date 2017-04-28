@@ -1,4 +1,4 @@
-package kr.re.hep.controller;
+package kr.re.hep.web;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import kr.re.hep.member.MemberVO;
-import kr.re.hep.member.TeamVO;
-import kr.re.hep.member.service.MemberService;
+import kr.re.hep.VO.MemberVO;
+import kr.re.hep.VO.TeamVO;
+import kr.re.hep.service.MemberService;
 import kr.re.hep.validation.MemberValidation;
 import kr.re.hep.validation.SigninValidation;
 import kr.re.hep.validation.TeamValidation;
