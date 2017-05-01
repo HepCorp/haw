@@ -6,6 +6,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import kr.re.hep.vo.QuestBadgeVO;
+import kr.re.hep.vo.QuestDirectedVO;
 import kr.re.hep.vo.QuestVO;
 
 @Repository("questDAO")
@@ -34,5 +36,37 @@ public class QuestDao {
 	
 	public QuestVO questRegionSelect(int quest_no){
 		return session.selectOne(namespace +"questRegionSelect", quest_no);
+	}
+	
+	public void questSeqUpdateAll(QuestVO vo){
+		session.update(namespace +"questSeqUpdateAll", vo);
+	}
+	
+	public void questSeqUpdate(QuestVO vo){
+		session.update(namespace +"questSeqUpdate", vo);
+	}
+	
+	public int questDirectedExistsSelect(QuestDirectedVO vo){
+		return session.selectOne(namespace +"questDirectedExistsSelect", vo);
+	}
+	
+	public void questDirectedInsert(QuestDirectedVO vo){
+		session.insert(namespace +"questDirectedInsert", vo);
+	}
+	
+	public void questDirectedDelete(QuestDirectedVO vo){
+		session.delete(namespace +"questDirectedDelete", vo);
+	}
+	
+	public int questBadgeExistsSelect(QuestBadgeVO vo){
+		return session.selectOne(namespace +"questBadgeExistsSelect", vo);
+	}
+	
+	public void questBadgeInsert(QuestBadgeVO vo){
+		session.insert(namespace +"questBadgeInsert", vo);
+	}
+	
+	public void questBadgeDelete(QuestBadgeVO vo){
+		session.delete(namespace +"questBadgeDelete", vo);
 	}
 }

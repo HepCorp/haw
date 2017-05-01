@@ -36,7 +36,7 @@
 	]]>
 	</select>
 	
-	<select id="questSelect">
+	<select id="questSelect" parameterType="Integer" resultType="questVO">
 	<!-- 한건의 퀘스트에 대한 상세보기 -->
 	<![CDATA[
 		SELECT A.quest_no
@@ -65,7 +65,7 @@
 		       LEFT OUTER JOIN haw.region C ON (A.region_no = C.region_no)
 		       LEFT OUTER JOIN haw.city D ON (C.city_serial = D.city_serial)
 		       LEFT OUTER JOIN haw.nation E ON (D.nation_serial = E.nation_serial)
-		 WHERE A.quest_no = 1
+		 WHERE A.quest_no = #{quest_no}
 		   AND A.archive_yn = false
 		 ORDER BY A.quest_seq ASC	
 	]]>
@@ -88,28 +88,30 @@
 		     , description
 		     , point
 		) VALUES (
-		       2
-		     , (SELECT MAX(COALESCE(quest_seq, 0)) + 1 FROM haw.quest WHERE region_no = 2)
-		     , 'B'
-		     , '|2|'
-		     , true
-		     , 0
-		     , 1
-		     , 'QUEST3'
-		     , 'HEP{123456}'
-		     , 10
-		     , 'Compute Science'
-		     , 500
+		       #{region_no}
+		     , (SELECT MAX(COALESCE(quest_seq, 0)) + 1 
+		          FROM haw.quest 
+		         WHERE region_no = #{region_no})
+		     , #{type}
+		     , #{tag_str}
+		     , #{open_yn}
+		     , #{badge_cnt}
+		     , #{quest_clear}
+		     , #{quest_nm}
+		     , #{auth}
+		     , #{level}
+		     , #{descriptiohn}
+		     , #{point}
 		)	
 	]]>
 	</insert>
 	
-	<update id="questDelete">
+	<update id="questDelete" parameterType="Integer">
 	<!-- 퀘스트 삭제 -->
 	<![CDATA[
 		UPDATE TABLE haw.quest SET
 		       archive_yn = true
-		 WHERE quest_no = 1
+		 WHERE quest_no = #{quest_no}
 	]]>
 	</update>
 

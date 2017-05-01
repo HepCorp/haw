@@ -17,7 +17,18 @@
 		 WHERE A.tag_nm = '피카츄'	
 	]]>
 	</select>
-
+	
+	<select id="tagSelectAll">
+	<![CDATA[
+		SELECT A.tag_no
+		     , A.tag_nm
+		     , A.input_dt
+		     , A.time_stamp
+		  FROM haw.tag A
+		 WHERE A.tag_no IN (SELECT CAST(UNNEST(string_to_array(SUBSTR(#{tag_str}, 2, LENGTH(#{tag_str})-2), '|')) AS Integer))
+	]]>
+	</select>
+	
 	<delete id="tagDelete">
 	<!-- 태그삭제  -->
 	<![CDATA[

@@ -6,7 +6,11 @@
     	<typeAlias type="kr.re.hep.vo.SigninVO" alias="signinVO" />
     	<typeAlias type="kr.re.hep.vo.TeamVO" alias="teamVO" />
     	<typeAlias type="kr.re.hep.vo.QuestVO" alias="questVO" />
-    	<type
+    	<typeAlias type="kr.re.hep.vo.QuestDirectedVO" alias="questDirecteVO" />
+    	<typeAlias type="kr.re.hep.vo.QuestBadgeVO" alias="questBadgeVO" />
+    	<typeAlias type="kr.re.hep.vo.MissionVO" alias="mis sionVO" />
+    	<typeAlias type="kr.re.hep.vo.HintVO" alias="hintVO" />
+    	<typeAlias type="kr.re.hep.vo.TagVO" alias="tagVO" />
     </typeAliases>
  
     <typeHandlers>
