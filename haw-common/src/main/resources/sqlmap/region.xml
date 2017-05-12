@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="regionMapper">
+	<select id="regionSelectAll">
+	<!-- 오픈조건이 등록된 지역 전체 리스트 -->
+	<![CDATA[
+		SELECT A.region_no
+		     , A.city_serial
+		     , A.region_nm
+		     , B.open_yn
+		     , B.badge_cnt
+		     , B.quest_cnt
+		     , B.point
+		     , B.enabled_yn
+		  FROM haw.region A
+		       INNER JOIN haw.region_condition B ON (A.region_no = B.region_no)
+		 ORDER BY A.region_no
+	]]>
+	</select>
+	<select id="regionExistsSelect">
+	<!-- 해당 지역이 등록된 지역인지 여부 -->
+	<![CDATA[
+		SELECT count(*)
+		  FROM haw.region A
+		       INNER JOIN haw.region_condition B ON (A.region_no = B.region_no)
+		 WHERE A.region_no = 2
+	]]>
+	</select>
+</mapper>

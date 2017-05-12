@@ -20,10 +20,12 @@ public class QuestVO {
 	private boolean archive_yn;
 	private Date input_dt;
 	private Date time_stamp;
+	
+	private String region_str;
 
 	public QuestVO(int quest_no, int region_no, int quest_seq, String type, String tag_str, boolean open_yn,
 			int badge_cnt, int quest_clear, String quest_nm, String auth, int level, String description, int point,
-			boolean archive_yn, Date input_dt, Date time_stamp) {
+			boolean archive_yn, Date input_dt, Date time_stamp, String region_str) {
 		super();
 		this.quest_no = quest_no;
 		this.region_no = region_no;
@@ -41,11 +43,20 @@ public class QuestVO {
 		this.archive_yn = archive_yn;
 		this.input_dt = input_dt;
 		this.time_stamp = time_stamp;
+		this.region_str = region_str;
 	}
 
 	public QuestVO() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+
+	public String getRegion_str() {
+		return region_str;
+	}
+
+	public void setRegion_str(String region_str) {
+		this.region_str = region_str;
 	}
 
 	public int getQuest_no() {
