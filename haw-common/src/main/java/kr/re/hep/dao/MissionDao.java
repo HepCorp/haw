@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import kr.re.hep.vo.HintVO;
 import kr.re.hep.vo.MissionVO;
 
-@Repository("missionDAO")
+@Repository("missionDao")
 public class MissionDao {
 
 	private String namespace = "missionMapper.";

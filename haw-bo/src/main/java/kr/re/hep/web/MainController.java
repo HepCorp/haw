@@ -1,4 +1,4 @@
-package kr.re.hep.quest.web;
+package kr.re.hep.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

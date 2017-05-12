@@ -20,8 +20,8 @@ public class TagDao {
 		return session.insert(namespace +"tagInsert", vo);
 	}
 	
-	public int tagSelect(String tag_nm){
-		return session.selectOne(namespace +"tagSelect", tag_nm);
+	public List<TagVO> tagSelect(String tag_nm){
+		return session.selectList(namespace +"tagSelect", tag_nm);
 	}
 	
 	public List<TagVO> tagSelectAll(String tag_str){

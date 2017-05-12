@@ -19,6 +19,7 @@
 	</select>
 	
 	<select id="tagSelectAll">
+	<!-- 퀘스트 태그문자열에 대한 목록 -->
 	<![CDATA[
 		SELECT A.tag_no
 		     , A.tag_nm

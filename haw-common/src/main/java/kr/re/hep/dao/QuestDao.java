@@ -10,7 +10,7 @@ import kr.re.hep.vo.QuestBadgeVO;
 import kr.re.hep.vo.QuestDirectedVO;
 import kr.re.hep.vo.QuestVO;
 
-@Repository("questDAO")
+@Repository("questDao")
 public class QuestDao {
 
 	private String namespace = "questMapper.";
