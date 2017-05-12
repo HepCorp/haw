@@ -13,7 +13,7 @@ import kr.re.hep.vo.GubunVO;
 @Service("gubunService")
 public class GubunServiceImpl implements GubunService {
 
-	@Resource(name="GubunDao")
+	@Resource(name="gubunDao")
 	GubunDao dao;
 	
 	@Override

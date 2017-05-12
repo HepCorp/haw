@@ -15,6 +15,7 @@ public class MainController {
 	//퀘스트 목록
 	@RequestMapping(value="/index.do", method=RequestMethod.GET)
 	private String index(){
+		
 		return "/quest/index";
 	}
 	

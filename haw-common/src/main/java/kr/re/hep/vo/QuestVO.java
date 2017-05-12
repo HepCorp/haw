@@ -22,10 +22,13 @@ public class QuestVO {
 	private Date time_stamp;
 	
 	private String region_str;
+	private String open_str;
+	private String badge_str;
+	private String quest_str;
 
 	public QuestVO(int quest_no, int region_no, int quest_seq, String type, String tag_str, boolean open_yn,
 			int badge_cnt, int quest_clear, String quest_nm, String auth, int level, String description, int point,
-			boolean archive_yn, Date input_dt, Date time_stamp, String region_str) {
+			boolean archive_yn, Date input_dt, Date time_stamp, String region_str, String open_str, String badge_str, String quest_str) {
 		super();
 		this.quest_no = quest_no;
 		this.region_no = region_no;
@@ -44,11 +47,48 @@ public class QuestVO {
 		this.input_dt = input_dt;
 		this.time_stamp = time_stamp;
 		this.region_str = region_str;
+		this.open_str = open_str;
+		this.badge_str = badge_str;
+		this.quest_str = quest_str;
 	}
 
 	public QuestVO() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public String toString() {
+		return "QuestVO [quest_no=" + quest_no + ", region_no=" + region_no + ", quest_seq=" + quest_seq + ", type="
+				+ type + ", tag_str=" + tag_str + ", open_yn=" + open_yn + ", badge_cnt=" + badge_cnt + ", quest_clear="
+				+ quest_clear + ", quest_nm=" + quest_nm + ", auth=" + auth + ", level=" + level + ", description="
+				+ description + ", point=" + point + ", archive_yn=" + archive_yn + ", input_dt=" + input_dt
+				+ ", time_stamp=" + time_stamp + ", region_str=" + region_str + ", open_str=" + open_str
+				+ ", badge_str=" + badge_str + ", quest_str=" + quest_str + "]";
+	}
+
+	public String getQuest_str() {
+		return quest_str;
+	}
+
+	public void setQuest_str(String quest_str) {
+		this.quest_str = quest_str;
+	}
+
+	public String getBadge_str() {
+		return badge_str;
+	}
+
+	public void setBadge_str(String badge_str) {
+		this.badge_str = badge_str;
+	}
+
+	public String getOpen_str() {
+		return open_str;
+	}
+
+	public void setOpen_str(String open_str) {
+		this.open_str = open_str;
 	}
 
 	public String getRegion_str() {
@@ -185,15 +225,6 @@ public class QuestVO {
 
 	public void setTime_stamp(Date time_stamp) {
 		this.time_stamp = time_stamp;
-	}
-
-	@Override
-	public String toString() {
-		return "QuestVO [quest_no=" + quest_no + ", region_no=" + region_no + ", quest_seq=" + quest_seq + ", type="
-				+ type + ", tag_str=" + tag_str + ", open_yn=" + open_yn + ", badge_cnt=" + badge_cnt + ", quest_clear="
-				+ quest_clear + ", quest_nm=" + quest_nm + ", auth=" + auth + ", level=" + level + ", description="
-				+ description + ", point=" + point + ", archive_yn=" + archive_yn + ", input_dt=" + input_dt
-				+ ", time_stamp=" + time_stamp + "]";
 	}
 
 }
