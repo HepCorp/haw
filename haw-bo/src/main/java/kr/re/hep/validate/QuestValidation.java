@@ -147,8 +147,32 @@ public class QuestValidation extends ParamValidatChk implements Validator {
 		
 		//>>>퀘스트클리어 조건
 		String quest_str = getParam(inVO.getQuest_str());
-		int quest_clear;
+		int quest_clear = 0;
+		if (isNull(quest_str) || isEmpty(quest_str)){
+			err.rejectValue("quest_clear", "field.required.quest_clear");
+			return;
+		}
+		if (!isNumeric(quest_str)){
+			err.rejectValue("quest_clear", "field.error.quest_clear");
+			return;
+		} else {
+			quest_clear = toInteger(quest_str);
+			if (quest_clear < 0){
+				err.rejectValue("quest_clear", "field.error.quest_clear");
+				return;
+			}
+		}
+		inVO.setQuest_clear(quest_clear);
 		
+		//>>>이름
+		String quest_nm = getParam(inVO.getQuest_nm());
+		if (isNull(quest_nm) || isEmpty(quest_nm)){
+			err.rejectValue("quest_nm", "field.required.quest_nm");
+			return;
+		}
+		
+		//>>>플래그
+		String auth = getParam(inVO.getAuth();)
 	}
 	
 }
