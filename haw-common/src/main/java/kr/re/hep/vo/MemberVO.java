@@ -16,6 +16,7 @@ public class MemberVO {
 	private Date time_stamp;
 	private int team_no;
 	private int point;
+	private int grade;
 
 	public MemberVO() {
 		super();
@@ -23,7 +24,7 @@ public class MemberVO {
 	}
 
 	public MemberVO(int member_no, String name, String email, String password, String password2, String nickname,
-			boolean tutorial_yn, String ip, Date input_dt, Date time_stamp, int team_no, int point) {
+			boolean tutorial_yn, String ip, Date input_dt, Date time_stamp, int team_no, int point, int grade) {
 		super();
 		this.member_no = member_no;
 		this.name = name;
@@ -37,6 +38,15 @@ public class MemberVO {
 		this.time_stamp = time_stamp;
 		this.team_no = team_no;
 		this.point = point;
+		this.grade = grade;
+	}
+
+	public int getGrade() {
+		return grade;
+	}
+
+	public void setGrade(int grade) {
+		this.grade = grade;
 	}
 
 	public int getPoint() {
@@ -140,7 +150,7 @@ public class MemberVO {
 		return "MemberVO [member_no=" + member_no + ", name=" + name + ", email=" + email + ", password=" + password
 				+ ", password2=" + password2 + ", nickname=" + nickname + ", tutorial_yn=" + tutorial_yn + ", ip=" + ip
 				+ ", input_dt=" + input_dt + ", time_stamp=" + time_stamp + ", team_no=" + team_no + ", point=" + point
-				+ "]";
+				+ ", grade=" + grade + "]";
 	}
 
 }

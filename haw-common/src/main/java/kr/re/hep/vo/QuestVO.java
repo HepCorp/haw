@@ -25,10 +25,13 @@ public class QuestVO {
 	private String open_str;
 	private String badge_str;
 	private String quest_str;
+	private String level_str;
+	private String point_str;
 
 	public QuestVO(int quest_no, int region_no, int quest_seq, String type, String tag_str, boolean open_yn,
 			int badge_cnt, int quest_clear, String quest_nm, String auth, int level, String description, int point,
-			boolean archive_yn, Date input_dt, Date time_stamp, String region_str, String open_str, String badge_str, String quest_str) {
+			boolean archive_yn, Date input_dt, Date time_stamp, String region_str, String open_str, String badge_str, 
+			String quest_str, String level_str, String point_str) {
 		super();
 		this.quest_no = quest_no;
 		this.region_no = region_no;
@@ -50,6 +53,8 @@ public class QuestVO {
 		this.open_str = open_str;
 		this.badge_str = badge_str;
 		this.quest_str = quest_str;
+		this.level_str = level_str;
+		this.point_str = point_str;
 	}
 
 	public QuestVO() {
@@ -64,7 +69,24 @@ public class QuestVO {
 				+ quest_clear + ", quest_nm=" + quest_nm + ", auth=" + auth + ", level=" + level + ", description="
 				+ description + ", point=" + point + ", archive_yn=" + archive_yn + ", input_dt=" + input_dt
 				+ ", time_stamp=" + time_stamp + ", region_str=" + region_str + ", open_str=" + open_str
-				+ ", badge_str=" + badge_str + ", quest_str=" + quest_str + "]";
+				+ ", badge_str=" + badge_str + ", quest_str=" + quest_str + ", level_str=" + level_str + ", point_str="
+				+ point_str + "]";
+	}
+
+	public String getPoint_str() {
+		return point_str;
+	}
+
+	public void setPoint_str(String point_str) {
+		this.point_str = point_str;
+	}
+
+	public String getLevel_str() {
+		return level_str;
+	}
+
+	public void setLevel_str(String level_str) {
+		this.level_str = level_str;
 	}
 
 	public String getQuest_str() {

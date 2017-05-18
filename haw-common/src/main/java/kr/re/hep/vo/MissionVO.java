@@ -21,6 +21,8 @@ public class MissionVO {
 	private boolean archive_yn;
 	private Date input_dt;
 	private Date time_stamp;
+	
+	private String quest_str;
 
 	public MissionVO() {
 		super();
@@ -29,7 +31,7 @@ public class MissionVO {
 
 	public MissionVO(int mission_no, int quest_no, int mission_seq, String type, String tag_str, int level, String from,
 			String mission, String answer, String attach, String attach_img, String url, Date limit_time, int point,
-			boolean archive_yn, Date input_dt, Date time_stamp) {
+			boolean archive_yn, Date input_dt, Date time_stamp, String quest_str) {
 		super();
 		this.mission_no = mission_no;
 		this.quest_no = quest_no;
@@ -48,6 +50,15 @@ public class MissionVO {
 		this.archive_yn = archive_yn;
 		this.input_dt = input_dt;
 		this.time_stamp = time_stamp;
+		this.quest_str = quest_str;
+	}
+
+	public String getQuest_str() {
+		return quest_str;
+	}
+
+	public void setQuest_str(String quest_str) {
+		this.quest_str = quest_str;
 	}
 
 	public int getMission_no() {

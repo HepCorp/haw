@@ -1,0 +1,468 @@
+@charset "UTF-8";
+@import "reset.css";
+
+body {
+    overflow-x: hidden;
+    margin: 0;
+}
+
+/* Sidebar */
+
+#wrapper {
+    padding-left: 0;
+}
+
+#sidebar-wrapper {
+    width: 250px;
+}
+
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background-color: #0E131A;
+}
+
+.sidebar-nav #haw-logo {
+    height: 90px;
+    text-align: center;
+    margin: 30px 0 10px;
+    padding-left: 0;
+}
+
+.sidebar-nav #sidebar-brand {
+    margin-bottom: 30px;
+    height: 40px;
+    padding-left: 0;
+}
+
+.sidebar-nav #sidebar-brand h2 {
+    font-size: 24px;
+    color: #FFFFFF;
+    height: 40px;
+    line-height: 20px;
+    text-align: center;
+    font-family: SwiszRegular;
+}
+
+.sidebar-nav li.menu {
+    height: 40px;
+    /*line-height: 60px;*/
+    padding: 13px 0 0 50px;
+    box-sizing: border-box;
+    display: block;
+}
+
+.sidebar-nav li.menu:hover, .sidebar-nav li.menu:active {
+    padding-left: 45px;
+    box-sizing: border-box;
+    border-width: 0 0 0 5px;
+    border-style: solid;
+    -webkit-border-image: -webkit-gradient(linear, left top, left bottom, from(#00FFFF), to(#9500FF))0 0 0 100% stretch;
+}
+
+.sidebar-nav li.menu a {
+    color: #999999;
+    font-size: 16px;
+    font-family: "Noto Sans CJK KR Regular";
+}
+
+.sidebar-nav li.activity {
+    height: 40px;
+    /*line-height: 60px;*/
+    padding: 13px 0 0 50px;
+    box-sizing: border-box;
+    display: block;
+}
+
+.sidebar-nav li.activity {
+    padding-left: 45px;
+    box-sizing: border-box;
+    border-width: 0 0 0 5px;
+    border-style: solid;
+    -webkit-border-image: -webkit-gradient(linear, left top, left bottom, from(#00FFFF), to(#9500FF))0 0 0 100% stretch;
+}
+
+.sidebar-nav li.activity a {
+    color: #FFFFFF;
+    font-size: 16px;
+    font-family: "Noto Sans CJK KR Regular";
+}
+
+.sidebar-nav li a.menu-title {
+    display: inline-block;
+    width: 150px;
+    text-align: left;
+}
+
+.sidebar-nav li a.menu-go {
+    display: inline;
+    width: 50px;
+    text-align: center;
+}
+
+.sidebar-nav li.menu a:hover, .sidebar-nav li.menu a:active {
+    color: #FFFFFF;
+}
+
+#page-content-wrapper {
+    width: calc(100% - 250px);
+    height: 100%;
+    position: absolute;
+    padding: 30px 50px;
+    right: 0;
+    box-sizing: border-box;
+    background: #0E131A;
+    color: #FFF;
+}
+.container-fluid {
+    width: 100%;
+}
+.search-box-wrapper {
+    width: 100%;
+    height: 60px;
+    background-color: #191F28;
+    margin-bottom: 30px;
+}
+
+.search-box-wrapper fieldset ul li input#search-window {
+    display: inline-block;
+    width: 90%;
+    height: 60px;
+    border: none;
+    float: left;
+    padding: 0 50px;
+    box-sizing: border-box;
+    background-color: transparent;
+    color: #FFFFFF;
+    font-size: 28px;
+    outline: none;
+}
+.search-box-wrapper fieldset ul li button#search-btn {
+    display: inline;
+    height: 60px;
+    border: none;
+    float: right;
+    padding: 0 30px 0 0;
+    text-align: center;
+    box-sizing: border-box;
+    background-color: transparent;
+    outline: none;
+
+}
+
+.search-box-wrapper fieldset ul li button#search-btn img {
+    width: 33px;
+    height: 33px;
+}
+
+.main-title {
+    font-size: 28px;
+    font-family: "Noto Sans CJK KR DemiLight";
+    color: #FFFFFF;
+    padding-bottom: 20px;
+}
+
+.content-wrap {
+    width: 100%;
+}
+
+.btn-wrap {
+    width: 100%;
+    height: 25px;
+    margin: 10px 0;
+    text-align: right;
+}
+
+.btn-wrap button {
+    background-color: transparent;
+    border: 1px solid #666666;
+    border-radius: 3px;
+    width: 60px;
+    height: 25px;
+    color: #A6A6A6;
+    font-size: 12px;
+    font-family: "Noto Sans CJK KR Light";
+    /*line-height: 14px;*/
+    text-align: center;
+    box-sizing: border-box;
+    margin-left: 5px;
+    outline: none;
+    padding-top: 2px;
+}
+
+
+/* writeForm */
+table.writeForm {
+    width: 100%;
+}
+table.writeForm th {
+    width: 90px;
+    background-color: #191F28;
+    font-size: 12px;
+    font-family: "Noto Sans CJK KR Light";
+    color: #A3A3A3;
+    padding: 10px 0 10px 10px;
+    box-sizing: border-box;
+    text-align: left;
+    vertical-align:top;
+}
+table.writeForm td {
+    padding:0 10px;
+    box-sizing: border-box;
+    font-size: 12px;
+    font-family: "Noto Sans CJK KR Thin";
+}
+table.writeForm td input{
+    background-color: transparent;
+    border: 1px solid #00FFFF;
+    border-radius: 3px;
+    padding: 5px 10px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+}
+table.writeForm td input[type=number]{
+    width: 55px;
+}
+table.writeForm td select {
+    border: 1px solid #00ffff;
+    border-radius: 3px;
+    width: 200px;
+    height: 25px;
+    background-color: transparent;
+    color: #FFFFFF;
+    outline: none;
+}
+table.writeForm td input.long-textBox{
+     width: 100%;
+ }
+table.writeForm td input.medium-textBox{
+    width: 200px;
+}
+table.writeform td input.short-textBox{
+    width: 80px;
+}
+table.writeForm td label{
+    margin:0 10px 0 0;
+}
+table.writeForm td input[type=radio]{
+    outline: none;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    width: 10px;
+    height: 10px;
+    border: 1px solid #9500FF;
+    border-radius: 3px;
+    box-sizing: border-box;
+    padding:0;
+    vertical-align: bottom;
+}
+table.writeForm td input[type=radio]:checked {
+    outline: none;
+    -webkit-appearance: none;
+    width: 10px;
+    height: 10px;
+    background-color: #00ffff;
+    border: none;
+    border-radius: 3px;
+}
+table.writeForm td button.tag-btn{
+    width: 30px;
+    height: 25px;
+    background-color: #00ffff;
+    border-radius: 3px;
+    outline: none;
+    border: none;
+    vertical-align: middle;
+    margin-left: -4px;
+    line-height: 35px;
+    vertical-align: bottom;
+}
+
+
+/* tags */
+div.tags{
+    margin-bottom: 7px;
+}
+div.tags span{
+    padding: 3px 7px;
+    border-radius: 3px;
+    font-size: 12px;
+    display:inline-block;
+    margin-top: 5px;
+}
+div.tags span:nth-child(odd){
+    background-color: rgba(0, 255, 255, 0.6);
+}
+div.tags span:nth-child(even){
+    background-color: rgba(149, 0, 255, 0.6);
+}
+
+/*  Toggle Switch  */
+.toggleSwitch span span {
+    display: none;
+}
+
+@media only screen {
+    .toggleSwitch {
+        display: inline-block;
+        height: 18px;
+        position: relative;
+        overflow: visible;
+        padding: 0;
+        cursor: pointer;
+        width: 40px
+    }
+
+    .toggleSwitch * {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    .toggleSwitch label,
+    .toggleSwitch > span {
+        line-height: 20px;
+        height: 20px;
+        vertical-align: middle;
+    }
+
+    .toggleSwitch input:focus ~ a,
+    .toggleSwitch input:focus + label {
+        outline: none;
+    }
+
+    .toggleSwitch label {
+        position: relative;
+        z-index: 3;
+        display: block;
+        width: 100%;
+    }
+
+    .toggleSwitch input {
+        position: absolute;
+        opacity: 0;
+        z-index: 5;
+    }
+
+    .toggleSwitch > span {
+        position: absolute;
+        width: 100%;
+        margin: 0;
+        padding-right: 50px;
+        text-align: left;
+        white-space: nowrap;
+    }
+
+    .toggleSwitch > span span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 5;
+        display: block;
+        width: 50%;
+        margin-left: -1px;
+        text-align: left;
+        font-size: 0.9em;
+        width: 100%;
+        left: 15%;
+        top: -1px;
+        opacity: 0;
+    }
+
+    .toggleSwitch a {
+        position: absolute;
+        right: 50%;
+        z-index: 4;
+        display: block;
+        height: 100%;
+        padding: 0;
+        left: 2px;
+        width: 18px;
+        background-color: #191F28;
+        border: 1px solid #191F28;
+        border-radius: 100%;
+        -webkit-transition: all 0.2s ease-out;
+        -moz-transition: all 0.2s ease-out;
+        transition: all 0.2s ease-out;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+
+    .toggleSwitch > span span:first-of-type {
+        color: #191F28;
+        opacity: 1;
+        left: 45%;
+    }
+
+    .toggleSwitch > span:before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: -2px;
+        border: 1px solid #9500ff;
+        background-color: #9500FF;
+        border-radius: 30px;
+        -webkit-transition: all 0.2s ease-out;
+        -moz-transition: all 0.2s ease-out;
+        transition: all 0.2s ease-out;
+    }
+
+    .toggleSwitch input:checked ~ a {
+        border-color: #191F28;
+        left: 100%;
+        margin-left: -8px;
+    }
+
+    .toggleSwitch input:checked ~ span:before {
+        border: 1px solid #00ffff;
+        box-shadow: inset 0 0 0 30px #00FFFF;
+    }
+
+    .toggleSwitch input:checked ~ span span:first-of-type {
+        opacity: 0;
+    }
+
+    .toggleSwitch input:checked ~ span span:last-of-type {
+        opacity: 1;
+        color: #191F28;
+        font-family: "Noto Sans CJK KR DemiLight";
+    }
+
+    .toggleSwitch.large {
+        width: 60px;
+        height: 27px;
+        margin-top: -10px;
+
+    }
+
+    .toggleSwitch.large a {
+        width: 27px;
+    }
+
+    .toggleSwitch.large > span {
+        height: 29px;
+        line-height: 28px;
+    }
+
+    .toggleSwitch.large input:checked ~ a {
+        left: 41px;
+    }
+
+    .toggleSwitch.large > span span {
+        font-size: 14px;
+        font-family: "Noto Sans CJK KR DemiLight";
+    }
+
+    .toggleSwitch.large > span span:first-of-type {
+        left: 55%;
+    }
+}
+
+/* //ToggleSwitch */

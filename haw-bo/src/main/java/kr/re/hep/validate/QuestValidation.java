@@ -127,7 +127,7 @@ public class QuestValidation extends ParamValidatChk implements Validator {
 		
 		//>>>오픈조건
 		String badge_str = getParam(inVO.getBadge_str());
-		int badge_cnt;
+		int badge_cnt = 0;
 		if (open_yn == false) {
 			if (isNull(badge_str) || isEmpty(badge_str) || badge_str.equals("0")) {
 				//최초오픈이 아닌데 빈값인경우
@@ -172,7 +172,61 @@ public class QuestValidation extends ParamValidatChk implements Validator {
 		}
 		
 		//>>>플래그
-		String auth = getParam(inVO.getAuth();)
+		String auth = getParam(inVO.getAuth());
+		if (isNull(auth) || isEmpty(auth)){
+			err.rejectValue("auth", "field.required.auth");
+			return;
+		}
+		
+		//>>>난이도
+		String level_str = getParam(inVO.getLevel_str());
+		int level = 0;
+		if (isNull(level_str) || isEmpty(level_str) || level_str.equals("0")) {
+			//값이 없으면
+			err.rejectValue("level", "field.required.level");
+			return;
+		} else {
+			if (!isNumeric(level_str)){
+				//숫자가 아닌경우
+				err.rejectValue("level", "field.error.level");
+				return;
+			}
+			
+			GubunVO gubunVO = new GubunVO(0, "level", level_str, null, null);
+			int result = gubunService.gubunExistsSelect(gubunVO);
+			
+			if (result == 0){
+				//해당 구분값이 존재하지 않는 경우
+				err.rejectValue("level", "field.error.level");
+				return;
+			} else {
+				level = toInteger(level_str);
+			}
+		}
+		inVO.setLevel(level);
+		
+		//>>>설명
+		String description = getParam(inVO.getDescription());
+		if (isNull(description) || isEmpty(description)) {
+			err.rejectValue("description", "field.required.description");
+			return;
+		}
+		
+		//>>>포인트
+		String point_str = getParam(inVO.getPoint_str());
+		int point = 0;
+		if (isNull(point_str) || isEmpty(point_str)){
+			point = 0;
+		} else {
+			if (!isNumeric(point_str)) {
+				//숫자가 아닌경우
+				err.rejectValue("point", "field.error.point");
+				return;
+			} else {
+				point = toInteger(point_str);
+			}
+		}
+		inVO.setPoint(point);
 	}
 	
 }
