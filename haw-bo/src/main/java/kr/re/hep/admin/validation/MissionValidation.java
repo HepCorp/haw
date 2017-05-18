@@ -1,4 +1,4 @@
-package kr.re.hep.validate;
+package kr.re.hep.admin.validation;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package kr.re.hep.web;
+package kr.re.hep.admin.web;
 
 public class MissionController {
 

@@ -104,7 +104,7 @@ function pattern(patt, val){
 		regExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
 		break;
 	case "password":
-		regExp = /^(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W)).{6,20}$/;
+		regExp = /^(?=.*[a-zA-Z])(?=.*\W)(?=.*\d).{6,20}$/;
 		break;
 	case "nickname":
 		regExp = /^[0-9a-zA-Z가-힣]{3,10}$/;
