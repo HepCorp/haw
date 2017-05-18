@@ -1,19 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="regionMapper">
-	<select id="regionSelectAll">
+	<select id="regionSelectAll" resultType="regionConditionVO">
 	<!-- 오픈조건이 등록된 지역 전체 리스트 -->
 	<![CDATA[
-		SELECT A.region_no
+		SELECT B.condition_no
+		     , A.region_no
 		     , A.city_serial
 		     , A.region_nm
+             , C.city_nm
+             , D.nation_nm
+             , E.continent_nm
 		     , B.open_yn
 		     , B.badge_cnt
 		     , B.quest_cnt
 		     , B.point
 		     , B.enabled_yn
+		     , A.input_dt
+		     , A.time_stamp
 		  FROM haw.region A
 		       INNER JOIN haw.region_condition B ON (A.region_no = B.region_no)
+               LEFT OUTER JOIN haw.city C ON (A.city_serial = C.city_serial)
+               LEFT OUTER JOIN haw.nation D ON (C.nation_serial = D.nation_serial)
+               LEFT OUTER JOIN haw.continent E ON (D.continent_cd = E.continent_cd)
 		 ORDER BY A.region_no
 	]]>
 	</select>

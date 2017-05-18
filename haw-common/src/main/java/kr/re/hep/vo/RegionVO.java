@@ -7,6 +7,9 @@ public class RegionVO {
 	private int region_no;
 	private String city_serial;
 	private String region_nm;
+	private String city_nm;
+	private String nation_nm;
+	private String continent_nm;
 	private Date input_dt;
 	private Date time_stamp;
 

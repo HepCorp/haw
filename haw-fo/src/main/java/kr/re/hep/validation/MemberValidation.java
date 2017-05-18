@@ -54,14 +54,14 @@ public class MemberValidation extends ParamValidatChk implements Validator {
 		}
 		
 		//패턴검
-//		if (!pattern("email", inVO.getEmail())) {
-//			err.rejectValue("email", "field.error.pattern.email");
-//			return;
-//		}
-//		if (!pattern("password", inVO.getPassword())) {
-//			err.rejectValue("password", "field.error.pattern.password");
-//			return;
-//		}
+		if (!pattern("email", inVO.getEmail())) {
+			err.rejectValue("email", "field.error.pattern.email");
+			return;
+		}
+		if (!pattern("password", inVO.getPassword())) {
+			err.rejectValue("password", "field.error.pattern.password");
+			return;
+		}
 //		if (!pattern("nickname", inVO.getNickname())) {
 //			err.rejectValue("nickname",  "field.error.pattern.nickname");
 //		}

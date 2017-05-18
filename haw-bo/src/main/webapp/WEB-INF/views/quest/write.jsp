@@ -18,7 +18,7 @@
 
         <!-- content-wrap -->
         <div class="content-wrap">
-            <form>
+            <form method="post" action="signin.do" name="questFrm" onSubmit="return FormChkModule(this);">
                 <fieldset>
                     <legend>퀘스트입력</legend>
                     <div class="btn-wrap">
@@ -31,18 +31,17 @@
                         <tr>
                             <th>문제유형</th>
                             <td colspan="3">
-                                <input type="radio" name="type" value="B" id="type_B" ><label for="type_B">문제</label>
-                                <input type="radio" name="type" value="D" id="type_D" ><label for="type_D">다운로드</label>
-                                <input type="radio" name="type" value="S" id="type_S" ><label for="type_S">서버</label>
+                            <c:forEach items="${typeList }" var="vo">
+                                <input type="radio" name="type" value="${vo.gubun_cd }" id="type_${vo.gubun_cd }" ><label for="type_${vo.gubun_cd }">${vo.gubun_nm }</label>
+                            </c:forEach>
                             </td>
                         </tr>
                         <tr>
                             <th>난이도</th>
                             <td colspan="3">
-                                <input type="radio" name="level" value="10" id="level_10"><label for="level_10">Beginner</label>
-                                <input type="radio" name="level" value="20" id="level_20"><label for="level_20">Beginner</label>
-                                <input type="radio" name="level" value="30" id="level_30"><label for="level_30">Beginner</label>
-                                <input type="radio" name="level" value="40" id="level_40"><label for="level_40">Beginner</label>
+                            <c:forEach items="${levelList }" var="vo">
+                                <input type="radio" name="level" value="${vo.gubun_cd }" id="level_${vo.gubun_cd }"><label for="level_${vo.gubun_cd }">${vo.gubun_nm }</label>
+                            </c:forEach>
                             </td>
                         </tr>
                         <tr>
@@ -50,18 +49,19 @@
                             <td colspan="3">
                                 <select name="region">
                                     <option>::지역선택::</option>
-                                    <option value="1">제주자치도 > 제주시</option>
-                                    <option value="2">제주자치도 > 서귀포시</option>
+                                <c:forEach items="${regionList }" var="vo">
+                                	<option value="${vo.region_no }">${vo.city_nm } > ${vo.region_nm }</option>
+                                </c:forEach>
                                 </select>
                             </td>
                         </tr>
                         <tr>
                             <th>제목</th>
                             <td>
-                                <input type="text" name="title" class="long-textBox" >
+                                <input type="text" name="title" class="long-textBox" maxlength="200" >
                             </td>
                             <th>포인트</th>
-                            <td><input type="number" value="0" ></td>
+                            <td><input type="number" name="point" value="0" max="1000" min="0" step="10" ></td>
                         </tr>
                         <tr>
                             <th>플래그</th>
