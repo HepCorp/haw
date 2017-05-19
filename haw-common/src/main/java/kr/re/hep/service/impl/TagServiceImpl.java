@@ -22,7 +22,7 @@ public class TagServiceImpl implements TagService {
 	}
 
 	@Override
-	public List<TagVO> tagSelect(String tag_nm) {
+	public int tagSelect(String tag_nm) {
 		return dao.tagSelect(tag_nm);
 	}
 
@@ -34,6 +34,11 @@ public class TagServiceImpl implements TagService {
 	@Override
 	public void tagDelete(int tag_no) {
 		dao.tagDelete(tag_no);
+	}
+
+	@Override
+	public int tagExistsSelect(String tag_nm) {
+		return dao.tagExistsSelect(tag_nm);
 	}
 
 }

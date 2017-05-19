@@ -7,6 +7,33 @@
 <head>
     <%@ include file="/resources/include/header.jsp"%>
     <link type="text/css" rel="stylesheet" href="<c:url value="/resources/css/quest.css" />">
+    <script type="text/javascript" charset="UTF-8" src="<c:url value="/resources/js/quest.js" />"></script>
+    <script type="text/javascript">
+    function FormChkModule(f){
+    	var type = 0;
+    	for (var i=0; i<objLength(f.type); i++){
+    		if (f.type[i].checked){
+    			type++;
+    		}
+    	}
+    	var level = 0;
+    	for (var i=0; i<objLength(f.level); i++){
+    		if (f.level[i].checked){
+    			level++;
+    		}
+    	}
+    	
+    	if (type == 0){
+    		alert("<spring:message code='field.required.type' />");
+    		f.type[0].focus();
+    		return false;
+    	}
+    	return false;
+    }
+    function tagFormChkModule(f){
+    	return false;
+    }
+    </script>
 </head>
 <body>
 <div id="wrapper">
@@ -18,19 +45,21 @@
 
         <!-- content-wrap -->
         <div class="content-wrap">
-            <form method="post" action="signin.do" name="questFrm" onSubmit="return FormChkModule(this);">
+            <form method="post" action="questSave.do" name="questFrm" onSubmit="return FormChkModule(this);">
                 <fieldset>
                     <legend>퀘스트입력</legend>
                     <div class="btn-wrap">
-                        <button type="button" id="quest-write-btn" class="write-btn">등록</button>
-                        <button type="button" id="quest-revise-btn" class="revise-btn">수정</button>
-                        <button type="button" id="quest-delete-btn" class="delete-btn">삭제</button>
+                        <button type="submit" id="quest-write-btn" class="write-btn">등록</button>
+                        <button type="submit" id="quest-write-btn" class="delete-btn">취소</button>
+                        <!-- <button type="button" id="quest-revise-btn" class="revise-btn">수정</button> -->
+                        <!-- <button type="button" id="quest-delete-btn" class="delete-btn">삭제</button> -->
                     </div>
                     <table class="writeForm">
                         <tbody>
                         <tr>
                             <th>문제유형</th>
                             <td colspan="3">
+                            <input type="radio" name="gubun" value="fff" />
                             <c:forEach items="${typeList }" var="vo">
                                 <input type="radio" name="type" value="${vo.gubun_cd }" id="type_${vo.gubun_cd }" ><label for="type_${vo.gubun_cd }">${vo.gubun_nm }</label>
                             </c:forEach>
@@ -80,35 +109,15 @@
                         <tr>
                             <th>태그</th>
                             <td colspan="3">
-                                <input type="text" class="medium-textBox">&nbsp;
+                            	<input type="hidden" name="tag_str" value="|" />
+                                <input type="text" name="tag_nm" class="medium-textBox">&nbsp;
                                 <button type="button" id="tag-plus-btn" class="tag-btn">
                                     <img src="/haw_html/admin/images/check-btn.png" alt="체크 버튼">
                                 </button>
                                 <div class="tags">
-                                    <span >#jeju</span>
-                                    <span >#asia</span>
-                                    <span >#beginner</span>
-                                    <span >#제주도</span>
-                                    <span >#frompotter</span>
-                                    <span >#computerscience</span>
-                                    <span >#jeju</span>
-                                    <span >#asia</span>
-                                    <span >#beginner</span>
-                                    <span >#제주도</span>
-                                    <span >#frompotter</span>
-                                    <span >#computerscience</span>
-                                    <span >#jeju</span>
-                                    <span >#asia</span>
-                                    <span >#beginner</span>
-                                    <span >#제주도</span>
-                                    <span >#frompotter</span>
-                                    <span >#computerscience</span>
-                                    <span >#jeju</span>
-                                    <span >#asia</span>
-                                    <span >#beginner</span>
-                                    <span >#제주도</span>
-                                    <span >#frompotter</span>
-                                    <span >#computerscience</span>
+                                <c:forEach items="${tagList }" var="vo">
+                                    <span >#${vo.tag_nm }</span>
+                                </c:forEach>
                                 </div>
                             </td>
                         </tr>
@@ -118,9 +127,9 @@
                                 <label class="toggleSwitch" onclick="" >
                                     <input type="checkbox" checked />
                                     <span>
-                                                    <span>OFF</span>
-                                                    <span>ON</span>
-                                                </span>
+                                        <span>OFF</span>
+                                        <span>ON</span>
+                                    </span>
                                     <a></a>
                                 </label>
                             </td>

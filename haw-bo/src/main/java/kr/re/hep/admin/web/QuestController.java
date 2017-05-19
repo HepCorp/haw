@@ -4,15 +4,21 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.re.hep.service.GubunService;
 import kr.re.hep.service.RegionService;
+import kr.re.hep.service.TagService;
 import kr.re.hep.vo.GubunVO;
 import kr.re.hep.vo.RegionConditionVO;
+import kr.re.hep.vo.TagVO;
 
 @Controller
 @RequestMapping("/quest/*")
@@ -23,6 +29,9 @@ public class QuestController {
 	
 	@Resource(name="regionService")
 	RegionService regionService;
+	
+	@Resource(name="tagService")
+	TagService tagService;
 	
 	@RequestMapping(value="write.do", method=RequestMethod.GET)
 	public String write(ModelMap model){
@@ -41,6 +50,24 @@ public class QuestController {
 		return "";
 	}
 	
+	//태그 전송
+	@RequestMapping(value="tagSave.do", method=RequestMethod.POST)
+	public @ResponseBody TagVO tagSave(
+			@RequestParam(value="tag_nm", required=true) String tag_nm){
+		int count = tagService.tagExistsSelect(tag_nm);
+		int tag_no = 0;
+		if (count == 0){
+			TagVO inVO = new TagVO();
+			inVO.setTag_nm(tag_nm);
+			tagService.tagInsert(inVO);
+			tag_no = inVO.getTag_no();
+		} else {
+			tag_no = tagService.tagSelect(tag_nm);
+		}
+		TagVO tagVO = new TagVO(tag_no, tag_nm, null, null);
+		
+		return tagVO;
+	}
 	//퀘스트 미션 목록 (AJAX)
 	
 	//퀘스트 저장

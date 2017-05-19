@@ -8,7 +8,7 @@ public interface TagService {
 
 	/**
 	 * 태그입력
-	 * @param TagVO - 태그 정보
+	 * @param String - 태그명
 	 * @return Integer - 태그 번호
 	 * @exception Exception
 	 * @author rachel
@@ -16,13 +16,22 @@ public interface TagService {
 	public int tagInsert(TagVO vo);
 	
 	/**
-	 * 태그명으로 태그번호 가져오기 (태그 중복여부 체크)
-	 * @param String - 퀘스트정보에 저장된 태그 문자열
-	 * @return List<TagVO> - 태그 목록
+	 * 태그 중복여부 체크
+	 * @param String - 태그 문자열
+	 * @return int - Row Count
 	 * @exception Exception
 	 * @author rachel
 	 */
-	public List<TagVO> tagSelect(String tag_nm);
+	public int tagExistsSelect(String tag_nm);
+
+	/**
+	 * 태그명으로 태그번호 가져오기 
+	 * @param String - 태그 문자열
+	 * @return int - 태그 번호
+	 * @exception Exception
+	 * @author rachel
+	 */
+	public int tagSelect(String tag_nm);
 	
 	/**
 	 * 퀘스트 태그문자열에 대한 목록
