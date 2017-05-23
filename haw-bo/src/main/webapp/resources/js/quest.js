@@ -11,9 +11,28 @@ $(function(){
 			} 
 		}
 	});
-	$("form[name='questFrm'] button.write-btn").click(function(){
-		FormChkModule(document.questFrm);
+	$("#tag-plus-btn01").click(function(){
+		var tag_nm = $("input[name='tag_nm']").val();
+		if (tag_nm == "") {
+			alert("태그를 입력해 주세요.");
+			$("input[name='tag_nm']").focus();
+		} else {
+			new ajax.xhr.Request("tagSave.do", "tag_nm="+ tag_nm, tagLoaded, "POST");
+		}
 	})
+	$("form[name='questFrm'] button.write-btn,button.revise-btn").click(function(){
+		FormChkModule(document.questFrm);
+	});
+	$(".tags").on("click", "button.delete-tag", function(){
+		var tag_no = $(this).attr("data");
+		$("input[name='tag_str']").val(function(){
+			var result = this.value.replace(tag_no +"|", "");
+			if (result == "|") result = "";
+			return result;
+		});
+		
+		$(this).parents("span.tag-box").remove();
+	});
 });
 
 
@@ -30,7 +49,10 @@ function tagLoaded(xhr){
 				if (tag_str.indexOf("|"+ tag_no +"|") > -1) {
 					alert("이미 등록되어 있습니다.");
 				} else {
-					$(".tags").append("<span>"+ tag_nm +"</span>");
+					$(".tags").append("<span class='tag-box'>" +
+							"<span>#"+ tag_nm +"" +
+									"<button type='button' data='"+ tag_no +"' class='delete-tag'>x</button>" +
+							"</span>&nbsp;</span>");
 					$("input[name='tag_str']").val(function(){
 						if (this.value == ""){ tag_no = "|"+ tag_no;}
 						return this.value + tag_no + "|";

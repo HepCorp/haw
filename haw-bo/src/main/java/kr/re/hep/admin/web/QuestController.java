@@ -67,10 +67,12 @@ public class QuestController extends ParamValidatChk {
 		List<GubunVO> typeList = gubunService.gubunTypeSelect("type");
 		List<GubunVO> levelList = gubunService.gubunTypeSelect("level");
 		List<RegionConditionVO> regionList = regionService.regionSelectAll();
+		List<TagVO> tagList = tagService.tagSelectAll(questVO.getTag_str());
 		
 		model.addAttribute("typeList", typeList);
 		model.addAttribute("levelList", levelList);
 		model.addAttribute("regionList", regionList);
+		model.addAttribute("tagList", tagList);
 		model.addAttribute("questVO", questVO);
 		return "/quest/write";
 	}
@@ -84,11 +86,31 @@ public class QuestController extends ParamValidatChk {
 		
 		questValidation.validate(inVO, result);
 		if (result.hasErrors()){
+			List<GubunVO> typeList = gubunService.gubunTypeSelect("type");
+			List<GubunVO> levelList = gubunService.gubunTypeSelect("level");
+			List<RegionConditionVO> regionList = regionService.regionSelectAll();
+			List<TagVO> tagList = tagService.tagSelectAll(inVO.getTag_str());
+			
+			model.addAttribute("typeList", typeList);
+			model.addAttribute("levelList", levelList);
+			model.addAttribute("regionList", regionList);
+			model.addAttribute("tagList", tagList);
+			model.addAttribute("questVO", inVO);
+			
 			return "/quest/write";
 		}
 		
-		questService.questInsert(inVO);
-		int quest_no = inVO.getQuest_no();
+		int quest_no;
+		System.out.println(inVO.getQuest_no());
+		if (inVO.getQuest_no() > 0) {
+			//수정
+			quest_no = inVO.getQuest_no();
+			questService.questUpdate(inVO);
+		} else {
+			//등록
+			questService.questInsert(inVO);
+			quest_no = inVO.getQuest_no();
+		}
 		
 		return "redirect:/quest/write.do?no="+ quest_no;
 	}
@@ -111,6 +133,7 @@ public class QuestController extends ParamValidatChk {
 		
 		return tagVO;
 	}
+	
 	//퀘스트 미션 목록 (AJAX)
 	
 	

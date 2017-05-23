@@ -40,10 +40,13 @@
 	<!-- 한건의 퀘스트에 대한 상세보기 -->
 	<![CDATA[
 		SELECT A.quest_no
-		     , E.nation_nm || ' > ' || D.city_nm || ' > ' || C.region_nm
+		     , A.region_no
+		     , E.nation_nm || ' > ' || D.city_nm || ' > ' || C.region_nm AS region_nm
 		     , A.quest_seq
-		     , B2.gubun_nm AS type
-		     , B1.gubun_nm AS level
+		     , A.type
+		     , A.level
+		     , B2.gubun_nm AS type_str
+		     , B1.gubun_nm AS level_str
 		     , (
 		        SELECT string_agg(inA.tag_nm, ',') AS tag_nm
 		          FROM haw.tag inA
@@ -51,6 +54,7 @@
 		                                FROM haw.quest inB
 		                               WHERE inB.quest_no = A.quest_no)     
 		       ) AS tag_nm
+		     , A.tag_str
 			 , A.open_yn
 		     , A.badge_cnt
 		     , A.quest_clear
@@ -59,6 +63,7 @@
 		     , A.description
 		     , A.point
 		     , A.input_dt
+		     , A.time_stamp
 		  FROM haw.quest A
 		       LEFT OUTER JOIN haw.gubun B1 ON (A.level = CAST(B1.gubun_cd AS Integer) AND B1.column_nm = 'level')
 		       LEFT OUTER JOIN haw.gubun B2 ON (a.type = B2.gubun_cd AND B2.column_nm = 'type')
@@ -71,8 +76,13 @@
 	]]>
 	</select>
 	
-	<insert id="questInsert">
+	<insert id="questInsert" parameterType="questVO" useGeneratedKeys="true" keyColumn="quest_no" keyProperty="quest_no">
 	<!-- 퀘스트 등록 -->
+		<selectKey order="AFTER" keyProperty="quest_no" resultType="Integer">
+		<![CDATA[
+			SELECT currval('haw.quest_quest_no_seq')
+		]]>
+		</selectKey>
 	<![CDATA[
 		INSERT INTO haw.quest (
 		       region_no
@@ -89,7 +99,7 @@
 		     , point
 		) VALUES (
 		       #{region_no}
-		     , (SELECT MAX(COALESCE(quest_seq, 0)) + 1 
+		     , (SELECT COALESCE(MAX(quest_seq), 0) + 1 
 		          FROM haw.quest 
 		         WHERE region_no = #{region_no})
 		     , #{type}
@@ -105,6 +115,24 @@
 		)	
 	]]>
 	</insert>
+	
+	<update id="questUpdate" parameterType="questVO">
+	<![CDATA[
+		UPDATE haw.quest SET
+		       type = #{type}
+		     , level = #{level}
+		     , tag_str = #{tag_str}
+		     , open_yn = #{open_yn}
+		     , badge_cnt = #{badge_cnt}
+		     , quest_clear = #{quest_clear}
+		     , quest_nm = #{quest_nm}
+		     , auth = #{auth}
+		     , level = #{level}
+		     , description = #{description}
+		     , point = #{point}
+		 WHERE quest_no = #{quest_no}
+	]]>
+	</update>
 	
 	<update id="questDelete" parameterType="Integer">
 	<!-- 퀘스트 삭제 -->

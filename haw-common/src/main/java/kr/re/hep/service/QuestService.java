@@ -124,5 +124,14 @@ public interface QuestService {
 	 * @author rachel
 	 */
 	public void questBadgeDelete(QuestBadgeVO vo);
-	
+
+	/**
+	 * 퀘스트 수정
+	 * @param QuestVO - 퀘스트 정보 
+	 * @return void
+	 * @exception Exception
+	 * @author rachel
+	 */
+	public void questUpdate(QuestVO vo);
+
 }

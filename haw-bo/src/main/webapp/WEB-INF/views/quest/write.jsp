@@ -91,15 +91,16 @@
             <form method="post" action="questSave.do" name="questFrm">
                 <fieldset>
                     <legend>퀘스트입력</legend>
+                    <input type="hidden" name="quest_no_str" value="${questVO.quest_no }" >
                     <div class="btn-wrap">
-                    	<c:if test="${questVO.quest_no != null }">
+                    	<c:if test="${questVO.quest_no == null }">
                         <button type="button" id="quest-write-btn" class="write-btn">등록</button>
                         <button type="button" id="quest-write-btn" class="delete-btn">취소</button>
                         </c:if>
-                        <%-- <c:if test="${questVO.quest_no > 0 }">
+                        <c:if test="${questVO.quest_no > 0 }">
                         <button type="button" id="quest-revise-btn" class="revise-btn">수정</button>
                         <button type="button" id="quest-delete-btn" class="delete-btn">삭제</button>
-                        </c:if> --%>
+                        </c:if>
                     </div>
                     <table class="writeForm">
                         <tbody>
@@ -107,7 +108,7 @@
                             <th>문제유형</th>
                             <td colspan="3">
                             <c:forEach items="${typeList }" var="vo">
-                                <input type="radio" name="type" value="${vo.gubun_cd }" id="type_${vo.gubun_cd }" ><label for="type_${vo.gubun_cd }">${vo.gubun_nm }</label>
+                                <input type="radio" name="type" value="${vo.gubun_cd }" id="type_${vo.gubun_cd }" ${vo.gubun_cd eq questVO.type ? 'checked' : '' }><label for="type_${vo.gubun_cd }">${vo.gubun_nm }</label>
                             </c:forEach>
                             <form:errors path="questVO.type" cssClass="msgAlert" cssStyle="display:none; " />
                             </td>
@@ -116,7 +117,7 @@
                             <th>난이도</th>
                             <td colspan="3">
                             <c:forEach items="${levelList }" var="vo">
-                                <input type="radio" name="level_str" value="${vo.gubun_cd }" id="level_${vo.gubun_cd }"><label for="level_${vo.gubun_cd }">${vo.gubun_nm }</label>
+                                <input type="radio" name="level_str" value="${vo.gubun_cd }" id="level_${vo.gubun_cd }" ${vo.gubun_cd eq questVO.level ? 'checked' : '' }><label for="level_${vo.gubun_cd }">${vo.gubun_nm }</label>
                             </c:forEach>
                             <form:errors path="questVO.level" cssClass="msgAlert" cssStyle="display:none; " />
                             </td>
@@ -127,7 +128,7 @@
                                 <select name="region_str">
                                     <option>::지역선택::</option>
                                 <c:forEach items="${regionList }" var="vo">
-                                	<option value="${vo.region_no }">${vo.city_nm } > ${vo.region_nm }</option>
+                                	<option value="${vo.region_no }" ${vo.region_no == questVO.region_no ? 'selected' : '' }>${vo.city_nm } > ${vo.region_nm }</option>
                                 </c:forEach>
                                 </select>
                                 <form:errors path="questVO.region_no" cssClass="msgAlert" cssStyle="display:none; " />
@@ -136,45 +137,45 @@
                         <tr>
                             <th>제목</th>
                             <td>
-                                <input type="text" name="quest_nm" class="long-textBox" maxlength="50" >
+                                <input type="text" name="quest_nm" class="long-textBox" maxlength="50" value="${questVO.quest_nm }" >
                                 <form:errors path="questVO.quest_nm" cssClass="msgAlert" cssStyle="display:none; " />
                             </td>
                             <th>포인트</th>
                             <td>
-                            	<input type="number" name="point_str" value="0" max="1000" min="0" step="10" >
+                            	<input type="number" name="point_str" value="${questVO.point == 0 ? '0' : questVO.point }" max="1000" min="0" step="10" >
                             	<form:errors path="questVO.point" cssClass="msgAlert" cssStyle="display:none; " />
                             </td>
                         </tr>
                         <tr>
                             <th>플래그</th>
                             <td>
-                                <input type="text" name="auth" class="long-textBox" maxlength="50">
+                                <input type="text" name="auth" class="long-textBox" maxlength="50" value="${questVO.auth }">
                                 <form:errors path="questVO.auth" cssClass="msgAlert" cssStyle="display:none; " />
                             </td>
                             <th>클리어조건</th>
                             <td>
-                            	<input type="number" name="quest_str" value="0" max="10" min="0" step="1">
+                            	<input type="number" name="quest_str" value="${questVO.quest_clear == 0 ? '0' : questVO.quest_clear }" max="10" min="0" step="1">
                             	<form:errors path="questVO.quest_clear" cssClass="msgAlert" cssStyle="display:none; " />
                             </td>
                         </tr>
                         <tr>
                             <th>설명</th>
                             <td colspan="3">
-                                <input type="text" name="description" class="long-textBox" maxlength="50">
+                                <input type="text" name="description" class="long-textBox" maxlength="50" value="${questVO.description }">
                                 <form:errors path="questVO.description" cssClass="msgAlert" cssStyle="display:none; " />
                             </td>
                         </tr>
                         <tr>
                             <th>태그</th>
                             <td colspan="3">
-                            	<input type="hidden" name="tag_str" value="" />
+                            	<input type="text" name="tag_str" value="${questVO.tag_str }" />
                                 <input type="text" name="tag_nm" class="medium-textBox">&nbsp;
-                                <button type="button" id="tag-plus-btn" class="tag-btn">
+                                <button type="button" id="tag-plus-btn01" class="tag-hint-btn">
                                     <img src="<c:url value="/resources/images/check-btn.png" />" alt="체크 버튼">
                                 </button>
                                 <div class="tags">
                                 <c:forEach items="${tagList }" var="vo">
-                                    <span >#${vo.tag_nm }</span>
+                                    <span class="tag-box"><span>#${vo.tag_nm }<button data="${vo.tag_no }" type="button" class="delete-tag">x</button></span></span>
                                 </c:forEach>
                                 <form:errors path="questVO.tag_str" cssClass="msgAlert" cssStyle="display:none; " />
                                 </div>
@@ -184,7 +185,7 @@
                             <th class="high">최초오픈</th>
                             <td>
                                 <label class="toggleSwitch" onclick="" >
-                                    <input type="checkbox" name="open_str" value="true" checked />
+                                    <input type="checkbox" name="open_str" value="true" ${questVO.open_yn == true || questVO.open_yn == null ? 'checked' : '' } />
                                     <span>
                                         <span>OFF</span>
                                         <span>ON</span>
@@ -194,7 +195,7 @@
                             </td>
                             <th>오픈조건</th>
                             <td>
-                            	<input type="number" name="badge_str" value="0" max="10" min="0" step="1">
+                            	<input type="number" name="badge_str" value="${questVO.badge_cnt == 0 ? '0' : questVO.badge_cnt }" max="10" min="0" step="1">
                             	<form:errors path="questVO.badge_cnt" cssClass="msgAlert" cssStyle="display:none; " />
                             </td>
                         </tr>

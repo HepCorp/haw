@@ -36,6 +36,23 @@ public class QuestValidation extends ParamValidatChk implements Validator {
 	public void validate(Object obj, Errors err) {
 		QuestVO inVO = (QuestVO) obj;
 		
+		//>>>퀘스트번호
+		String quest_no_str = getParam(inVO.getQuest_no_str());
+		int quest_no = 0;
+		if (isNull(quest_no_str) || isEmpty(quest_no_str) || quest_no_str.equals("0")){
+			quest_no = 0;
+		} else {
+			if (isNumeric(quest_no_str)){
+				quest_no = toInteger(quest_no_str);
+				if (quest_no <= 0){
+					quest_no = 0;
+				}
+			} else {
+				quest_no = 0;
+			}
+		}
+		inVO.setQuest_no(quest_no);
+		
 		//>>>지역번호
 		String region_str = getParam(inVO.getRegion_str());
 		int region_no;

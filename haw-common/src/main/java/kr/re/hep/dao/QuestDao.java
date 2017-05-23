@@ -69,4 +69,8 @@ public class QuestDao {
 	public void questBadgeDelete(QuestBadgeVO vo){
 		session.delete(namespace +"questBadgeDelete", vo);
 	}
+	
+	public void questUpdate(QuestVO vo){
+		session.update(namespace +"questUpdate", vo);
+	}
 }

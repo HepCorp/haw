@@ -32,7 +32,7 @@
 	]]>
 	</select>
 	
-	<select id="tagSelectAll">
+	<select id="tagSelectAll" parameterType="String" resultType="tagVO">
 	<!-- 퀘스트 태그문자열에 대한 목록 -->
 	<![CDATA[
 		SELECT A.tag_no

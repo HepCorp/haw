@@ -20,18 +20,20 @@ public class QuestVO {
 	private boolean archive_yn;
 	private Date input_dt;
 	private Date time_stamp;
-	
+
+	private String quest_no_str;
 	private String region_str;
 	private String open_str;
 	private String badge_str;
 	private String quest_str;
 	private String level_str;
 	private String point_str;
+	private String type_str;
 
 	public QuestVO(int quest_no, int region_no, int quest_seq, String type, String tag_str, boolean open_yn,
 			int badge_cnt, int quest_clear, String quest_nm, String auth, int level, String description, int point,
-			boolean archive_yn, Date input_dt, Date time_stamp, String region_str, String open_str, String badge_str, 
-			String quest_str, String level_str, String point_str) {
+			boolean archive_yn, Date input_dt, Date time_stamp, String region_str, String open_str, String badge_str,
+			String quest_str, String level_str, String point_str, String type_str, String quest_no_str) {
 		super();
 		this.quest_no = quest_no;
 		this.region_no = region_no;
@@ -55,6 +57,8 @@ public class QuestVO {
 		this.quest_str = quest_str;
 		this.level_str = level_str;
 		this.point_str = point_str;
+		this.type_str = type_str;
+		this.quest_no_str = quest_no_str;
 	}
 
 	public QuestVO() {
@@ -68,9 +72,25 @@ public class QuestVO {
 				+ type + ", tag_str=" + tag_str + ", open_yn=" + open_yn + ", badge_cnt=" + badge_cnt + ", quest_clear="
 				+ quest_clear + ", quest_nm=" + quest_nm + ", auth=" + auth + ", level=" + level + ", description="
 				+ description + ", point=" + point + ", archive_yn=" + archive_yn + ", input_dt=" + input_dt
-				+ ", time_stamp=" + time_stamp + ", region_str=" + region_str + ", open_str=" + open_str
-				+ ", badge_str=" + badge_str + ", quest_str=" + quest_str + ", level_str=" + level_str + ", point_str="
-				+ point_str + "]";
+				+ ", time_stamp=" + time_stamp + ", quest_no_str=" + quest_no_str + ", region_str=" + region_str
+				+ ", open_str=" + open_str + ", badge_str=" + badge_str + ", quest_str=" + quest_str + ", level_str="
+				+ level_str + ", point_str=" + point_str + ", type_str=" + type_str + "]";
+	}
+
+	public String getQuest_no_str() {
+		return quest_no_str;
+	}
+
+	public void setQuest_no_str(String quest_no_str) {
+		this.quest_no_str = quest_no_str;
+	}
+
+	public String getType_str() {
+		return type_str;
+	}
+
+	public void setType_str(String type_str) {
+		this.type_str = type_str;
 	}
 
 	public String getPoint_str() {

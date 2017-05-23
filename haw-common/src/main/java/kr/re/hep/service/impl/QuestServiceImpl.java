@@ -83,4 +83,9 @@ public class QuestServiceImpl implements QuestService {
 		dao.questBadgeDelete(vo);
 	}
 
+	@Override
+	public void questUpdate(QuestVO vo) {
+		dao.questUpdate(vo);
+	}
+
 }
