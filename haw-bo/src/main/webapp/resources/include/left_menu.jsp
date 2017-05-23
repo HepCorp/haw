@@ -3,7 +3,7 @@
 <div id="sidebar-wrapper">
     <ul class="sidebar-nav">
         <li id="haw-logo">
-            <img src="/haw_html/admin/images/haw-logo90.png" alt="핵토리얼월드 로고">
+            <img src="<c:url value="/resources/images/haw-logo90.png" />" alt="핵토리얼월드 로고">
         </li>
         <li id="sidebar-brand">
             <h2>

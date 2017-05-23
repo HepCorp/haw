@@ -26,13 +26,13 @@
 		 ORDER BY A.region_no
 	]]>
 	</select>
-	<select id="regionExistsSelect">
+	<select id="regionExistsSelect" parameterType="Integer" resultType="Integer">
 	<!-- 해당 지역이 등록된 지역인지 여부 -->
 	<![CDATA[
 		SELECT count(*)
 		  FROM haw.region A
 		       INNER JOIN haw.region_condition B ON (A.region_no = B.region_no)
-		 WHERE A.region_no = 2
+		 WHERE A.region_no = #{region_no}
 	]]>
 	</select>
 </mapper>

@@ -19,6 +19,7 @@
 		     , A.input_dt
 		  FROM haw.gubun A
 		 WHERE A.column_nm = #{column_nm}
+		 ORDER BY A.gubun_cd
 	]]>
 	</select>
 </mapper>

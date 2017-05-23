@@ -11,6 +11,9 @@ $(function(){
 			} 
 		}
 	});
+	$("form[name='questFrm'] button.write-btn").click(function(){
+		FormChkModule(document.questFrm);
+	})
 });
 
 
@@ -29,6 +32,7 @@ function tagLoaded(xhr){
 				} else {
 					$(".tags").append("<span>"+ tag_nm +"</span>");
 					$("input[name='tag_str']").val(function(){
+						if (this.value == ""){ tag_no = "|"+ tag_no;}
 						return this.value + tag_no + "|";
 					});
 				}
@@ -42,7 +46,8 @@ function tagLoaded(xhr){
 function objLength(obj){
 	if (obj.length == undefined){
 		return 1;
+		
 	} else {
-		obj.length;
+		return obj.length;
 	}
 }

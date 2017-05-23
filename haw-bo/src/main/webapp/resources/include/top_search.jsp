@@ -9,7 +9,7 @@
                     </li>
                     <li>
                         <button type="submit" id="search-btn" title="검색 버튼">
-                            <img src="/haw_html/admin/images/search-icon.png" alt="검색 버튼">
+                            <img src="<c:url value="/resources/images/search-icon.png" />" alt="검색 버튼">
                         </button>
                     </li>
                 </ul>
