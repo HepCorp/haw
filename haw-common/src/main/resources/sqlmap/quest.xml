@@ -127,7 +127,6 @@
 		     , quest_clear = #{quest_clear}
 		     , quest_nm = #{quest_nm}
 		     , auth = #{auth}
-		     , level = #{level}
 		     , description = #{description}
 		     , point = #{point}
 		 WHERE quest_no = #{quest_no}
@@ -154,13 +153,13 @@
 	]]>
 	</select>
 	
-	<update id="questSeqUpdateAll">
+	<update id="questSeqUpdateAll" parameterType="questVO">
 	<!-- 해당 퀘스트 밑의 순서의 해당하는 퀘스트의 순서번호를 변경함 -->
 	<![CDATA[
 		UPDATE TABLE haw.quest SET
 		       quest_seq = quest_seq -1
-		 WHERE region_no = 2
-		   AND quest_seq > 2	
+		 WHERE region_no = #{region_no}
+		   AND quest_seq > #{quest_seq}	
 	]]>
 	</update>
 	

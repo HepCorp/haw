@@ -33,6 +33,13 @@ $(function(){
 		
 		$(this).parents("span.tag-box").remove();
 	});
+	$(".delete-btn").click(function(){
+		if (confirm("삭제하시겠습니까? 관련 미션도 함께 삭제됩니다.")){
+			document.location.href = $(this).attr("dir") +"?no="+ $(this).attr("data-seq-no");
+		} else {
+			return false;
+		}
+	});
 });
 
 

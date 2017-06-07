@@ -65,7 +65,7 @@
     		f.description.focus();
     		return false;
     	}
-    	if (!f.open_str.checked && (badge_str == "0" || badge_str == "")){
+    	if (!f.open_str.checked && (f.badge_str.value == "0" || f.badge_str.value == "")){
     		alert("<spring:message code='field.error.badge_cnt' />");
     		f.badge_str.select();
     		f.badge_str.focus();
@@ -99,7 +99,7 @@
                         </c:if>
                         <c:if test="${questVO.quest_no > 0 }">
                         <button type="button" id="quest-revise-btn" class="revise-btn">수정</button>
-                        <button type="button" id="quest-delete-btn" class="delete-btn">삭제</button>
+                        <button type="button" id="quest-delete-btn" class="delete-btn" dir="<c:url value="/quest/delete.do" />" data-seq-no="${questVO.quest_no }">삭제</button>
                         </c:if>
                     </div>
                     <table class="writeForm">

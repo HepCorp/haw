@@ -72,6 +72,26 @@
 	]]>
 	</update>
 	
+	<update id="missionDeleteAll" parameterType="Integer">
+	<!-- 퀘스트 미션전부 삭제 -->
+	<![CDATA[
+		UPDATE TABLE haw.mission SET
+		       archive_yn = true
+		 WHERE quest_no = #{quest_no}
+	]]>
+	</update>
+	
+	<delete id="missionHintDelete" parameterType="Integer">
+	<!-- 퀘스트 미션 힌트 전부 삭제 -->
+	<![CDATA[
+		DELETE 
+		  FROM haw.hint
+		 WHERE mission_no IN (SELECT mission_no
+		                        FROM haw.mission
+		                       WHERE quest_no = #{quest_no})
+	]]>
+	</delete>
+	
 	<update id="missionSeqUpdateAll">
 	<!-- 미션이 삭제되면 이하 순서들의 번호를 전체 변경해줌 -->
 	<![CDATA[

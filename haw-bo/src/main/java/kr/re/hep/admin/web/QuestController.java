@@ -101,7 +101,6 @@ public class QuestController extends ParamValidatChk {
 		}
 		
 		int quest_no;
-		System.out.println(inVO.getQuest_no());
 		if (inVO.getQuest_no() > 0) {
 			//수정
 			quest_no = inVO.getQuest_no();
@@ -132,6 +131,39 @@ public class QuestController extends ParamValidatChk {
 		TagVO tagVO = new TagVO(tag_no, tag_nm, null, null);
 		
 		return tagVO;
+	}
+	
+	//퀘스트 삭제
+	@RequestMapping(value="delete.do", method=RequestMethod.GET)
+	public String delete(@RequestParam(value="no", required=true) String quest
+			, BindingResult result){
+		int quest_no;
+		QuestVO questVO;
+		if (isNull(quest) || isEmpty(quest) || quest.equals("0")){
+			questVO = new QuestVO();
+			result.rejectValue("questVO.quest_no", "field.required.quest_no");
+			return "/quest/write";
+		} else {
+			if (isNumeric(quest)){
+				quest_no = toInteger(quest); 
+				if (quest_no > 0){
+					questVO = questService.questSelect(quest_no);
+				} else {
+					questVO = new QuestVO();
+				}
+			} else {
+				questVO = new QuestVO();
+			}
+		}
+		
+		//순서변경 
+		questService.questSeqUpdateAll(questVO);
+		//미션 삭제
+		missionService.missionDeleteAll(questVO.getQuest_no());
+		//퀘스트 삭
+		
+		return "";
+
 	}
 	
 	//퀘스트 미션 목록 (AJAX)
