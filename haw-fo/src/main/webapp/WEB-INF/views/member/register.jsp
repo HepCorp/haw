@@ -74,17 +74,22 @@
 	    		return false;
 	    	}
 	    }
+	    
+	    <%--이용약관 관련 체크, 디버깅 필요 (2017.06.15) by JongMoon--%>
+	    <%--
 	    var chk = 0;
 	    for (var i=0;i<f.terms.length;i++){
 	    	if (f.terms[i].checked)	{
 	    		chk++;
 	    	}
 	    }
-	    if (chk < 2 ){
+	    
+	    if (chk != 2 ){
 	    	alert("<spring:message code='field.required.terms' />");
 	    	f.terms[0].focus();
 	    	return false;
 	    }
+	    --%>
 	    return true;
     }
     </script>
