@@ -66,7 +66,7 @@
                                     <form:errors path="memberVO.password" cssClass="msgAlert" cssStyle="display:none; " />
                                 </p>
                                 <span id="find">
-                                <input type="button" name="registerBtn" id="registerBtn" value="회원가입">
+                                <a href=register.jsp><input type="button" name="registerBtn" id="registerBtn" value="회원가입"></a>
                                 <input type="button" name="findBtn" id="findBtn" value="아이디/비밀번호 찾기" style="display:none; ">
                             </span>
                                 <p><input type="submit" name="login" id="login" value="LOG IN"></p>
