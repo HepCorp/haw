@@ -159,7 +159,7 @@ public class QuestController extends ParamValidatChk {
 		//순서변경 
 		questService.questSeqUpdateAll(questVO);
 		//미션 삭제
-		missionService.missionDeleteAll(questVO.getQuest_no());
+		//missionService.missionDeleteAll(questVO.getQuest_no());
 		//퀘스트 삭
 		
 		return "";
