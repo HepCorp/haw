@@ -76,12 +76,13 @@
 		 WHERE A.team_no = #{team_no}
 	]]>
 	</select>
+	<!--팀 선택시 member_yn 컬럼 값 추가 by JongMoon  (2016.06.26) -->
 	<update id="updateTeamMember" parameterType="memberVO" >
 	<![CDATA[
 		INSERT INTO haw.member_team (
-			   member_no, team_no
+			   member_no, team_no, member_yn
 		) VALUES (
-			   #{member_no}, #{team_no}
+			   #{member_no}, #{team_no}, true
 		)
 	]]>
 	</update>
