@@ -36,7 +36,7 @@
                     </div>
                     <div class="tutoSelectedTeamInfo">
                         <span>
-                            <h3>${teamVO.team_nm } TEAM SELECTED</h3>
+                            ${teamVO.team_nm } TEAM SELECTED
                         </span>
                     </div>
                 </div>
