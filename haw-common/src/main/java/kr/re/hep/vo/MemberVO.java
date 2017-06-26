@@ -16,7 +16,7 @@ public class MemberVO {
 	private Date time_stamp;
 	private int team_no;
 	private int point;
-	private int grade;
+	// private int grade;   현재로써는 필요없다고 판단되어 주석처리 by JongMoon (2017.06.26)
 
 	public MemberVO() {
 		super();
@@ -38,9 +38,11 @@ public class MemberVO {
 		this.time_stamp = time_stamp;
 		this.team_no = team_no;
 		this.point = point;
-		this.grade = grade;
+		// this.grade = grade; 현재로써는 필요없다고 판단되어 주석처리 by JongMoon (2017.06.26)
 	}
 
+	// 필요없다고 판단되어 grade 관련 함수 주석처리 by JongMoon (2017.06.26)
+	/* 
 	public int getGrade() {
 		return grade;
 	}
@@ -48,7 +50,7 @@ public class MemberVO {
 	public void setGrade(int grade) {
 		this.grade = grade;
 	}
-
+	*/
 	public int getPoint() {
 		return point;
 	}
@@ -149,8 +151,8 @@ public class MemberVO {
 	public String toString() {
 		return "MemberVO [member_no=" + member_no + ", name=" + name + ", email=" + email + ", password=" + password
 				+ ", password2=" + password2 + ", nickname=" + nickname + ", tutorial_yn=" + tutorial_yn + ", ip=" + ip
-				+ ", input_dt=" + input_dt + ", time_stamp=" + time_stamp + ", team_no=" + team_no + ", point=" + point
-				+ ", grade=" + grade + "]";
+				+ ", input_dt=" + input_dt + ", time_stamp=" + time_stamp + ", team_no=" + team_no + ", point=" + point + "]";
+				//+ ", grade=" + grade   필요없다고 판단되어 주석처리 by JongMoon (2017.06.26)
 	}
 
 }

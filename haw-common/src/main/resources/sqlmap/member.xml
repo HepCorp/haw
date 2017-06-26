@@ -31,6 +31,7 @@
 		)
 	]]>
 	</insert>
+	<!--memberVO 에서 grade 변수 제거 및 원래 쿼리에서 A.grade 제외  by JongMoon (2017.06.26)-->
 	<select id="signinSelect" parameterType="String" resultType="memberVO">
 	<![CDATA[
 		SELECT A.member_no
@@ -43,7 +44,6 @@
 		     , A.input_dt
 		     , A.time_stamp
 		     , B.team_no
-		     , A.grade
 		  FROM haw.member A
 		       LEFT OUTER JOIN haw.member_team B ON (A.member_no = B.member_no AND B.member_yn = true)
 		 WHERE A.email = #{email}

@@ -67,6 +67,8 @@ public class SigninValidation extends ParamValidatChk implements Validator {
 				err.rejectValue("password", "field.error.account");
 				return;
 			}
+			// grade 변수가 필요없다고 판단되어 관련 함수 제거 by JongMoon (2017.06.26)
+			/*
 			if (memberVO.getGrade() <= 90){
 				//Error grade
 				signVO.setSignin_yn(false);
@@ -74,6 +76,7 @@ public class SigninValidation extends ParamValidatChk implements Validator {
 				err.rejectValue("email", "field.error.account");
 				return;
 			}
+			*/
 			signVO.setSignin_yn(true);
 			memberService.signInsert(signVO);
 		}
