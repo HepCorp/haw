@@ -188,6 +188,7 @@ public class MemberController {
 			service.updateTeam(inVO);
 		}
 		model.addAttribute("teamVO", inVO);
-		return "/member/teamSelected";
+		
+		return "/member/teamSelected";
 	}
 }
