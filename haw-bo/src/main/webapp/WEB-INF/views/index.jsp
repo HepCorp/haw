@@ -3,7 +3,6 @@
 <c:set var="browserTitle" value="Hacktorial World (핵토리얼 월드)" />
 <c:set var="menuTitle" value="Hacktorial World 관리 -로그인-" />
 <!DOCTYPE html>
-<html lang="ko">
 <head>
 <%@ include file="/resources/include/header.jsp"%>
 <title>Insert title here</title>
