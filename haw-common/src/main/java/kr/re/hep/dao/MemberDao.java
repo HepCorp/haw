@@ -47,4 +47,12 @@ public class MemberDao {
 	public void updateTeam(TeamVO teamVO) {
 		session.update(namespace +"updateTeam", teamVO);
 	}
+	
+	public void adminInsert(MemberVO vo){
+		session.insert(namespace +"adminInsert", vo);
+	}
+	
+	public MemberVO adminSigninSelect(String email){
+		return session.selectOne(namespace +"adminSigninSelect", email);
+	}
 }

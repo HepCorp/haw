@@ -23,9 +23,10 @@ public class MainController extends ParamValidatChk {
 	
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	private String main(){
-		return "redirect:/index.do";
+		return "redirect:/member/index.do";
 	}
 	
+	/*
 	//로그인
 	@RequestMapping(value="/index.do", method=RequestMethod.GET)
 	private String index(){
@@ -51,4 +52,5 @@ public class MainController extends ParamValidatChk {
 	
 		return "redirect:/quest/index.do";
 	}
+	*/
 }

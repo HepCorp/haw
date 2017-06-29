@@ -31,6 +31,35 @@
 		)
 	]]>
 	</insert>
+	<!--관리자 회원가입 구문 추가 by JongMoon (2017.06.29)-->
+	<insert id="adminInsert" parameterType="memberVO">
+	<![CDATA[
+		INSERT INTO haw.admin_member (name, email, password, nickname, ip)
+		VALUES (
+			   #{name}
+			 , #{email}
+			 , #{password}
+			 , #{nickname}
+			 , #{ip}
+		)
+	]]>
+	</insert>
+	<!--관리자 로그 구문 추가 by JongMoon (2017.06.29)-->
+	<select id="adminSigninSelect" parameterType="String" resultType="memberVO">
+	<![CDATA[
+		SELECT admin_no
+		     , name
+		     , email
+		     , password
+		     , nickname
+		     , ip
+		     , input_dt
+		     , time_stamp   
+		  FROM haw.admin_member
+		 WHERE email = #{email}
+		 LIMIT 1
+	]]>
+	</select>
 	<!--memberVO 에서 grade 변수 제거 및 원래 쿼리에서 A.grade 제외  by JongMoon (2017.06.26)-->
 	<select id="signinSelect" parameterType="String" resultType="memberVO">
 	<![CDATA[

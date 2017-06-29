@@ -56,4 +56,14 @@ public class MemberServiceImpl implements MemberService {
 		dao.updateTeam(teamVO);
 	}
 	
+	@Override
+	public void adminInsert(MemberVO vo) {
+		dao.adminInsert(vo);
+	}
+	
+	@Override
+	public MemberVO adminSigninSelect(String email) {
+		return dao.adminSigninSelect(email);
+	}
+	
 }

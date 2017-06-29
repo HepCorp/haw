@@ -77,5 +77,25 @@ public interface MemberService {
 	 * @author rachel
 	 */
 	public void updateTeam(TeamVO teamVO);
+	
+	/**
+	 * 관리자 가입 
+	 * @param MemberVO - 관리정보
+	 * @return void
+	 * @exception Exception
+	 * @author JongMoon
+	 */
+	
+	public void adminInsert(MemberVO memberVo);
+	
+	/**
+	 * 관리자 로그인 여부 체크  
+	 * @param String - 이메일
+	 * @return MemberVO - 관리정보
+	 * @exception Exception
+	 * @author JongMoon
+	 */
+	public MemberVO adminSigninSelect(String email);
+	
 
 }
