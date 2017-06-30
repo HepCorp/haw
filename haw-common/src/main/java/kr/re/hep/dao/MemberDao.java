@@ -55,4 +55,13 @@ public class MemberDao {
 	public MemberVO adminSigninSelect(String email){
 		return session.selectOne(namespace +"adminSigninSelect", email);
 	}
+	
+	public String adminEmailSelect(String email){
+		return session.selectOne(namespace +"emailSelect",	email);
+	}
+	
+	public String adminNickSelet(String nickname){
+		return session.selectOne(namespace +"nickSelect", nickname);
+	}
+	
 }

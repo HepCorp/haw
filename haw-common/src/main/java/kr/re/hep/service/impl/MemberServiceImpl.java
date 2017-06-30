@@ -66,4 +66,14 @@ public class MemberServiceImpl implements MemberService {
 		return dao.adminSigninSelect(email);
 	}
 	
+	@Override
+	public String adminEmailSelect(String email) {
+		return dao.adminEmailSelect(email);
+	}
+
+	@Override
+	public String adminNickSelet(String nickname) {
+		return dao.adminNickSelet(nickname);
+	}
+	
 }

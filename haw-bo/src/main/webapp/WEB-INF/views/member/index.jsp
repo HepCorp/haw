@@ -3,6 +3,7 @@
 <c:set var="browserTitle" value="Hacktorial World (핵토리얼 월드)" />
 <c:set var="menuTitle" value="Hacktorial World 관리 -로그인-" />
 <!DOCTYPE html>
+<html lang="ko">
 <head>
 <%@ include file="/resources/include/header.jsp"%>
 <title>Insert title here</title>
@@ -61,6 +62,7 @@ function FormChkModule(f){
 				<label for="password">비밀번호 <input type="password" name="password" id="password" /></label>
 				<form:errors path="memberVO.password" cssClass="msgAlert" cssStyle="display:none; " />
 			</li>
+			<li class="registerBtn"><a href="<c:url value='/member/register.do' />"><input type="button" value="회원가입" /></a></li>
 			<li class="btn"><input type="submit" value="로그인" /></li>
 		</ul>
 		</fieldset>

@@ -19,6 +19,25 @@
 		 LIMIT 1
 	]]>
 	</select>
+	<!-- 관리자 이메일 중복 및 닉네임 중복 처리 추가 by JongMoon  (2017.06.30) -->
+	<select id="adminEmailSelect" parameterType="String" resultType="String">
+	<![CDATA[
+		SELECT 1
+		  FROM haw.admin_member A
+		 WHERE email = #{email}
+		 GROUP BY email
+		 LIMIT 1
+	]]>
+	</select>
+	<select id="adminNickSelect" parameterType="String" resultType="String">
+	<![CDATA[
+		SELECT 1
+		  FROM haw.admin_member A
+		 WHERE nickname = #{nickname}
+		 GROUP BY nickname
+		 LIMIT 1
+	]]>
+	</select>
 	<insert id="memberInsert" parameterType="memberVO">
 	<![CDATA[
 		INSERT INTO haw.member (name, email, password, nickname, ip)

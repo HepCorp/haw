@@ -97,5 +97,23 @@ public interface MemberService {
 	 */
 	public MemberVO adminSigninSelect(String email);
 	
+	/**
+	 * 관리자 이메일중복체크 
+	 * @param String - 이메일
+	 * @return String - 조회결과
+	 * @exception Exception
+	 * @author JongMoon
+	 */
+	public String adminEmailSelect(String email);
+	
+	/**
+	 * 관리자 닉네임중복체크 
+	 * @param String - 닉네임 
+	 * @return String - 조회결과
+	 * @exception Exception
+	 * @author JongMoon
+	 */
+	public String adminNickSelet(String nickname);
+	
 
 }

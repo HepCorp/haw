@@ -109,7 +109,7 @@ public class MemberController {
 	private @ResponseBody String emailCheck(
 			  @RequestParam(value="email", required=true) String email){
 		
-		String result = service.emailSelect(email);
+		String result = service.adminEmailSelect(email);
 		if (result == null){
 			result = "OK";
 		} else {
@@ -123,7 +123,7 @@ public class MemberController {
 	private @ResponseBody String nickCheck(
 			@RequestParam(value="nick", required=true) String nickname){
 		
-		String result = service.nickSelet(nickname);
+		String result = service.adminNickSelet(nickname);
 		if (result == null){
 			result = "OK";
 		} else {
