@@ -48,14 +48,14 @@ public class SigninValidation extends ParamValidatChk implements Validator {
 		}
 		
 		//>>>account
-		MemberVO memberVO = memberService.signinSelect(email);
+		MemberVO memberVO = memberService.adminSigninSelect(email);
 		SigninVO signVO = new SigninVO();
 		signVO.setEmail(email);
 		signVO.setIp(inVO.getIp());
 		if (isNull(memberVO)){
 			//Error email
-			signVO.setSignin_yn(false);
-			memberService.signInsert(signVO);
+			//signVO.setSignin_yn(false);
+			//memberService.signInsert(signVO);
 			err.rejectValue("email", "field.error.account");
 			return;
 		} else {
@@ -63,7 +63,7 @@ public class SigninValidation extends ParamValidatChk implements Validator {
 			if (!password.equals(memberVO.getPassword())) {
 				//Error password
 				signVO.setSignin_yn(false);
-				memberService.signInsert(signVO);
+				//memberService.signInsert(signVO);
 				err.rejectValue("password", "field.error.account");
 				return;
 			}
@@ -78,7 +78,7 @@ public class SigninValidation extends ParamValidatChk implements Validator {
 			}
 			*/
 			signVO.setSignin_yn(true);
-			memberService.signInsert(signVO);
+			//memberService.signInsert(signVO);
 		}
 	}
 
