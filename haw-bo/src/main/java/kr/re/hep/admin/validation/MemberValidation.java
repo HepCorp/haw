@@ -71,12 +71,12 @@ public class MemberValidation extends ParamValidatChk implements Validator {
 		}
 		
 		//중복여부
-		String emailchk = service.emailSelect(inVO.getEmail());
+		String emailchk = service.adminEmailSelect(inVO.getEmail());
 		if (emailchk != null) {
 			err.rejectValue("email", "field.error.email");
 			return;
 		}
-		String nickchk = service.nickSelet(inVO.getNickname());
+		String nickchk = service.adminNickSelet(inVO.getNickname());
 		if (nickchk != null) {
 			err.rejectValue("nickname", "field.error.nickname");
 			return;
