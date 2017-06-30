@@ -19,7 +19,7 @@ $(function(){
 		$("#cancel").css("cursor","pointer");
 		$("#cancel").click(function(){
 			if (confirm("가입을 취소 하시겠습니까?\n로그인 화면으로 이동합니다.")){
-				document.location.href='/member/index.do';
+				document.location.href= CONTEXTPATH +'/member/index.do';
 			} else {
 				return false;
 			}

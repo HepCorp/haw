@@ -6,7 +6,7 @@
 <html lang="ko">
 <head>
     <%@ include file="/resources/include/header.jsp"%>
-    <link type="text/css" rel="stylesheet" href="/resources/css/member.css">
+    <!--  <link type="text/css" rel="stylesheet" href="/resources/css/member.css"> -->
     <script type="text/javascript" charset="UTF-8" src="/resources/js/member.js"></script>
     <script type="text/javascript">
     function FormChkModule(f){
