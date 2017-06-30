@@ -5,7 +5,6 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +17,7 @@ import kr.re.hep.admin.validation.MemberValidation;
 import kr.re.hep.admin.validation.SigninValidation;
 
 import kr.re.hep.vo.MemberVO;
-import kr.re.hep.vo.TeamVO;
+
 
 @Controller
 @RequestMapping("/member/*")

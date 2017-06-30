@@ -4,10 +4,7 @@
  * Description : Member Regist or Signin Authorize
  * Copyright : Hep Corporation
  */
-var chatComment = new Array();
-chatComment[0] = "<p>팀 선택 창입니다. 원하시는 팀을 선택해주세요.<br><br>" +
-		"게임은 개인 기록 및 기록 경쟁 형태로 진행됩니다.<br><br><br>" +
-		"팀 선택을 완료하면 한동안 바꿀수 없으니 신중하게 선택해주세요!</p>";
+
 $(function(){
 	// 회원가입 
 	if (FILE == "register" || FILE == "save"){
@@ -19,7 +16,7 @@ $(function(){
 		$("#cancel").css("cursor","pointer");
 		$("#cancel").click(function(){
 			if (confirm("가입을 취소 하시겠습니까?\n로그인 화면으로 이동합니다.")){
-				document.location.href= CONTEXTPATH +'/member/index.do';
+				document.location.href= '/admin/index.do';
 			} else {
 				return false;
 			}
@@ -38,21 +35,7 @@ $(function(){
 		});
 		
 	}
-	//팀선택
-	else if (FILE == "team"){
-		$(".chatting").html(chatComment[0]);
-		$(".tutorialWrap").show();
-		$(".tutorialWrap").click(function(){
-			$(".tutorialWrap").hide();
-		})
-	}
-	//팀선택완료
-	else if (FILE == "teamSave") {
-		$(".chatting").html(chatComment[1]);
-		$(".selectedTeamWrap").click(function(){
-			document.location.href = CONTEXTPATH +'tutorial/index.do';
-		});
-	}
+	
 });
 
 function autoRegistChk(obj){
@@ -74,7 +57,7 @@ function autoRegistChk(obj){
 				result.setValue(false, returnMsg(id +".pattern"));
 			} else {
 				if (id == "email" || id == "nickname"){
-					var goUrl = CONTEXTPATH +"member/"+ id +"check.do";
+					var goUrl = CONTEXTPATH +"admin/member/"+ id +"check.do";
 					if (id == "email") dt = {"email":obj.val()};
 					if (id == "nickname") dt = {"nick":obj.val()};
 					//중복 체크

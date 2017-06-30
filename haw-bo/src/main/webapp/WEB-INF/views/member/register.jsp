@@ -26,14 +26,14 @@
     			f.email.focus();
     			return false;
     		}
-    		<%--
+    		<
     		if (f.emailchk.value != "OK") {
     			alert("<spring:message code='field.error.email' />");
     			f.email.select();
     			f.email.focus();
     			return false;
     		}
-    		--%>
+    		
     	}
     	if (f.password.value == "") {
     		alert("<spring:message code='field.required.password' />");
@@ -69,14 +69,14 @@
 	    		f.nickname.select();
 	    		f.nickname.focus();
 	    	}
-	    	<%--
+	    	
 	    	if (f.nicknamechk.value != "OK") {
 	    		alert("<spring:message code='field.error.nickname' />");
 	    		f.nickname.select();
 	    		f.nickname.focus();
 	    		return false;
 	    	}
-	    	--%>
+	    	
 	    }
 	    <%-- 유효성 검사 오류로 인한 주석처리 by JongMoon (2017.06.23)
 	    var chk = 0;
