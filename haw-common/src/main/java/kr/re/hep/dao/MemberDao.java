@@ -57,11 +57,11 @@ public class MemberDao {
 	}
 	
 	public String adminEmailSelect(String email){
-		return session.selectOne(namespace +"emailSelect",	email);
+		return session.selectOne(namespace +"adminEmailSelect",	email);
 	}
 	
 	public String adminNickSelet(String nickname){
-		return session.selectOne(namespace +"nickSelect", nickname);
+		return session.selectOne(namespace +"adminNickSelect", nickname);
 	}
 	
 }
