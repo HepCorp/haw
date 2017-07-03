@@ -5,43 +5,43 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<%@ include file="/resources/include/header.jsp"%>
-<script type="text/javascript">
-function FormChkModule(f){
-	if (f.email.value == ""){
-		alert("<spring:message code='field.required.email' />");
-		f.email.focus();
-		return false;
-	} else {
-		if (!pattern("email", f.email.value)){
-			alert("<spring:message code='field.error.pattern.email' />");
-			f.email.select();
-			f.email.focus();
-			return false;
-		}
-	}
-	if (f.password.value == ""){
-		alert("<spring:message code='field.required.password' />");
-		f.password.focus();
-		
-		return false;
-	} else {
-		if (!pattern("password", f.password.value)){
-			alert("<spring:message code='field.error.pattern.password' />");
-			f.password.select();
-			f.password.focus();
-			return false;
-		}
-	}
-	return true;
-	
-}
-</script>
-    <meta charset="UTF-8">
+	<%@ include file="/resources/include/header.jsp"%>
+	<meta charset="UTF-8">
     <link type="text/css" rel="stylesheet" href="/resources/css/common.css">
     <link type="text/css" rel="stylesheet" href="/resources/css/member.css">
     <link type="" rel="stylesheet" href="">
     <title>HA.W ADMIN</title>
+	<script type="text/javascript">
+	function FormChkModule(f){
+		if (f.email.value == ""){
+			alert("<spring:message code='field.required.email' />");
+			f.email.focus();
+			return false;
+		} else {
+			if (!pattern("email", f.email.value)){
+				alert("<spring:message code='field.error.pattern.email' />");
+				f.email.select();
+				f.email.focus();
+				return false;
+			}
+		}
+		if (f.password.value == ""){
+			alert("<spring:message code='field.required.password' />");
+			f.password.focus();
+			
+			return false;
+		} else {
+			if (!pattern("password", f.password.value)){
+				alert("<spring:message code='field.error.pattern.password' />");
+				f.password.select();
+				f.password.focus();
+				return false;
+			}
+		}
+		return true;
+		
+	}
+	</script>
 </head>
 <body>
 <div id="wrapper">
