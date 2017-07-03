@@ -163,7 +163,7 @@ function returnMsg(code){
  * Date : 2017-03-16
  * Description : 전체 컨텍스트패스를 변수로 지정해 사용, 변경시 함께 변경하여 줌.
  */
-var CONTEXTPATH = "/";
+var CONTEXTPATH = "/admin/";
 
 var URL = document.location.href.split("/");
 var PAGE = URL[URL.length-1];
