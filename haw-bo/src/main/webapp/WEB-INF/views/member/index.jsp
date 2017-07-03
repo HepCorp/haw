@@ -7,8 +7,8 @@
 <head>
 	<%@ include file="/resources/include/header.jsp"%>
 	<meta charset="UTF-8">
-    <link type="text/css" rel="stylesheet" href="/resources/css/common.css">
-    <link type="text/css" rel="stylesheet" href="/resources/css/member.css">
+    <link type="text/css" rel="stylesheet" href="<c:url value="/resources/css/common.css" />">
+    <link type="text/css" rel="stylesheet" href="<c:url value="/resources/css/member.css" />">
     <link type="" rel="stylesheet" href="">
     <title>HA.W ADMIN</title>
 	<script type="text/javascript">
@@ -51,7 +51,7 @@
             <div class="login">
                 <div class="login-contents">
                     <div class="login-title">
-                        <img src="/resources/images/haw-logo130.png" alt="haw logo">
+                        <img src="<c:url value="/resources/images/haw-logo130.png" />" alt="haw logo">
                         <p>로그인 정보를 입력해 주십시오</p>
                     </div>
                     <div class="login-form">

@@ -1,26 +1,14 @@
 package kr.re.hep.admin.web;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import kr.re.hep.admin.validation.SigninValidation;
-import kr.re.hep.common.ParamValidatChk;
-import kr.re.hep.vo.MemberVO;
-
 @Controller
 @RequestMapping("/*")
-public class MainController extends ParamValidatChk {
+public class MainController {
 
-	@Autowired
-	SigninValidation signinVal;
-	
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	private String main(){
 		return "redirect:/member/index.do";
