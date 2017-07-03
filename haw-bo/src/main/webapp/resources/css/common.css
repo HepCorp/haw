@@ -51,7 +51,6 @@ body {
 
 .sidebar-nav li.menu {
     height: 40px;
-    /*line-height: 60px;*/
     padding: 13px 0 0 50px;
     box-sizing: border-box;
     display: block;
@@ -73,7 +72,6 @@ body {
 
 .sidebar-nav li.activity {
     height: 40px;
-    /*line-height: 60px;*/
     padding: 13px 0 0 50px;
     box-sizing: border-box;
     display: block;
@@ -371,7 +369,6 @@ table.writeForm td div.hint-wrapper {
     padding: 5px 0;
 }
 
-
 /* tags */
 div.tags{
     margin-bottom: 7px;
@@ -388,55 +385,6 @@ div.tags span.tag-box:nth-child(odd) span {
 }
 div.tags span.tag-box:nth-child(even) span{
     background-color: rgba(149, 0, 255, 0.6);
-}
-
-/* list */
-
-.list-wrapper {
-    width: 100%;
-    height: 60px;
-    background-color: #191F28;
-    box-sizing: border-box;
-    margin-bottom: 20px;
-}
-.list-wrapper .mission-info {
-    width: 100%;
-    height: 60px;
-    display: inline-table;
-}
-.list-wrapper tr {
-    width: 100%;
-    height: 20px;
-    display: block;
-    box-sizing: border-box;
-    margin-top: 20px;
-}
-.list-wrapper table.mission-info:hover {
-    border: 1px solid #00ffff;
-    box-sizing: border-box;
-}
-.list-wrapper td {
-    display: block;
-    box-sizing: border-box;
-    float: left;
-    height:20px;
-    font-size: 14px;
-    text-overflow: ellipsis;
-    text-align: left;
-    padding: 0 10px;
-    overflow: hidden;
-    word-wrap:normal;
-    white-space:nowrap;
-    width:100px;
-}
-.list-wrapper td.info-type01 {
-    width: 10%;
-}
-.list-wrapper td.info-type02 {
-    width: 20%;
-}
-.list-wrapper td.info-type03 {
-    width: 50%;
 }
 
 

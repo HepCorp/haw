@@ -6,7 +6,6 @@
 <html lang="ko">
 <head>
 <%@ include file="/resources/include/header.jsp"%>
-<title>Insert title here</title>
 <script type="text/javascript">
 function FormChkModule(f){
 	if (f.email.value == ""){
@@ -38,35 +37,41 @@ function FormChkModule(f){
 	
 }
 </script>
-<style>
-#loginWrap 				{ width:600px; }
-#loginWrap ul 			{}
-#loginWrap ul li 		{ float:left; width:300px; display:block; }
-#loginWrap ul li.btn 	{ float:right; width:100px;  }
-#loginWrap ul li label 	{ text-indent: -50px; padding-left: 50px; padding-right:10px;  }
-</style>
+    <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="/resources/css/common.css">
+    <link type="text/css" rel="stylesheet" href="/resources/css/member.css">
+    <link type="" rel="stylesheet" href="">
+    <title>HA.W ADMIN</title>
 </head>
 <body>
-
-<h3>핵토리얼월드 관리자 로그인</h3>
-<div id="loginWrap">
-	<form method="post" name="loginFrm" action="signin.do" onsubmit="return FormChkModule(this);">
-		<fieldset>
-		<legend>로그인폼</legend>
-		<ul>
-			<li>
-				<label for="email">이메일 <input type="email" name="email" id="email" /></label>
-				<form:errors path="memberVO.email" cssClass="msgAlert" cssStyle="display:none; " />
-			</li>
-			<li>
-				<label for="password">비밀번호 <input type="password" name="password" id="password" /></label>
-				<form:errors path="memberVO.password" cssClass="msgAlert" cssStyle="display:none; " />
-			</li>
-			<li class="registerBtn"><a href="<c:url value='/member/register.do' />"><input type="button" value="회원가입" /></a></li>
-			<li class="btn"><input type="submit" value="로그인" /></li>
-		</ul>
-		</fieldset>
-	</form>
+<div id="wrapper">
+    <!-- login-wrap -->
+    <section class="login-wrap">
+        <div class="login-box">
+            <div class="login">
+                <div class="login-contents">
+                    <div class="login-title">
+                        <img src="/resources/images/haw-logo130.png" alt="haw logo">
+                        <p>로그인 정보를 입력해 주십시오</p>
+                    </div>
+                    <div class="login-form">
+                        <form method="post" name="loginFrm" action="signin.do" onsubmit="return FormChkModule(this);">
+                            <fieldset>
+                                <legend>로그인 정보 입력</legend>
+                                <p id="login-id"><input type="email" id="email" name="email" placeholder="이메일"></p>
+                                <form:errors path="memberVO.email" cssClass="msgAlert" cssStyle="display:none; " />
+                                <p id="login-pass"><input type="password" id="password" name="password" placeholder="비밀번호"></p>
+                                <form:errors path="memberVO.password" cssClass="msgAlert" cssStyle="display:none; " />
+                                <p id="login-btn"><button type="submit" id="login-submit">Log In</button></p>
+                                <p id="register-btn"><a href="<c:url value='/member/register.do' />">회원가입</a></p>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //content-wrap -->
 </div>
 </body>
 </html>
