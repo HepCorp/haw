@@ -26,7 +26,8 @@
             <a href="#" class="menu-title">문제</a>
             <a href="#" class="menu-go">&gt;</a>
         </li>
-        <!--li>
+        <!--
+        <li>
                 <a href="#">지역</a>
                 <a href="#">&gt;</a>
             </li>
