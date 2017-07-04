@@ -29,15 +29,29 @@
     			f.email.focus();
     			return false;
     		}
+    		var goUrl = CONTEXTPATH +"member/emailcheck.do";
+			dt = {"email":f.email.value};
+			//중복 체크
+			$.ajax({
+				url : goUrl,
+				data : dt,
+				dataType : "text",
+				method : "POST"
+			})
+			.done(function(resp){
+				if (resp == "OK") {
+					f.emailchk.value = "OK";
+			}
     		
     		if (f.emailchk.value != "OK") {
+    			alert(f.emailchk.value);
     			alert("<spring:message code='field.error.email' />");
     			f.email.select();
     			f.email.focus();
     			return false;
     		}
+		}
     		
-    	}
     	if (f.password.value == "") {
     		alert("<spring:message code='field.required.password' />");
     		f.password.focus();
@@ -73,6 +87,20 @@
 	    		f.nickname.focus();
 	    	}
 	    	
+	    	var goUrl = CONTEXTPATH +"member/nicknamecheck.do";
+			dt = {"nickname":f.nickname.value};
+			//중복 체크
+			$.ajax({
+				url : goUrl,
+				data : dt,
+				dataType : "text",
+				method : "POST"
+			})
+			.done(function(resp){
+				if (resp == "OK") {
+					f.nicknamechk.value = "OK";
+			}
+	    	
 	    	if (f.nicknamechk.value != "OK") {
 	    		alert("<spring:message code='field.error.nickname' />");
 	    		f.nickname.select();
@@ -80,7 +108,7 @@
 	    		return false;
 	    	}
 	    	
-	    }
+		}
 	    <%-- 유효성 검사 오류로 인한 주석처리 by JongMoon (2017.06.23)
 	    var chk = 0;
 	    for (var i=0;i<f.terms.length;i++){
@@ -109,7 +137,7 @@
                         <p>회원 정보를 정확하게 입력해 주십시오</p>
                     </div>
                     <div class="registerForm">
-                        <form name="saveFrm" method="post" action="<c:url value='/member/save.do' />" class="form" onSubmit="return FormChkModule(this);">
+                        <form name="saveFrm" method="post" action="<c:url value='/member/save.do' />" onSubmit="return FormChkModule(this);">
                             <fieldset>
                             	<input type="hidden" name="emailchk" id="emailchk" />
 	                        	<input type="hidden" name="nicknamechk" id="nicknamechk" />
@@ -124,27 +152,27 @@
                                 <p id="errorMessages">아이디 또는 비밀번호가 일치하지 않습니다.</p>
                                 <p>
                                     <label for="name">NAME</label>
-                                    <input type="text" name="name" id="name" autofocus="autofocus">
+                                    <input type="text" name="name" id="name" autofocus="autofocus" maxlength="30">
                                     <form:errors path="memberVO.name" cssClass="msgAlert" cssStyle="display:none; " />
                                 </p>
                                 <p>
                                     <label for="email">E-MAIL</label>
-                                    <input type="email" name="email" id="email" autofocus="autofocus">
+                                    <input type="email" name="email" id="email" autofocus="autofocus" maxlength="30">
                                     <form:errors path="memberVO.email" cssClass="msgAlert" cssStyle="display:none; " />
                                 </p>
                                 <p>
                                     <label for="password">PASSWORD</label>
-                                    <input type="password" name="password" id="password" autofocus="autofocus">
+                                    <input type="password" name="password" id="password" autofocus="autofocus" maxlength="25">
                                     <form:errors path="memberVO.password" cssClass="msgAlert" cssStyle="display:none; " />
                                 </p>
                                 <p>
                                     <label for="password2">PASSWORD2</label>
-                                    <input type="password" name="password2" id="password2" autofocus="autofocus">
+                                    <input type="password" name="password2" id="password2" autofocus="autofocus" maxlength="25">
                                     <form:errors path="memberVO.password2" cssClass="msgAlert" cssStyle="display:none; " />
                                 </p>
                                 <p>
                                     <label for="nickname">NICKNAME</label>
-                                    <input type="text" name="nickname" id="nickname" autofocus="autofocus">
+                                    <input type="text" name="nickname" id="nickname" autofocus="autofocus" maxlength="15">
                                     <form:errors path="memberVO.nickname" cssClass="msgAlert" cssStyle="display:none; " />
                                 </p>
                                 <p id="personalDataTerms">

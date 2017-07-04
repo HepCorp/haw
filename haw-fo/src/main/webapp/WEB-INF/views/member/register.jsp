@@ -26,6 +26,20 @@
     			f.email.focus();
     			return false;
     		}
+    		
+    		var goUrl = CONTEXTPATH +"member/emailcheck.do";
+			dt = {"email":f.email.value};
+			//중복 체크
+			$.ajax({
+				url : goUrl,
+				data : dt,
+				dataType : "text",
+				method : "POST"
+			})
+			.done(function(resp){
+				if (resp == "OK") {
+					f.emailchk.value = "OK";
+			}
     		if (f.emailchk.value != "OK") {
     			alert("<spring:message code='field.error.email' />");
     			f.email.select();
@@ -67,6 +81,21 @@
 	    		f.nickname.select();
 	    		f.nickname.focus();
 	    	}
+	    	
+	    	var goUrl = CONTEXTPATH +"member/nicknamecheck.do";
+			dt = {"nickname":f.nickname.value};
+			//중복 체크
+			$.ajax({
+				url : goUrl,
+				data : dt,
+				dataType : "text",
+				method : "POST"
+			})
+			.done(function(resp){
+				if (resp == "OK") {
+					f.nicknamechk.value = "OK";
+			}
+	    	
 	    	if (f.nicknamechk.value != "OK") {
 	    		alert("<spring:message code='field.error.nickname' />");
 	    		f.nickname.select();
