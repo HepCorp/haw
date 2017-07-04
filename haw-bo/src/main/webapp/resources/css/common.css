@@ -193,7 +193,11 @@ body {
     outline: none;
     padding-top: 2px;
 }
-
+.btn-wrap button:hover {
+    cursor: pointer;
+    border: 1px solid #FFFFFF;
+    color: #FFFFFF;
+}
 
 /* writeForm */
 table.writeForm {
