@@ -57,7 +57,7 @@ function autoRegistChk(obj){
 				result.setValue(false, returnMsg(id +".pattern"));
 			} else {
 				if (id == "email" || id == "nickname"){
-					var goUrl = CONTEXTPATH +"admin/member/"+ id +"check.do";
+					var goUrl = CONTEXTPATH +"member/"+ id +"check.do";
 					if (id == "email") dt = {"email":obj.val()};
 					if (id == "nickname") dt = {"nick":obj.val()};
 					//중복 체크

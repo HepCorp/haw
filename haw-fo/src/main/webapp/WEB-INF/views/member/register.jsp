@@ -144,7 +144,7 @@
 	                            </p>
 	                            
 	                            <span class="cns">
-	                                <input type="button" name="cancel" id="cancel" value="CANCEL">
+	                                <a href="<c:url value='/member/index.do' />"><input type="button" name="cancel" id="cancel" value="CANCEL"></a>
 	                                <input type="submit" name="submit" id="submit" value="SUBMIT">
 	                            </span>
 	                        </fieldset>

@@ -5,10 +5,11 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-	<title>HA.W ADMIN</title>
 	<%@ include file="/resources/include/header.jsp"%>
+	<meta charset="UTF-8">
     <link type="text/css" rel="stylesheet" href="<c:url value="/resources/css/common.css" />">
     <link type="text/css" rel="stylesheet" href="<c:url value="/resources/css/member.css" />">
+    <title>HA.W ADMIN</title>
     <script type="text/javascript" charset="UTF-8" src="<c:url value="/resources/js/member.js" />"></script>
     <script type="text/javascript">
     function FormChkModule(f){
@@ -330,7 +331,7 @@
                                     </span>
                                 </p>
                                 <span class="cns">
-                                <input type="button" name="cancel" id="cancel" value="CANCEL">
+                                <a href="<c:url value='/member/index.do' />"><input type="button" name="cancel" id="cancel" value="CANCEL"></a>
                                 <input type="submit" name="submit" id="submit" value="SUBMIT">
                             </span>
                             </fieldset>
