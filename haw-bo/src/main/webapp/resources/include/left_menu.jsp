@@ -18,23 +18,22 @@
                 <a href="#" class="menu-go">&gt;</a>
             </p>
         </li>
-        <!--<li>
-            <a href="#">팀</a>
-            <a href="#">&gt;</a>
-        </li>-->
+        <li>
+            <a href="#" class="menu-title">팀</a>
+            <a href="#" class="menu-go">&gt;</a>
+        </li>
         <li class="activity">
             <a href="#" class="menu-title">문제</a>
             <a href="#" class="menu-go">&gt;</a>
         </li>
-        <!--
         <li>
-                <a href="#">지역</a>
-                <a href="#">&gt;</a>
+                <a href="#" class="menu-title">지역</a>
+                <a href="#" class="menu-go">&gt;</a>
             </li>
             <li>
-                <a href="#">뱃지</a>
-                <a href="#">&gt;</a>
-            </li>-->
+                <a href="#" class="menu-title">뱃지</a>
+                <a href="#" class="menu-go">&gt;</a>
+            </li>
     </ul>
 </div>
 <!-- //sidebar-wrapper -->

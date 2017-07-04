@@ -24,7 +24,7 @@
         <!-- content-wrap -->
         <div class="content-wrap">
             <div class="btn-wrap">
-                <button type="button" id="quest-write-btn" class="write-btn">등록</button>
+                <a href="<c:url value='/quest/write.do' />"><button type="button" id="quest-write-btn" class="write-btn">등록</button></a>
                 <button type="button" id="quest-revise-btn" class="revise-btn">수정</button>
                 <button type="button" id="quest-delete-btn" class="delete-btn">삭제</button>
             </div>
