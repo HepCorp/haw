@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="tagMapper">
+	<insert id="tagInsert" parameterType="tagVO" useGeneratedKeys="true" keyColumn="tag_no" keyProperty="tag_no">
+	<!-- 태그입력  -->
+		<selectKey order="AFTER" keyProperty="tag_no" resultType="Integer">
+		<![CDATA[
+			SELECT currval('haw.tag_tag_no_seq')
+		]]>
+		</selectKey>
+	<![CDATA[
+		INSERT INTO haw.tag (tag_nm)
+		VALUES (#{tag_nm})
+	]]>
+	</insert>
+	
+	<select id="tagExistsSelect" parameterType="String" resultType="Integer">
+	<!-- 태그 중복체크 -->
+	<![CDATA[
+		SELECT count(*)
+		  FROM haw.tag A
+		 WHERE A.tag_nm = #{tag_nm}
+	]]>
+	</select>
+	
+	<select id="tagSelect" parameterType="String" resultType="Integer">
+	<!-- 태그명으로 태그번호 가져오기 -->
+	<![CDATA[
+		SELECT A.tag_no
+		  FROM haw.tag A
+		 WHERE A.tag_nm = #{tag_nm}
+	]]>
+	</select>
+	
+	<select id="tagSelectAll" parameterType="String" resultType="tagVO">
+	<!-- 퀘스트 태그문자열에 대한 목록 -->
+	<![CDATA[
+		SELECT A.tag_no
+		     , A.tag_nm
+		     , A.input_dt
+		     , A.time_stamp
+		  FROM haw.tag A
+		 WHERE A.tag_no IN (SELECT CAST(UNNEST(string_to_array(SUBSTR(#{tag_str}, 2, LENGTH(#{tag_str})-2), '|')) AS Integer))
+	]]>
+	</select>
+	
+	<delete id="tagDelete">
+	<!-- 태그삭제  -->
+	<![CDATA[
+		DELETE FROM haw.tag
+		 WHERE tag_no = 1
+	]]>
+	</delete>
+
+</mapper>

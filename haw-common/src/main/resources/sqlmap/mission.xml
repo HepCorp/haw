@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="missionMapper">
+	<select id="missionSelectAll">
+	<!-- 한퀘스트의 전체 미션 리스트  -->
+	<![CDATA[
+		SELECT A.mission_no
+		     , A.mission_seq
+		     , B1.gubun_nm AS type
+		     , B2.gubun_nm AS level
+			 , (SELECT string_agg(inA.tag_nm, ',') AS tag_nm
+		          FROM haw.tag inA
+		         WHERE inA.tag_no IN (SELECT CAST(UNNEST(string_to_array(SUBSTR(inB.tag_str, 2, LENGTH(inB.tag_str)-2), '|')) AS Integer)
+		                                FROM haw.mission inB
+		                               WHERE inB.mission_no = A.mission_no)     
+		       ) AS tag_nm
+		     , A.from
+		     , A.mission
+		     , A.answer
+		     , A.attach
+		     , A.attach_img
+		     , A.url
+		     , A.limit_time
+		     , A.point
+		     , A.input_dt
+		  FROM haw.mission A
+		       LEFT OUTER JOIN haw.gubun B1 ON (A.type = B1.gubun_cd AND B1.column_nm = 'type')
+		       LEFT OUTER JOIN haw.gubun B2 ON (A.level = CAST(B2.gubun_cd AS Integer) AND B2.column_nm = 'level')
+		 WHERE A.quest_no = 1
+		   AND A.archive_yn = false
+		 ORDER BY A.mission_seq ASC	
+	]]>
+	</select>
+
+	<select id="missionSelect">
+	<!-- 하나의미션에 대한 상세 보기  -->
+	<![CDATA[
+		SELECT A.mission_no
+		     , A.mission_seq
+		     , B1.gubun_nm AS type
+		     , B2.gubun_nm AS level
+			 , (SELECT string_agg(inA.tag_nm, ',') AS tag_nm
+		          FROM haw.tag inA
+		         WHERE inA.tag_no IN (SELECT CAST(UNNEST(string_to_array(SUBSTR(inB.tag_str, 2, LENGTH(inB.tag_str)-2), '|')) AS Integer)
+		                                FROM haw.mission inB
+		                               WHERE inB.mission_no = A.mission_no)     
+		       ) AS tag_nm
+		     , A.from
+		     , A.mission
+		     , A.answer
+		     , A.attach
+		     , A.attach_img
+		     , A.url
+		     , A.limit_time
+		     , A.point
+		     , A.input_dt
+		  FROM haw.mission A
+		       LEFT OUTER JOIN haw.gubun B1 ON (A.type = B1.gubun_cd AND B1.column_nm = 'type')
+		       LEFT OUTER JOIN haw.gubun B2 ON (A.level = CAST(B2.gubun_cd AS Integer) AND B2.column_nm = 'level')
+		 WHERE A.mission_no = 1
+		   AND A.archive_yn = false
+		 ORDER BY A.mission_seq ASC	
+	]]>
+	</select>
+	
+	<update id="missionDelete">
+	<!-- 미션 삭제  -->
+	<![CDATA[
+		UPDATE TABLE haw.mission SET
+		       archive_yn = true
+		 WHERE mission_no = 3
+	]]>
+	</update>
+	
+	<update id="missionDeleteAll" parameterType="Integer">
+	<!-- 퀘스트 미션전부 삭제 -->
+	<![CDATA[
+		UPDATE TABLE haw.mission SET
+		       archive_yn = true
+		 WHERE quest_no = #{quest_no}
+	]]>
+	</update>
+	
+	<delete id="missionHintDelete" parameterType="Integer">
+	<!-- 퀘스트 미션 힌트 전부 삭제 -->
+	<![CDATA[
+		DELETE 
+		  FROM haw.hint
+		 WHERE mission_no IN (SELECT mission_no
+		                        FROM haw.mission
+		                       WHERE quest_no = #{quest_no})
+	]]>
+	</delete>
+	
+	<update id="missionSeqUpdateAll">
+	<!-- 미션이 삭제되면 이하 순서들의 번호를 전체 변경해줌 -->
+	<![CDATA[
+		UPDATE SET haw.mission
+			   mission_seq = mission_seq - 1
+		 WHERE quest_no = 3
+		   AND mission_seq > 2
+	]]>
+	</update>
+	
+	<insert id="hintInsert">
+	<!-- 힌트등록 -->
+	<![CDATA[
+		INSERT INTO haw.hint (
+			   mission_no
+			 , hint_seq
+			 , hint
+			 , point
+		) VALUES (
+			  4
+			, (SELECT COALESCE(MAX(hint_seq), 0) FROM haw.hint WHERE mission_no = 4)
+			, '힌트입니다'
+			, 10
+		)
+	]]>
+	</insert>
+	
+	<delete id="hintDelete">
+	<!-- 힌트삭제 -->
+	<![CDATA[
+		DELETE FROM haw.hint
+		 WHERE hint_no = 1
+	]]>
+	</delete>
+
+</mapper>

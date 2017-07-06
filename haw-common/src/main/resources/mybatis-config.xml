@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+    	<typeAlias type="kr.re.hep.vo.MemberVO" alias="memberVO" />
+    	<typeAlias type="kr.re.hep.vo.SigninVO" alias="signinVO" />
+    	<typeAlias type="kr.re.hep.vo.TeamVO" alias="teamVO" />
+    	<typeAlias type="kr.re.hep.vo.QuestVO" alias="questVO" />
+    	<typeAlias type="kr.re.hep.vo.QuestDirectedVO" alias="questDirecteVO" />
+    	<typeAlias type="kr.re.hep.vo.QuestBadgeVO" alias="questBadgeVO" />
+    	<typeAlias type="kr.re.hep.vo.MissionVO" alias="mis sionVO" />
+    	<typeAlias type="kr.re.hep.vo.HintVO" alias="hintVO" />
+    	<typeAlias type="kr.re.hep.vo.TagVO" alias="tagVO" />
+    	<typeAlias type="kr.re.hep.vo.RegionConditionVO" alias="regionConditionVO" />
+    	<typeAlias type="kr.re.hep.vo.GubunVO" alias="gubunVO" />
+    </typeAliases>
+ 
+    <typeHandlers>
+        <!-- <typeHandler handler="org.apache.ibatis.type.SqlDateTypeHandler" javaType="java.sql.Date" jdbcType="DATE"/> -->
+    </typeHandlers>
+ 
+    <mappers>
+    	<mapper resource="sqlmap/member.xml" />
+    	<mapper resource="sqlmap/mission.xml" />
+    	<mapper resource="sqlmap/quest.xml" />
+    	<mapper resource="sqlmap/tag.xml" />
+    	<mapper resource="sqlmap/gubun.xml" />
+    	<mapper resource="sqlmap/region.xml" />
+        <!-- <package name="spring.sample.mapper"/>
+        <mapper class="spring.sample.mapper.MemberMapper"/>
+        <mapper url="file://mappers/MemberMapper.xml"/> -->
+    </mappers>
+</configuration>

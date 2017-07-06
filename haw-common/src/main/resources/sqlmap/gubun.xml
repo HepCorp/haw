@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="gubunMapper">
+	<!-- 타입의 구분값이 있는지 여부 체크 -->
+	<select id="gubunExistsSelect" parameterType="gubunVO" resultType="Integer">
+	<![CDATA[
+		SELECT count(*)
+		  FROM haw.gubun A
+		 WHERE A.column_nm = #{column_nm}
+		   AND A.gubun_cd = #{gubun_cd}
+	]]>
+	</select>
+	<select id="gubunTypeSelect" parameterType="String" resultType="gubunVO">
+	<!-- 해당 타입의 모든 구분값 목록 -->
+	<![CDATA[
+		SELECT A.gubun_no
+		     , A.gubun_cd
+			 , A.gubun_nm
+		     , A.input_dt
+		  FROM haw.gubun A
+		 WHERE A.column_nm = #{column_nm}
+		 ORDER BY A.gubun_cd
+	]]>
+	</select>
+</mapper>
