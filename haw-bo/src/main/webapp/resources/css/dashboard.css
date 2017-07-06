@@ -1,0 +1,65 @@
+section.dash-wrap {
+    width: 100%;
+}
+.dash-box-wrap {
+    width: 100%;
+    background-color: #03a9f4;
+}
+.dash-box {
+    width: 30%;
+    height: 250px;
+    background-color: #191F28;
+    margin-right: 5%;
+    margin-bottom: 30px;
+    display: inline-block;
+    float: left;
+}
+.dash-box-wrap .dash-box:nth-child(3) {
+    margin-right: 0;
+}
+.dash-contents {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+.dash-con-icon {
+    height: 100px;
+    margin-bottom: 20px;
+}
+.dash-con-icon img {
+    width: 100px;
+}
+.dash-con-number {
+    height: 50px;
+    margin-bottom: 10px;
+}
+.dash-con-number p {
+    font-size: 52px;
+    line-height: 42px;
+    font-family: "Noto Sans CJK KR Medium";
+}
+.blue {
+    color: #00b4ff;
+}
+.pink {
+    color: #ff0084;
+}
+.green {
+    color: #00e481;
+}
+.yellow {
+    color: #fff000;
+}
+.violet {
+    color: #b400ff;
+}
+.dash-con-sub {
+    height: 40px;
+}
+.dash-con-sub p {
+    font-size: 14px;
+    line-height: 36px;
+    color: #FFFFFF;
+    font-family: "Noto Sans CJK KR Light";
+}

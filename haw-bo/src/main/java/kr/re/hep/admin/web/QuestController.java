@@ -202,6 +202,14 @@ public class QuestController extends ParamValidatChk {
 		return "/quest/list";
 	}
 	
+	// 관리자 메인 페이지 추후 dashboard 관련 DAO 및 서비스 생성 후 코드 이동 예정 by JongMoon (2017.07.06)
+		@RequestMapping(value="index.do", method=RequestMethod.GET)
+		public String index(@RequestParam(value="no", required=false) String quest
+				, ModelMap model){
+			
+			return "/quest/index";
+		}
+	
 	//퀘스트 미션 목록 (AJAX)
 	
 	//미션 저장

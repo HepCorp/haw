@@ -44,7 +44,6 @@
 			}
     		
     		if (f.emailchk.value != "OK") {
-    			alert(f.emailchk.value);
     			alert("<spring:message code='field.error.email' />");
     			f.email.select();
     			f.email.focus();

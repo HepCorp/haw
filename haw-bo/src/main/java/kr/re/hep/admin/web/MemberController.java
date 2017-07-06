@@ -66,7 +66,7 @@ public class MemberController {
 		session.setAttribute("memberVO", inVO);
 		
 		//게임시작
-		return "redirect:/quest/list.do";
+		return "redirect:/quest/index.do";
 	}
 	
 	//회원가입

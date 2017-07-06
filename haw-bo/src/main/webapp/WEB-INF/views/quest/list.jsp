@@ -9,8 +9,7 @@
     <meta charset="UTF-8">
     <link type="text/css" rel="stylesheet" href="<c:url value="/resources/css/common.css" />">
     <link type="text/css" rel="stylesheet" href="<c:url value="/resources/css/quest.css" />">
-    <link type="" rel="stylesheet" href="">
-    <script src="https://www.w3schools.com/lib/w3data.js"></script>
+ 	<script src="https://www.w3schools.com/lib/w3data.js"></script>
     <title>HA.W ADMIN</title>
 </head>
 <body>

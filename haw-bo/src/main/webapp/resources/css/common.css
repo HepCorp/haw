@@ -4,6 +4,7 @@
 body {
     overflow-x: hidden;
     margin: 0;
+    background-color: #0E131A;
 }
 
 /* Sidebar */
@@ -24,7 +25,7 @@ body {
     margin: 0;
     padding: 0;
     list-style: none;
-    background-color: #0E131A;
+    /*background-color: #0E131A;*/
 }
 
 .sidebar-nav #haw-logo {
@@ -114,7 +115,7 @@ body {
     padding: 30px 50px;
     right: 0;
     box-sizing: border-box;
-    background: #0E131A;
+    /*background: #0E131A;*/
     color: #FFF;
 }
 .container-fluid {
