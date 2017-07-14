@@ -242,6 +242,10 @@ table.writeForm td select {
     color: #FFFFFF;
     outline: none;
 }
+table.writeForm td select option {
+    background-color: #191F28;
+    color: #FFFFFF;
+}
 table.writeForm td input.long-textBox{
      width: 100%;
  }
