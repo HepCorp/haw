@@ -23,7 +23,7 @@
 	<select id="adminEmailSelect" parameterType="String" resultType="String">
 	<![CDATA[
 		SELECT 1
-		  FROM haw.admin_member A
+		  FROM haw.admin A
 		 WHERE email = #{email}
 		 GROUP BY email
 		 LIMIT 1
@@ -32,7 +32,7 @@
 	<select id="adminNickSelect" parameterType="String" resultType="String">
 	<![CDATA[
 		SELECT 1
-		  FROM haw.admin_member A
+		  FROM haw.admin A
 		 WHERE nickname = #{nickname}
 		 GROUP BY nickname
 		 LIMIT 1
@@ -53,7 +53,7 @@
 	<!--관리자 회원가입 구문 추가 by JongMoon (2017.06.29)-->
 	<insert id="adminInsert" parameterType="memberVO">
 	<![CDATA[
-		INSERT INTO haw.admin_member (name, email, password, nickname, ip)
+		INSERT INTO haw.admin (name, email, password, nickname, ip)
 		VALUES (
 			   #{name}
 			 , #{email}
@@ -74,7 +74,7 @@
 		     , ip
 		     , input_dt
 		     , time_stamp   
-		  FROM haw.admin_member
+		  FROM haw.admin
 		 WHERE email = #{email}
 		 LIMIT 1
 	]]>
