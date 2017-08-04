@@ -29,7 +29,7 @@
             <a href="#" class="menu-go">&gt;</a>
         </li>
         <li class="menu">
-            <a href="#" class="menu-title">지역</a>
+            <a href="<c:url value='/region/region.do' />" class="menu-title">지역</a>
             <a href="#" class="menu-go">&gt;</a>
         </li>
         <li class="menu">

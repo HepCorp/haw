@@ -11,16 +11,16 @@
     <link type="text/css" rel="stylesheet" href="<c:url value="/resources/css/location.css" />">
     <script type="text/javascript" src="<c:url value="/resources/js/jquery/jquery-3.2.1.min.js" />"></script>
     <script type="text/javascript" src="<c:url value="/resources/js/jquery/jquery-ui.min.js" />"></script>
-    <script type="text/javascript" src="/haw_html/admin/js/location.js"></script>
+    <script type="text/javascript" src="<c:url value="/resources/js/location.js" />"></script>
     <script src="https://www.w3schools.com/lib/w3data.js"></script>
     <title>HA.W ADMIN</title>
 </head>
 <body>
 <div id="wrapper">
-    <div w3-include-html="/haw_html/admin/include/left_menu.html"></div>
+    <%@ include file="/resources/include/left_menu.jsp"%>
     <!-- page-content-wrapper -->
     <div id="page-content-wrapper">
-        <div w3-include-html="/haw_html/admin/include/top_search.html"></div>
+        <%@ include file="/resources/include/top_search.jsp"%>
         <h2 class="main-title">지역오픈</h2>
 
         <!-- content-wrap -->
@@ -162,16 +162,16 @@
                             <button type="button" class="select-undo-btn suBtn">
                             <div class="select-undo">
                                 <div class="undo01">
-                                    <img src="/haw_html/admin/images/undo01.png" alt="취소 비활성화" class="cancel01-img selectU">
-                                    <img src="/haw_html/admin/images/undo02.png" alt="취소 활성화" class="cancel02-img selectU">
+                                    <img src="<c:url value="/resources/images/undo01.png" />" alt="취소 비활성화" class="cancel01-img selectU">
+                                    <img src="<c:url value="/resources/images/undo02.png" />" alt="취소 활성화" class="cancel02-img selectU">
                                 </div>
                             </div>
                             </button>
                             <button type="button" class="select-submit-btn suBtn">
                             <div class="select-submit">
                                 <div class="submit01">
-                                    <img src="/haw_html/admin/images/check02.png" alt="제출 비활성화" class="check01-img selectS">
-                                    <img src="/haw_html/admin/images/check02.png" alt="제출 활성화" class="check02-img selectS">
+                                    <img src="<c:url value="/resources/images/check02.png" />" alt="제출 비활성화" class="check01-img selectS">
+                                    <img src="<c:url value="/resources/images/check02.png" />" alt="제출 활성화" class="check02-img selectS">
                                 </div>
                             </div>
                             </button>
