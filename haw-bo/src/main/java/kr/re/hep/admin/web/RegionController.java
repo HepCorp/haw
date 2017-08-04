@@ -67,7 +67,7 @@ public class RegionController extends ParamValidatChk {
 		model.addAttribute("tagList", tagList);
 		model.addAttribute("questVO", questVO);
 		*/
-		return "/quest/region";
+		return "/region/region";
 	}
 	
 }
