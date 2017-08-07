@@ -92,6 +92,10 @@
                 <fieldset>
                     <legend>퀘스트입력</legend>
                     <input type="hidden" name="quest_no_str" value="${questVO.quest_no }" >
+                    
+                    
+                    <!-- 버튼 관련 소스가 2개 있는것 같은데 현재로서는 명확하지 않아 주석처리  by JongMoon (2017.08.07) -->
+                    <!--  
                     <div class="btn-wrap">
                     	<c:if test="${questVO.quest_no == null }">
                         <button type="button" id="quest-write-btn" class="write-btn">등록</button>
@@ -102,6 +106,7 @@
                         <button type="button" id="quest-delete-btn" class="delete-btn" dir="<c:url value="/quest/delete.do" />" data-seq-no="${questVO.quest_no }">삭제</button>
                         </c:if>
                     </div>
+                    -->
                     <table class="writeForm">
                         <tbody>
                         <tr>
@@ -202,14 +207,15 @@
                         </tbody>
                     </table>
                 </fieldset>
+                <div class="btn-wrap">
+            		<button type="submit" id="quest-write-btn02" class="write-btn">추가</button>
+            		<button type="button" id="quest-revise-btn02" class="revise-btn">수정</button>
+            		<button type="button" id="quest-delete-btn02" class="delete-btn">삭제</button>
+        		</div>
             </form>
         </div>
         <!-- //content-wrap -->
-        <div class="btn-wrap">
-            <button type="button" id="quest-write-btn02" class="write-btn">추가</button>
-            <button type="button" id="quest-revise-btn02" class="revise-btn">수정</button>
-            <button type="button" id="quest-delete-btn02" class="delete-btn">삭제</button>
-        </div>
+        
         <!--mission-list-wrap-->
         <div class="list-wrapper">
             <table class="mission-info">
