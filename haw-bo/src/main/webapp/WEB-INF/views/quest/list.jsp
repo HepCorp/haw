@@ -47,7 +47,8 @@
                     <div class="list-wrapper list-content">
                         <table class="quest-info-content">
                             <tr class="mission-info-content-wrap">
-                               <td class="content-type01">${questVO.quest_no}</td>
+                               	<c:forEach items="${questVO}" var="vo">
+                                <td class="content-type01">${questVO.quest_no}</td>
                                 <td class="content-type02">${questVO.region_str}</td>
                                 <td class="content-type02">Beginner</td>
                                 <td class="content-type01"><img src="<c:url value="/resources/images/quest1-icon.png" />" alt="타입1 아이콘"></td>
@@ -57,6 +58,7 @@
                                 <td class="content-type01">500pt</td>
                                 <td class="content-type01">유가람</td>
                                 <td class="content-type02">2017/05/22</td>
+                                </c:forEach>
                                 <!-- DB에서 퀘스트 리스트를 불러오기 위한 기존 하드코딩 데이터 주석처리 by JongMoon (2017.08.08) -->
                                 <!--  
                                 <td class="content-type01">1</td>
