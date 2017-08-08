@@ -173,7 +173,7 @@ public class QuestController extends ParamValidatChk {
 	@RequestMapping(value="list.do", method=RequestMethod.GET)
 	public String list(@RequestParam(value="no", required=false) String quest
 			, ModelMap model){
-		/*
+		
 		int quest_no;
 		QuestVO questVO;
 		if (isNull(quest) || isEmpty(quest) || quest.equals("0")){
@@ -200,7 +200,7 @@ public class QuestController extends ParamValidatChk {
 		model.addAttribute("regionList", regionList);
 		model.addAttribute("tagList", tagList);
 		model.addAttribute("questVO", questVO);
-		*/
+		
 		return "/quest/list";
 	}
 	
