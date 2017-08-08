@@ -190,16 +190,24 @@ public class QuestController extends ParamValidatChk {
 				questVO = new QuestVO();
 			}
 		}
+		
+			
 		List<GubunVO> typeList = gubunService.gubunTypeSelect("type");
 		List<GubunVO> levelList = gubunService.gubunTypeSelect("level");
 		List<RegionConditionVO> regionList = regionService.regionSelectAll();
 		List<TagVO> tagList = tagService.tagSelectAll(questVO.getTag_str());
+		
+		List<QuestVO> questList = questService.questSelectAll(questVO.getRegion_no());
+		
 		
 		model.addAttribute("typeList", typeList);
 		model.addAttribute("levelList", levelList);
 		model.addAttribute("regionList", regionList);
 		model.addAttribute("tagList", tagList);
 		model.addAttribute("questVO", questVO);
+		model.addAttribute("questList", questList);
+		
+		
 		
 		return "/quest/list";
 	}

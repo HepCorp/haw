@@ -47,13 +47,13 @@
                     <div class="list-wrapper list-content">
                         <table class="quest-info-content">
                             <tr class="mission-info-content-wrap">
-                               	<c:forEach items="${questVO}" var="vo">
-                                <td class="content-type01">${questVO.quest_no}</td>
-                                <td class="content-type02">${questVO.region_str}</td>
+                               	<c:forEach items="${questList }" var="vo">
+                                <td class="content-type01">${vo.quest_no}</td>
+                                <td class="content-type02">${vo.region_str}</td>
                                 <td class="content-type02">Beginner</td>
                                 <td class="content-type01"><img src="<c:url value="/resources/images/quest1-icon.png" />" alt="타입1 아이콘"></td>
-                                <td class="content-type03">${questVO.quest_nm}</td>
-                                <td class="content-type03">${questVO.auth}</td>
+                                <td class="content-type03">${vo.quest_nm}</td>
+                                <td class="content-type03">${vo.auth}</td>
                                 <td class="content-type01">70%</td>
                                 <td class="content-type01">500pt</td>
                                 <td class="content-type01">유가람</td>
