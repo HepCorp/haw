@@ -170,6 +170,7 @@
                                 <form:errors path="questVO.description" cssClass="msgAlert" cssStyle="display:none; " />
                             </td>
                         </tr>
+                        <!-- 태그는 뭐임? 일단 주석처리함 by JongMoon (2017.08.08) 
                         <tr>
                             <th>태그</th>
                             <td colspan="3">
@@ -186,6 +187,7 @@
                                 </div>
                             </td>
                         </tr>
+                        -->
                         <tr>
                             <th class="high">최초오픈</th>
                             <td>

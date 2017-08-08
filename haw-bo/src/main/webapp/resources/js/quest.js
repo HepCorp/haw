@@ -1,7 +1,10 @@
 /**
  * 
  */
+ 
 $(function(){
+	
+	/**
 	$("input[name='tag_nm']").keyup(function(e){
 		var tag_nm = $(this).val().trim();
 		if (tag_nm.length >= 1){
@@ -19,7 +22,8 @@ $(function(){
 		} else {
 			new ajax.xhr.Request("tagSave.do", "tag_nm="+ tag_nm, tagLoaded, "POST");
 		}
-	})
+	});
+	**/
 	$("form[name='questFrm'] button.write-btn,button.revise-btn").click(function(){
 		FormChkModule(document.questFrm);
 	});
