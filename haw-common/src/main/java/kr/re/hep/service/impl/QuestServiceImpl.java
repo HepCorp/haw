@@ -19,8 +19,13 @@ public class QuestServiceImpl implements QuestService {
 	QuestDao dao;
 	
 	@Override
-	public List<QuestVO> questSelectAll(int region_no) {
-		return dao.questSelectAll(region_no);
+	public List<QuestVO> questSelectAll() {
+		return dao.questSelectAll();
+	}
+	
+	@Override
+	public List<QuestVO> questSelectRegion(int region_no) {
+		return dao.questSelectRegion(region_no);
 	}
 
 	@Override

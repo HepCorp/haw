@@ -197,7 +197,7 @@ public class QuestController extends ParamValidatChk {
 		List<RegionConditionVO> regionList = regionService.regionSelectAll();
 		List<TagVO> tagList = tagService.tagSelectAll(questVO.getTag_str());
 		
-		List<QuestVO> questList = questService.questSelectAll(questVO.getRegion_no());
+		List<QuestVO> questList = questService.questSelectAll();
 		
 		
 		model.addAttribute("typeList", typeList);

@@ -18,8 +18,12 @@ public class QuestDao {
 	@Autowired
 	SqlSessionTemplate session;
 	
-	public List<QuestVO> questSelectAll(int region_no){
-		return session.selectList(namespace +"questSelectAll", region_no);
+	public List<QuestVO> questSelectAll(){
+		return session.selectList(namespace +"questSelectAll");
+	}
+	
+	public List<QuestVO> questSelectRegion(int region_no){
+		return session.selectList(namespace +"questSelectRegion", region_no);
 	}
 	
 	public QuestVO questSelect(int quest_no){

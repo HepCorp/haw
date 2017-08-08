@@ -10,16 +10,25 @@ public interface QuestService {
 
 	/**
 	 * 퀘스트 전체 목록  
+	 * @param void
+	 * @return List<QuestVO> - 퀘스트 목록 
+	 * @exception Exception
+	 * @author stynxh
+	 */
+	public List<QuestVO> questSelectAll();
+
+	/**
+	 * 지역 퀘스트 목록  
 	 * @param Integer - 지역번호
 	 * @return List<QuestVO> - 퀘스트 목록 
 	 * @exception Exception
 	 * @author rachel
 	 */
-	public List<QuestVO> questSelectAll(int region_no);
-
+	public List<QuestVO> questSelectRegion(int region_no);
+	
 	/**
 	 * 퀘스트 상세보기 
-	 * @param Integer - 지역번호
+	 * @param Integer - 퀘스번호
 	 * @return List<QuestVO> - 퀘스트 목록 
 	 * @exception Exception
 	 * @author rachel
