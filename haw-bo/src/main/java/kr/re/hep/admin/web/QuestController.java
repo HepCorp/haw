@@ -111,7 +111,9 @@ public class QuestController extends ParamValidatChk {
 			quest_no = inVO.getQuest_no();
 		}
 		
-		return "redirect:/quest/write.do?no="+ quest_no;
+		// 리턴값 오류로 인한 주석처리 및 리턴값 변경 by JongMoon (2017.08.08)
+		//return "redirect:/quest/write.do?no="+ quest_no;
+		return "/quest/list";
 	}
 	
 	//태그 전송
