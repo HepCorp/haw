@@ -7,8 +7,8 @@
 		SELECT A.quest_no
 		     , E.nation_nm || ' > ' || D.city_nm || ' > ' || C.region_nm
 		     , A.quest_seq
-		     , B2.gubun_nm AS type
-		     , B1.gubun_nm AS level
+		     , B2.gubun_cd AS type
+		     , B1.gubun_cd AS level
 		     , (
 		        SELECT string_agg(inA.tag_nm, ',') AS tag_nm
 		          FROM haw.tag inA
