@@ -36,29 +36,26 @@
                         <td class="title-type01">타입</td>
                         <td class="title-type03">제목</td>
                         <td class="title-type03">플래그</td>
-                        <td class="title-type01">완료</td>
                         <td class="title-type01">Point</td>
-                        <td class="title-type01">이름</td>
                         <td class="title-type02">등록일</td>
                         <td class="title-type01">수정</td>
                     </tr>
                 </table>
+                <c:forEach items="${questList }" var="vo">
                 <div class="each-list-wrapper">
                     <div class="list-wrapper list-content">
                         <table class="quest-info-content">
                             <tr class="mission-info-content-wrap">
-                               	<c:forEach items="${questList }" var="vo">
-                                <td class="content-type01">${vo.quest_no}</td>
+                               	<td class="content-type01">${vo.quest_no}</td>
                                 <td class="content-type02">${vo.region_str}</td>
-                                <td class="content-type02">Beginner</td>
+                                <td class="content-type02">${vo.level_str}</td>
                                 <td class="content-type01"><img src="<c:url value="/resources/images/quest1-icon.png" />" alt="타입1 아이콘"></td>
                                 <td class="content-type03">${vo.quest_nm}</td>
                                 <td class="content-type03">${vo.auth}</td>
-                                <td class="content-type01">70%</td>
-                                <td class="content-type01">500pt</td>
-                                <td class="content-type01">유가람</td>
-                                <td class="content-type02">2017/05/22</td>
-                                </c:forEach>
+                                <td class="content-type01">${vo.point} pt</td>
+                                <td class="content-type02">${vo.input_dt}</td>
+                                <td class="content-type01"><button type="button"><img src="<c:url value="/resources/images/modify-btn.png" />" alt="수정 버튼 아이콘"></button></td>
+                               
                                 <!-- DB에서 퀘스트 리스트를 불러오기 위한 기존 하드코딩 데이터 주석처리 by JongMoon (2017.08.08) -->
                                 <!--  
                                 <td class="content-type01">1</td>
@@ -72,11 +69,14 @@
                                 <td class="content-type01">유가람</td>
                                 <td class="content-type02">2017/05/22</td>
                                 -->
-                                <td class="content-type01"><button type="button"><img src="<c:url value="/resources/images/modify-btn.png" />" alt="수정 버튼 아이콘"></button></td>
+                                
                             </tr>
                         </table>
                     </div>
                 </div>
+                </c:forEach>
+                
+                <!--  
                 <div class="each-list-wrapper">
                     <div class="list-wrapper list-content">
                         <table class="quest-info-content">
@@ -142,8 +142,10 @@
                         </table>
                     </div>
                 </div>
+                -->
             </div>
         </div>
+        
         <!-- //content-wrap -->
     </div>
     <!-- /#page-content-wrapper -->
