@@ -18,7 +18,7 @@ public class QuestVO {
 	private String description;
 	private int point;
 	private boolean archive_yn;
-	private Date input_dt;
+	private String input_dt;
 	private Date time_stamp;
 
 	private String quest_no_str;
@@ -32,7 +32,7 @@ public class QuestVO {
 
 	public QuestVO(int quest_no, int region_no, int quest_seq, String type, String tag_str, boolean open_yn,
 			int badge_cnt, int quest_clear, String quest_nm, String auth, int level, String description, int point,
-			boolean archive_yn, Date input_dt, Date time_stamp, String region_str, String open_str, String badge_str,
+			boolean archive_yn, String input_dt, Date time_stamp, String region_str, String open_str, String badge_str,
 			String quest_str, String level_str, String point_str, String type_str, String quest_no_str) {
 		super();
 		this.quest_no = quest_no;
@@ -253,11 +253,11 @@ public class QuestVO {
 		this.archive_yn = archive_yn;
 	}
 
-	public Date getInput_dt() {
+	public String getInput_dt() {
 		return input_dt;
 	}
 
-	public void setInput_dt(Date input_dt) {
+	public void setInput_dt(String input_dt) {
 		this.input_dt = input_dt;
 	}
 
