@@ -47,9 +47,21 @@
                         <table class="quest-info-content">
                             <tr class="mission-info-content-wrap">
                                	<td class="content-type01">${vo.quest_no}</td>
-                                <td class="content-type03">${vo.region_str}</td>
+                                <td class="content-type02">${vo.region_str}</td>
                                 <td class="content-type02">${vo.level_str}</td>
-                                <td class="content-type01"><img src="<c:url value="/resources/images/quest1-icon.png" />" alt="타입1 아이콘"></td>
+                                <td class="content-type01">
+                                <c:choose>
+                                	<c:when test="${vo.type_str eq 'Basic'}">
+                                		<img src="<c:url value="/resources/images/quest1-icon.png" />" alt="타입1 아이콘">
+                                	</c:when>
+                                	<c:when test="${vo.type_str eq 'Download'}">
+                                		<img src="<c:url value="/resources/images/quest2-icon.png" />" alt="타입2 아이콘">
+                                	</c:when>
+                                	<c:when test="${vo.type_str eq 'Server'}">
+                                		<img src="<c:url value="/resources/images/quest3-icon.png" />" alt="타입3 아이콘">
+                                	</c:when>
+                                </c:choose>
+                                </td>
                                 <td class="content-type03">${vo.quest_nm}</td>
                                 <td class="content-type03">${vo.auth}</td>
                                 <td class="content-type01">${vo.point} pt</td>
