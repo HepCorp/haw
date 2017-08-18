@@ -87,6 +87,52 @@
 }
 /* //Popup */
 
+
+
+/* Select region */
+.select-wrap {
+    width: 70%;
+    height: 0px;
+    text-align: left;
+}
+
+/* //Select region */
+
+
+/* New Quest Write */
+
+.write-wrap {
+    width: 100%;
+    height: 0px;
+    text-align: right;
+}
+
+.write-wrap button {
+    background-color: transparent;
+    border: 1px solid #00C8D0;
+    border-radius: 3px;
+    width: 100px;
+    height: 25px;
+    color: #00C8D0;
+    font-size: 14px;
+    font-family: "Noto Sans CJK KR Light";
+    /*line-height: 14px;*/
+    text-align: center;
+    box-sizing: border-box;
+    margin-left: 5px;
+    outline: none;
+    padding-top: 2px;
+}
+
+.write-wrap button:hover {
+    cursor: pointer;
+    border: 1px solid #00FFFF;
+    color: #00FFFF;
+}
+
+/* //New Quest Write */
+
+
 /* list */
 
 .list-wrapper {

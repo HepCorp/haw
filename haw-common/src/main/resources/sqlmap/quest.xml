@@ -3,9 +3,14 @@
 <mapper namespace="questMapper">
 	<select id="questSelectAll" resultType="questVO">
 	<!-- 퀘스트 전체 리스트 -->
+	<!-- 
+		원래 SELECT 쿼리 두번째 컬럼은 , E.nation_nm || ' > ' || D.city_nm || ' > ' || C.region_nm AS region_str
+		이었으나, 지역 이름을 웹페이지에 표기할때 너무 길어져서 쿼리 수정 by Jongmoon (2017.08.18)
+	
+	 -->
 	<![CDATA[
 		SELECT A.quest_no
-		     , E.nation_nm || ' > ' || D.city_nm || ' > ' || C.region_nm AS region_str
+		     , C.region_nm AS region_str
 		     , A.quest_seq
 		     , B2.gubun_nm AS type_str
 		     , B1.gubun_nm AS level_str

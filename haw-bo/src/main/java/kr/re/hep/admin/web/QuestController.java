@@ -113,7 +113,7 @@ public class QuestController extends ParamValidatChk {
 		
 		// 리턴값 오류로 인한 주석처리 및 리턴값 변경 by JongMoon (2017.08.08)
 		//return "redirect:/quest/write.do?no="+ quest_no;
-		return "/quest/list";
+		return "redirect:/quest/list.do";
 	}
 	
 	//태그 전송
@@ -144,7 +144,7 @@ public class QuestController extends ParamValidatChk {
 		if (isNull(quest) || isEmpty(quest) || quest.equals("0")){
 			questVO = new QuestVO();
 			result.rejectValue("questVO.quest_no", "field.required.quest_no");
-			return "/quest/write";
+			return "/quest/list";
 		} else {
 			if (isNumeric(quest)){
 				quest_no = toInteger(quest); 
@@ -164,7 +164,7 @@ public class QuestController extends ParamValidatChk {
 		//missionService.missionDeleteAll(questVO.getQuest_no());
 		//퀘스트 삭
 		
-		return "";
+		return "redirect:/quest/list.do";
 
 	}
 	

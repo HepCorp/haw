@@ -22,10 +22,20 @@
 
         <!-- content-wrap -->
         <div class="content-wrap">
-            <div class="btn-wrap">
-                <a href="<c:url value='/quest/write.do' />"><button type="button" id="quest-write-btn" class="write-btn">등록</button></a>
+        	<div class="btn-wrap">
+        		<section class="select-wrap">
+                    대륙 <input type="text" id="continent-nm">
+                    &nbsp; &nbsp; 국가 <input type="text" id="nation-nm">
+                    &nbsp; &nbsp; 도시 <input type="text" id="city-nm">
+                    <button type="button" id="lacation-move-btn" class="move-btn">지역 이동</button>
+                </section>
+                <section class="write-wrap">
+                <a href="<c:url value='/quest/write.do' />"><button type="button" id="quest-write-btn" class="write-btn">신규 등록</button></a>
+                </section>
+                <!-- 수정 및 삭제는 각 문제에서 할 예정이므로 버튼 삭제 예정 by Jongmoon (2017.08.18) 
                 <button type="button" id="quest-revise-btn" class="revise-btn">수정</button>
                 <button type="button" id="quest-delete-btn" class="delete-btn">삭제</button>
+                -->
             </div>
             <div class="list-wrapper quest-list">
                 <table class="quest-info-title">
@@ -39,6 +49,7 @@
                         <td class="title-type01">Point</td>
                         <td class="title-type03">등록일</td>
                         <td class="title-type01">수정</td>
+                        <td class="title-type01">삭제</td>
                     </tr>
                 </table>
                 <c:forEach items="${questList }" var="vo">
@@ -67,6 +78,7 @@
                                 <td class="content-type01">${vo.point} pt</td>
                                 <td class="content-type03">${vo.input_dt}</td>
                                 <td class="content-type01"><button type="button"><img src="<c:url value="/resources/images/modify-btn.png" />" alt="수정 버튼 아이콘"></button></td>
+                                <td class="content-type01"><button type="button"><img src="<c:url value="/resources/images/cancel02.png" />" alt="삭제 버튼 아이콘"></button></td>
                                
                                 <!-- DB에서 퀘스트 리스트를 불러오기 위한 기존 하드코딩 데이터 주석처리 by JongMoon (2017.08.08) -->
                                 <!--  
